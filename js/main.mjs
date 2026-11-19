@@ -1,7 +1,7 @@
 import {books,missions,zones,facts} from '../data/content.mjs';
 import {videos} from '../data/videos.mjs';
-import {fresh,load,save,totals,unlocked,earn,grade,move,KEY} from './state.mjs';
-import {createRenderer,nearest,targets} from './world.mjs';
+import {fresh,load,save,totals,unlocked,earn,grade,move,assistedRoute} from './state.mjs?v=20261119.3';
+import {createRenderer,nearest,targets} from './world.mjs?v=20261119.3';
 const $=id=>document.getElementById(id),panel=$('panel'),body=$('panel-body'),canvas=$('world');
 let storage;try{storage=window.localStorage;}catch{storage={getItem(){throw Error();},setItem(){throw Error();}};}
 let loaded=load(storage),s=loaded.state,keys=new Set(),stick={x:0,y:0},running=false,walked=false,auto=null,direction='front',last=0,saveAt=0,toastTimer;
@@ -16,7 +16,16 @@ function show(title,html){keys.clear();stick={x:0,y:0};auto=null;$('panel-title'
 function close(){panel.close();body.querySelectorAll('video').forEach(v=>v.pause());canvas.focus({preventScroll:true});}
 function btn(text,fn,parent=body){const b=document.createElement('button');b.type='button';b.textContent=text;b.addEventListener('click',fn);parent.append(b);return b;}
 function card(title,text,parent=body){const el=document.createElement('section');el.className='card';const h=document.createElement('h3');h.textContent=title;const p=document.createElement('p');p.textContent=text;el.append(h,p);parent.append(el);return el;}
-function destinations(){const el=$('destinations');el.replaceChildren();for(const t of targets(s))btn(t.name,()=>{auto=t;canvas.focus({preventScroll:true});},el);}
+function destinations(){const el=$('destinations');el.replaceChildren();for (const target of targets(s)) btn(target.name, () => {
+  const objects = zones.find(zone => zone.id === s.location.zone).objects;
+  auto = assistedRoute(s.location, target, objects);
+  if (!auto.length) {
+    auto = null;
+    toast('Laluan tidak tersedia dari sini. Cuba gerak sedikit dahulu.');
+    return;
+  }
+  canvas.focus({preventScroll:true});
+}, el);}
 function changeZone(id){if(id==='secret'&&!unlocked(s)){show('Zon Rahsia belum dibuka','<p>Selesaikan sekurang-kurangnya tiga misi utama, capai Tahap 3 dan miliki dua lencana untuk mendapatkan kunci.</p>');return;}s.location={zone:id,x:500,y:id==='plaza'?430:510};if(!s.visited.includes(id))s.visited.push(id);auto=null;persist();hud();destinations();toast(`Selamat datang ke ${zones.find(z=>z.id===id).name}`);}
 function map(){show('Peta Tujuh Kawasan','<p>Destinasi yang dipilih membawa avatar melalui portal. Zon Rahsia memerlukan kunci.</p>');for(const z of zones){const lock=z.id==='secret'&&!unlocked(s);const el=card(`${z.icon} ${z.name}`,lock?'Terkunci · Tahap 3 + 3 misi + 2 lencana':s.visited.includes(z.id)?'Sudah diterokai':'Belum diterokai');btn(lock?'Lihat Syarat':'Pergi ke Kawasan',()=>{close();changeZone(z.id);},el);}}
 function openBook(id){const b=books.find(b=>b.id===id);if(!b)return;if(!s.opened.includes(id))s.opened.push(id);reward('books');persist();let page=0;const seen=new Set();function display(){seen.add(page);show(b.title,`<div class="story-art" role="img" aria-label="Ilustrasi ${escape(b.title)}">${b.icon}</div><p class="muted">Cerita demo asli · Halaman ${page+1} / ${b.pages.length}</p><p class="story-page">${escape(b.pages[page])}</p>`);const prev=btn('← Sebelumnya',()=>{page--;display();});prev.disabled=page===0;const next=btn('Seterusnya →',()=>{page++;display();});next.disabled=page===b.pages.length-1;const finish=btn(s.read.includes(id)?'Bacaan Telah Selesai':'Tamat Membaca',()=>{if(seen.size!==b.pages.length)return;if(!s.read.includes(id))s.read.push(id);reward('read');persist();show('Bacaan Selesai!',`<p>Kamu telah membaca ${escape(b.title)}. Jom uji kefahaman di Arena Kuiz.</p>`);btn('Mula Kuiz',()=>startQuiz(id));btn('Kembali ke Dunia',close);});finish.disabled=seen.size!==b.pages.length||page!==b.pages.length-1;btn('Video Bahasa Isyarat',()=>video(id));}display();}
@@ -41,8 +50,20 @@ $('close-panel').addEventListener('click',close);panel.addEventListener('close',
 document.querySelectorAll('[data-menu]').forEach(b=>b.addEventListener('click',()=>menu(b.dataset.menu)));$('home').addEventListener('click',()=>{if(panel.open)close();canvas.focus({preventScroll:true});});$('map-button').addEventListener('click',map);$('help').addEventListener('click',()=>show('Tanya LIBRA',`<p>Kawasan semasa: ${escape(zones.find(z=>z.id===s.location.zone).name)}</p><p>${escape(guide())}</p>`));$('interact').addEventListener('click',interact);$('run').addEventListener('click',()=>{running=!running;$('run').setAttribute('aria-pressed',String(running));});
 window.addEventListener('keydown',e=>{if(panel.open||/INPUT|TEXTAREA|SELECT|BUTTON/.test(e.target.tagName)||e.target.isContentEditable)return;if(['w','a','s','d','ArrowUp','ArrowDown','ArrowLeft','ArrowRight','Shift','e','E'].includes(e.key)){e.preventDefault();keys.add(e.key.toLowerCase());auto=null;if(e.key.toLowerCase()==='e'&&!e.repeat)interact();}});window.addEventListener('keyup',e=>keys.delete(e.key.toLowerCase()));
 const joy=$('joystick');let pointer=null;function release(){pointer=null;stick={x:0,y:0};$('stick').style.transform='translate(0,0)';}function drag(e){if(e.pointerId!==pointer)return;const r=joy.getBoundingClientRect();let x=(e.clientX-r.left-r.width/2)/35,y=(e.clientY-r.top-r.height/2)/35,n=Math.max(1,Math.hypot(x,y));stick={x:x/n,y:y/n};$('stick').style.transform=`translate(${stick.x*27}px,${stick.y*27}px)`;auto=null;}joy.addEventListener('pointerdown',e=>{pointer=e.pointerId;joy.setPointerCapture(e.pointerId);drag(e);});joy.addEventListener('pointermove',drag);joy.addEventListener('pointerup',release);joy.addEventListener('pointercancel',release);joy.addEventListener('lostpointercapture',release);window.addEventListener('blur',()=>{keys.clear();release();persist();});document.addEventListener('visibilitychange',()=>{keys.clear();release();last=0;persist();});window.addEventListener('pagehide',persist);
-function frame(time){const dt=last?(time-last)/1000:0;last=time;if(!document.hidden){let dx=stick.x+(keys.has('d')||keys.has('arrowright')?1:0)-(keys.has('a')||keys.has('arrowleft')?1:0),dy=stick.y+(keys.has('s')||keys.has('arrowdown')?1:0)-(keys.has('w')||keys.has('arrowup')?1:0);if(auto&&!panel.open){dx=auto.x-s.location.x;dy=auto.y-s.location.y;if(Math.hypot(dx,dy)<10){auto=null;dx=dy=0;toast('Sudah tiba. Tekan Interaksi.');}}
- const objects=zones.find(z=>z.id===s.location.zone).objects;const oldX=s.location.x,oldY=s.location.y;const moving=!panel.open&&move(s,dx,dy,dt,objects,running||keys.has('shift'));if(moving){walked=true;if(Math.abs(dx)>Math.abs(dy))direction=dx<0?'left':'right';else direction=dy<0?'up':'front';if(auto&&Math.abs(oldX-s.location.x)+Math.abs(oldY-s.location.y)<.01&&dt>0){auto=null;toast('Ada halangan. Gerak di sekeliling objek dengan joystick.');}if(time-saveAt>1500){persist();saveAt=time;}}
+function frame(time){const dt=last?(time-last)/1000:0;last=time;if(!document.hidden){let dx=stick.x+(keys.has('d')||keys.has('arrowright')?1:0)-(keys.has('a')||keys.has('arrowleft')?1:0),dy=stick.y+(keys.has('s')||keys.has('arrowdown')?1:0)-(keys.has('w')||keys.has('arrowup')?1:0);if (auto && !panel.open) {
+  const waypoint = auto[0];
+  dx = waypoint.x - s.location.x;
+  dy = waypoint.y - s.location.y;
+  if (Math.hypot(dx, dy) < 6) {
+    auto.shift();
+    dx = dy = 0;
+    if (!auto.length) {
+      auto = null;
+      toast('Sudah tiba. Tekan Interaksi.');
+    }
+  }
+}
+ const objects=zones.find(z=>z.id===s.location.zone).objects;const oldX=s.location.x,oldY=s.location.y;const moving=!panel.open&&move(s,dx,dy,auto?Math.min(dt,Math.hypot(dx,dy)/240):dt,objects,running||keys.has('shift'));if(moving){walked=true;if(Math.abs(dx)>Math.abs(dy))direction=dx<0?'left':'right';else direction=dy<0?'up':'front';if(auto&&Math.abs(oldX-s.location.x)+Math.abs(oldY-s.location.y)<.01&&dt>0){auto=null;toast('Ada halangan. Gerak di sekeliling objek dengan joystick.');}if(time-saveAt>1500){persist();saveAt=time;}}
  render(s,time,moving,direction);const n=nearest(s);$('nearby').textContent=n&&n.d<100?`${n.name} · Tekan Interaksi`:'Ikut penanda bercahaya · E / Interaksi';$('interact').disabled=!n||n.d>100;}
  requestAnimationFrame(frame);}
 hud();destinations();if(loaded.error)$('status').textContent='Simpanan demo tidak tersedia atau rosak. Sesi baharu dibuka tanpa mengubah data SMARTLIB.';requestAnimationFrame(frame);

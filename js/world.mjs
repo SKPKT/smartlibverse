@@ -14,7 +14,8 @@ export function createRenderer(canvas,map){
   else{c.font=type==='tree'?'88px serif':'66px serif';c.textAlign='center';c.fillText(({tree:'🌳',flower:'🌺',butterfly:'🦋',pond:'🐟',board:'📜',book:'📖',desk:'🧩',trophy:'🏆',robot:'🤖'})[type],0,0);}
   c.strokeStyle='#e8c763';c.lineWidth=3;c.beginPath();c.ellipse(0,55,22,8,0,0,Math.PI*2);c.stroke();c.restore();label(name,x,y+94);
  }
- return function render(s,time,moving,direction){if(!c||!m)return;const mobile=canvas.clientWidth<650;const vw=mobile?600:1000;if(canvas.width!==vw)canvas.width=vw;if(canvas.height!==680)canvas.height=680;const cam=Math.max(0,Math.min(1000-vw,s.location.x-vw/2));c.clearRect(0,0,vw,680);c.save();c.translate(-cam,0);
+ return function render(s,time,moving,direction){if(!c||!m)return;// Match the visible canvas ratio so the browser does not crop the camera a second time.
+  const vw = Math.min(1000, Math.max(1, Math.round(canvas.clientWidth * 680 / (canvas.clientHeight || 680))));if(canvas.width!==vw)canvas.width=vw;if(canvas.height!==680)canvas.height=680;const cam=Math.max(0,Math.min(1000-vw,s.location.x-vw/2));c.clearRect(0,0,vw,680);c.save();c.translate(-cam,0);
   const zone=zones.find(z=>z.id===s.location.zone);c.fillStyle=zone.color;c.fillRect(0,0,1000,680);if(ready(images.room)&&zone.id!=='garden'){c.drawImage(images.room,0,0,1000,680);c.fillStyle=zone.id==='secret'?'#11274255':'#00000012';c.fillRect(0,0,1000,680);}else{c.fillStyle=zone.id==='garden'?'#8db779':'#ead0a1';c.fillRect(30,155,940,500);c.strokeStyle='#ffffff22';for(let x=30;x<1000;x+=70){c.beginPath();c.moveTo(x,155);c.lineTo(x,680);c.stroke();}for(let y=155;y<680;y+=50){c.beginPath();c.moveTo(30,y);c.lineTo(970,y);c.stroke();}}
   c.fillStyle='#07664b99';c.fillRect(420,170,160,440);c.strokeStyle='#d9ba67';c.lineWidth=3;c.strokeRect(426,176,148,428);
   const sorted=zone.objects.map(o=>({y:o[3],draw:()=>object(o)}));

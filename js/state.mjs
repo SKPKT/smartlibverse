@@ -18,5 +18,61 @@ export function award(s,id){const m=missions.find(m=>m.id===id);if(!m||s.rewards
 export function eligible(s,id){return id==='tutorial'||id==='books'&&s.opened.length>=2||id==='read'&&s.read.length>0||id==='quiz'&&s.quizzes.length>0||id==='garden'&&s.nature.length>=3||id==='secret'&&s.secretBook;}
 export function earn(s,id){return eligible(s,id)?award(s,id):null;}
 export function grade(book,answers){return book.quiz.reduce((score,q,i)=>score+(q[2]===answers[i]?1:0),0);}
-export function collision(x,y,objects){return x<55||x>945||y<155||y>625||objects.some(o=>Math.abs(x-o[2])<73&&y>o[3]-25&&y<o[3]+24);}
+const obstacleBounds = ([,,x,y]) => [x - 73, y - 25, x + 73, y + 24];
+
+export function collision(x, y, objects) {
+  return x < 55 || x > 945 || y < 155 || y > 625 ||
+    objects.some(object => {
+      const [left, top, right, bottom] = obstacleBounds(object);
+      return x > left && x < right && y > top && y < bottom;
+    });
+}
+
+function crossesObstacle(from, to, [left, top, right, bottom]) {
+  let enter = 0;
+  let leave = 1;
+  for (const [start, end, min, max] of [[from.x, to.x, left, right], [from.y, to.y, top, bottom]]) {
+    const delta = end - start;
+    if (delta === 0) {
+      if (start <= min || start >= max) return false;
+      continue;
+    }
+    const first = (min - start) / delta;
+    const last = (max - start) / delta;
+    enter = Math.max(enter, Math.min(first, last));
+    leave = Math.min(leave, Math.max(first, last));
+    if (enter >= leave) return false;
+  }
+  return true;
+}
+
+export function assistedRoute(from, to, objects) {
+  const bounds = objects.map(obstacleBounds);
+  const clear = (a, b) => !bounds.some(box => crossesObstacle(a, b, box));
+  if (clear(from, to)) return [to];
+
+  // A clearance around each corner leaves room for movement between frames.
+  const clearance = 12;
+  const corners = bounds.flatMap(([left, top, right, bottom]) =>
+    [left - clearance, right + clearance].flatMap(x =>
+      [top - clearance, bottom + clearance].map(y => ({x, y})))
+  ).filter(({x, y}) => !collision(x, y, objects));
+  const queue = [from];
+  const parent = new Map([[from, null]]);
+  for (let i = 0; i < queue.length; i++) {
+    const current = queue[i];
+    if (clear(current, to)) {
+      const route = [to];
+      for (let corner = current; corner !== from; corner = parent.get(corner)) route.push(corner);
+      return route.reverse();
+    }
+    for (const corner of corners) {
+      if (parent.has(corner) || !clear(current, corner)) continue;
+      parent.set(corner, current);
+      queue.push(corner);
+    }
+  }
+  return [];
+}
+
 export function move(s,dx,dy,dt,objects,running=false){const n=Math.hypot(dx,dy);if(!n)return false;const speed=(s.profile.easy?100:160)*(running?1.5:1),step=Math.min(dt,.04)*speed;const x=s.location.x+dx/n*step,y=s.location.y+dy/n*step;if(!collision(x,s.location.y,objects))s.location.x=x;if(!collision(s.location.x,y,objects))s.location.y=y;return true;}
