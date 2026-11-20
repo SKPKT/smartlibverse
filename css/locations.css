@@ -1,0 +1,61 @@
+/* Scoped to the existing map dialog; game HUD and world artwork are unchanged. */
+#panel:has(.location-grid) { width:min(980px,calc(100% - 24px)); }
+.location-grid {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+  margin:18px 0 4px;
+}
+#panel-body .location-card {
+  display:block;
+  position:relative;
+  width:100%;
+  min-width:0;
+  padding:0;
+  margin:0;
+  aspect-ratio:3/2;
+  overflow:visible;
+  border:0;
+  border-radius:18px;
+  background:#061b3a;
+  box-shadow:0 3px 12px #04162b33;
+  transition:transform .15s ease;
+}
+.location-card img {
+  display:block;
+  width:100%;
+  height:100%;
+  aspect-ratio:3/2;
+  object-fit:contain;
+  border-radius:inherit;
+}
+#panel-body .location-card:hover { filter:none; transform:translateY(-2px); }
+#panel-body .location-card:focus-visible {
+  outline:3px solid #073e71;
+  outline-offset:4px;
+  box-shadow:0 0 0 7px #1ee9ef;
+}
+.location-lock {
+  position:absolute;
+  top:10px;
+  right:10px;
+  display:grid;
+  place-items:center;
+  width:42px;
+  height:42px;
+  border:2px solid #53f5fa;
+  border-radius:50%;
+  background:#071c3fee;
+  font-size:22px;
+  pointer-events:none;
+}
+@media (max-width:740px) {
+  .location-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media (max-width:500px) {
+  .location-grid { grid-template-columns:minmax(0,1fr); gap:14px; }
+}
+@media (prefers-reduced-motion:reduce) {
+  #panel-body .location-card { transition:none; }
+  #panel-body .location-card:hover { transform:none; }
+}
