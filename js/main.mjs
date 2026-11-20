@@ -1,5 +1,6 @@
 import {books,missions,zones,facts} from '../data/content.mjs';
 import {videos} from '../data/videos.mjs';
+import {renderLocationCards} from './location-cards.mjs';
 import {fresh,load,save,totals,unlocked,earn,grade,move,assistedRoute} from './state.mjs?v=20261119.3';
 import {createRenderer,nearest,targets} from './world.mjs?v=20261119.3';
 const $=id=>document.getElementById(id),panel=$('panel'),body=$('panel-body'),canvas=$('world');
@@ -27,7 +28,15 @@ function destinations(){const el=$('destinations');el.replaceChildren();for (con
   canvas.focus({preventScroll:true});
 }, el);}
 function changeZone(id){if(id==='secret'&&!unlocked(s)){show('Zon Rahsia belum dibuka','<p>Selesaikan sekurang-kurangnya tiga misi utama, capai Tahap 3 dan miliki dua lencana untuk mendapatkan kunci.</p>');return;}s.location={zone:id,x:500,y:id==='plaza'?430:510};if(!s.visited.includes(id))s.visited.push(id);auto=null;persist();hud();destinations();toast(`Selamat datang ke ${zones.find(z=>z.id===id).name}`);}
-function map(){show('Peta Tujuh Kawasan','<p>Destinasi yang dipilih membawa avatar melalui portal. Zon Rahsia memerlukan kunci.</p>');for(const z of zones){const lock=z.id==='secret'&&!unlocked(s);const el=card(`${z.icon} ${z.name}`,lock?'Terkunci · Tahap 3 + 3 misi + 2 lencana':s.visited.includes(z.id)?'Sudah diterokai':'Belum diterokai');btn(lock?'Lihat Syarat':'Pergi ke Kawasan',()=>{close();changeZone(z.id);},el);}}
+function map(){
+  show('Peta Tujuh Kawasan','<p>Destinasi yang dipilih membawa avatar melalui portal. Zon Rahsia memerlukan kunci.</p>');
+  btn('🏛 Plaza Mula',()=>{close();changeZone('plaza');});
+  renderLocationCards(body,zones,{
+    secretLocked:!unlocked(s),
+    currentZone:s.location.zone,
+    onSelect:id=>{close();changeZone(id);}
+  });
+}
 function openBook(id){const b=books.find(b=>b.id===id);if(!b)return;if(!s.opened.includes(id))s.opened.push(id);reward('books');persist();let page=0;const seen=new Set();function display(){seen.add(page);show(b.title,`<div class="story-art" role="img" aria-label="Ilustrasi ${escape(b.title)}">${b.icon}</div><p class="muted">Cerita demo asli · Halaman ${page+1} / ${b.pages.length}</p><p class="story-page">${escape(b.pages[page])}</p>`);const prev=btn('← Sebelumnya',()=>{page--;display();});prev.disabled=page===0;const next=btn('Seterusnya →',()=>{page++;display();});next.disabled=page===b.pages.length-1;const finish=btn(s.read.includes(id)?'Bacaan Telah Selesai':'Tamat Membaca',()=>{if(seen.size!==b.pages.length)return;if(!s.read.includes(id))s.read.push(id);reward('read');persist();show('Bacaan Selesai!',`<p>Kamu telah membaca ${escape(b.title)}. Jom uji kefahaman di Arena Kuiz.</p>`);btn('Mula Kuiz',()=>startQuiz(id));btn('Kembali ke Dunia',close);});finish.disabled=seen.size!==b.pages.length||page!==b.pages.length-1;btn('Video Bahasa Isyarat',()=>video(id));}display();}
 function video(id){const v=videos[id];show('Video Bahasa Isyarat',v?'<p>Video berlesen sekolah. Sari kata dan transkrip disediakan di bawah.</p>':'<p>Video Bahasa Isyarat belum dimuat naik.</p><p>Cerita teks tetap boleh dibaca. Tiada video BIM rekaan digunakan.</p>');if(v&&/^\.\/videos\/[\w./-]+\.(mp4|webm)$/.test(v.src)){const el=document.createElement('video');el.controls=true;el.preload='none';el.src=v.src;if(v.captions&&/^\.\/videos\/[\w./-]+\.vtt$/.test(v.captions)){const track=document.createElement('track');track.kind='captions';track.srclang='ms';track.label='Bahasa Melayu';track.src=v.captions;track.default=true;el.append(track);}body.append(el);card('Transkrip',v.transcript||'Transkrip belum disediakan.');}btn('Kembali ke Cerita',()=>openBook(id));}
 function quizChoice(){show('Arena Kuiz','<p>Pilih cerita yang telah selesai dibaca. Lulus dengan 4/5 jawapan betul. Tiada had masa.</p>');for(const b of books){const el=card(b.title,s.read.includes(b.id)?'Sedia untuk kuiz':'Baca semua halaman dahulu');btn(s.read.includes(b.id)?'Jawab Kuiz':'Baca Cerita',()=>s.read.includes(b.id)?startQuiz(b.id):openBook(b.id),el);}}
