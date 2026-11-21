@@ -4,7 +4,7 @@ Independent educational RPG demo for SK Pendidikan Khas Taiping. Public entry: h
 
 ## Start Plaza v4 integration
 
-The new homepage uses the six exact PNG files supplied in SMARTLIBverse_V4_CODEX_COMPLETE_PACKAGE.zip. Their SHA-256 manifest is assets/start-plaza/manifest.json. No scenery or avatar art was regenerated or recompressed.
+The v4 baseline preserves the six exact PNG files supplied in SMARTLIBverse_V4_CODEX_COMPLETE_PACKAGE.zip; their SHA-256 manifest is assets/start-plaza/manifest.json. The HD-2D update uses a separate clean foyer scenery derivative and keeps its NPC, map and portal effects in independent canvas layers. Approved avatar sheets are unchanged.
 
 - Project root: HD-2D Grand Foyer with male/female four-phase walking sprites, LIBRA reception, three portal arches and the physical map.
 - world/index.html?zone=library|gallery|quiz|awards|garden|secret: original learning game, stories, quizzes, rewards and certificates. Beranda and internal Plaza portals return to the foyer.
@@ -13,6 +13,12 @@ The new homepage uses the six exact PNG files supplied in SMARTLIBverse_V4_CODEX
 - Existing state.mjs reward/eligibility functions remain authoritative. Foyer displays validated totals and awards the existing tutorial once after walking to LIBRA.
 
 See INTEGRATION_V4.md for the baseline, verification and limitations.
+
+## HD-2D backgrounds and holograms
+
+All seven zones have distinct blue/cyan/gold environments. Perpustakaan Maya uses the supplied static library-hall image with three independent transparent stations: Cerita Bergambar (`cerita`), Sains & Alam (`alam`, larger center) and Pengetahuan (`umum`). Each has its own float timing and light effects; reduced motion keeps static cues. Backgrounds, sprites, rings, capped particles, avatar, depth overlap, labels and accessible HUD are separate rendering passes. Original stories, quizzes, IDs, rewards and saves remain authoritative.
+
+See [the integration record](docs/HD2D_INTEGRATION.md), [image prompts](docs/hd2d-image-prompts.json) and `assets/hd2d/manifest.json`. `npm test` and `npm run build` validate gameplay, layer/cache separation and delivered asset hashes. `npm run test:browser` verifies the real UI at desktop/tablet/phone sizes; PR Actions provide screenshots and a deployable `smartlibverse-hd2d-build` artifact. No school account or database is accessed.
 
 ## Play and development
 
@@ -28,9 +34,9 @@ Move using WASD/arrows or the Pointer Events joystick. E/Interaksi activates a n
 
 ## Rendering decision and limits
 
-The approved reference uses illustrated 2.5D artwork. This release uses Canvas2D with independent background, interactive geometry, collision, depth-sorted avatar sprites, camera, minimap and DOM HUD. Babylon.js supports real 3D/WebGL/WebGPU, but no rigged GLB characters, 3D library model, PBR asset set or physical-device performance results were supplied. Retaining the illustrated renderer avoids claiming hyperrealistic 3D from raster artwork. A Babylon renderer is a separate future upgrade after those assets and performance requirements are validated. Reference: https://www.babylonjs.com/specifications/.
+The game uses Canvas2D with independent static scenery, interactive geometry, collision, depth-sorted sprites, camera, minimap and semantic DOM HUD. No runtime 3D engine or heavy graphics library is needed. Environment textures contain no player, interactive holograms, labels or controls.
 
-The v4 sprites have four rows (front, back, left, right), four animation slots, 256×420 frames and a y=405 foot anchor. Front/back rows contain three distinct poses and a repeated neutral slot; they are not sixteen separately hand-drawn poses. The old world renderer now uses the same approved sheets. The six inner-world scene styles are retained and are not being advertised as fully restyled. This is not a rigged 3D system. Art is loaded only on the independent game page. Canvas2D does not require WebGL. If Canvas is unavailable, all learning activities remain accessible through DOM collection, map and assistance controls.
+The v4 sprites have four rows (front, back, left, right), four animation slots, 256×420 frames and a y=405 foot anchor. Front/back rows contain three distinct poses and a repeated neutral slot; they are not sixteen separately hand-drawn poses. Inner worlds use the same approved sheets with proportional sizing. Art is loaded only on the independent game page. Canvas2D does not require WebGL. If Canvas is unavailable, learning content remains accessible through DOM collection/map controls.
 
 ## Licensed BIM videos
 

@@ -2,11 +2,12 @@ import {books,missions,zones,facts} from '../data/content.mjs';
 import {videos} from '../data/videos.mjs';
 import {fresh,load,totals,unlocked,earn,grade,move,assistedRoute} from './state.mjs?v=20261119.3';
 import {writeProgress as save} from './foyer-progress.mjs';
-import {createRenderer,nearest,targets} from './world.mjs?v=20261121.4';
+import {createRenderer,nearest,targets} from './world.mjs?v=20261121.hd2d';
 const $=id=>document.getElementById(id),panel=$('panel'),body=$('panel-body'),canvas=$('world');
 let storage;try{storage=window.localStorage;}catch{storage={getItem(){throw Error();},setItem(){throw Error();}};}
 let loaded=load(storage),s=loaded.state,keys=new Set(),stick={x:0,y:0},running=false,walked=false,auto=null,direction='front',last=0,saveAt=0,toastTimer;
 const render=createRenderer(canvas,$('minimap'));
+window.SMARTLIBverseWorldQA={inspect:()=>render.inspect()};
 const escape=text=>String(text).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function persist(){if(!save(storage,s))$('status').textContent='Pelayar tidak dapat menyimpan kemajuan. Permainan masih boleh diteruskan dalam sesi ini.';}
 function toast(text){$('toast').textContent=text;$('toast').classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').classList.remove('show'),4000);}
