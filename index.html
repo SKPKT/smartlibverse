@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#061630">
 <title>SMARTLIBverse — Plaza Mula HD-2D</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@600&display=swap" rel="stylesheet">
 <style>
 :root{--navy:#081a36;--deep:#05132b;--glass:#0d2b53;--cyan:#6aefff;--blue:#1478c9;--gold:#ffdc8b;--pale:#eaf7ff;--muted:#a9c9e8;--line:rgba(98,210,255,.44);--shadow:0 18px 60px rgba(0,0,0,.38)}
 *{box-sizing:border-box}html{background:#030d22}body{margin:0;min-height:100vh;color:var(--pale);background:radial-gradient(ellipse 1100px 620px at 50% -15%,#19569a 0%,#0b264f 43%,#04112a 100%);font-family:Trebuchet MS,Segoe UI,Arial,sans-serif;overflow-x:hidden}body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.34;background-image:radial-gradient(circle at 6% 15%,#e8f9ff 1px,transparent 1.8px),radial-gradient(circle at 35% 51%,#fff 1px,transparent 2px),radial-gradient(circle at 84% 20%,#8edbff 1px,transparent 1.8px);background-size:160px 170px,230px 210px,260px 300px}
@@ -267,7 +270,20 @@ function update(dt){const started=performance.now();qaMetrics.physicsTicks++;tim
  if($('#prompt').innerHTML!==msg)$('#prompt').innerHTML=msg;
  const t=performance.now()-started;qaMetrics.maxUpdateMs=Math.max(t,qaMetrics.maxUpdateMs);qaMetrics.frameUpdates++;
 }
-function floorMark(h){const [x,y]=sc(h.stopX,h.stopY),s=viewport.scale;const radius=(near?.id===h.id?29:21)*Math.max(.75,s);const wobble=window.matchMedia('(prefers-reduced-motion: reduce)').matches?0:Math.sin(time/500+h.x)*2;ctx.save();ctx.globalAlpha=(near?.id===h.id)?0.92:0.45;ctx.lineWidth=2;ctx.strokeStyle=near?.id===h.id?'#ffe398':'#80eaff';ctx.shadowColor='#43dfff';ctx.shadowBlur=14;ctx.beginPath();ctx.ellipse(x,y,Math.max(17,radius+wobble),Math.max(7,radius/2),0,0,Math.PI*2);ctx.stroke();ctx.restore();if(near?.id===h.id){ctx.save();ctx.font='bold 13px Trebuchet MS';ctx.textAlign='center';ctx.fillStyle='#fff1b7';ctx.shadowColor='#001627';ctx.shadowBlur=6;ctx.fillText('✦ Interaksi: '+h.title,x,y-30);ctx.restore()}};
+function floorMark(h){const [x,y]=sc(h.stopX,h.stopY),s=viewport.scale;const radius=(near?.id===h.id?29:21)*Math.max(.75,s);const wobble=window.matchMedia('(prefers-reduced-motion: reduce)').matches?0:Math.sin(time/500+h.x)*2;ctx.save();ctx.globalAlpha=(near?.id===h.id)?0.92:0.45;ctx.lineWidth=2;ctx.strokeStyle=near?.id===h.id?'#ffe398':'#80eaff';ctx.shadowColor='#43dfff';ctx.shadowBlur=14;ctx.beginPath();ctx.ellipse(x,y,Math.max(17,radius+wobble),Math.max(7,radius/2),0,0,Math.PI*2);ctx.stroke();ctx.restore();if(near?.id===h.id&&h.kind!=='portal'){ctx.save();ctx.font='bold 13px Trebuchet MS';ctx.textAlign='center';ctx.fillStyle='#fff1b7';ctx.shadowColor='#001627';ctx.shadowBlur=6;ctx.fillText('✦ Interaksi: '+h.title,x,y-30);ctx.restore()}};
+function portalLabel(px,py,spriteH){
+ if(near?.kind!=='portal'||$('#overlay').classList.contains('open'))return;
+ const size=Math.max(12,Math.min(14,viewport.w*.016)),height=size*1.25+12;
+ ctx.save();ctx.font=`600 ${size}px Urbanist, system-ui, sans-serif`;
+ const width=ctx.measureText(near.title).width+20;
+ const x=Math.max(8,Math.min(viewport.w-width-8,px-width/2));
+ const y=py-spriteH*(405/420)-height-9;
+ ctx.fillStyle='rgba(8,26,54,.84)';ctx.strokeStyle='rgba(106,239,255,.65)';ctx.lineWidth=1;
+ ctx.shadowColor='rgba(67,223,255,.45)';ctx.shadowBlur=8;
+ ctx.beginPath();ctx.roundRect(x,y,width,height,7);ctx.fill();ctx.stroke();
+ ctx.shadowBlur=0;ctx.fillStyle='#eaf7ff';ctx.textAlign='center';ctx.textBaseline='middle';
+ ctx.fillText(near.title,x+width/2,y+height/2);ctx.restore();
+}
 function draw(){ctx.clearRect(0,0,viewport.w,viewport.h);camera();const sca=viewport.scale;
  if(BG.complete&&BG.naturalWidth){ctx.imageSmoothingEnabled=true;ctx.drawImage(BG,-viewport.left*sca,-viewport.top*sca,1672*sca,941*sca)}
  else{ctx.fillStyle='#12315b';ctx.fillRect(0,0,viewport.w,viewport.h)};
@@ -284,6 +300,7 @@ function draw(){ctx.clearRect(0,0,viewport.w,viewport.h);camera();const sca=view
  ctx.imageSmoothingEnabled=false;ctx.drawImage(image,frame*256,dmap[dir]*420,256,420,px-spriteW/2,py-spriteH*(405/420),spriteW,spriteH);
  ctx.imageSmoothingEnabled=true;
  }else{ctx.font='45px sans-serif';ctx.fillText('🧑‍🎓',px,py)}
+ portalLabel(px,py,spriteH);
 };
 let fixedAccumulator=0;
 function loop(t){if(!last)last=t;const elapsed=Math.min(100,Math.max(0,t-last));last=t;
