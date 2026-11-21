@@ -51,6 +51,7 @@ button{font:inherit;cursor:pointer}button:focus-visible,[tabindex]:focus-visible
 <div id="overlay" class="overlay" role="presentation"><div id="dialog" class="dialog" role="dialog" aria-modal="true" aria-label="Panel permainan"></div></div>
 <script type="module">
 import {readProgress,chooseAvatar,completeTutorial,progressTotals,secretAvailable} from "./js/foyer-progress.mjs?v=4";
+import {createPlazaLayers} from "./js/plaza-layers.mjs";
 (()=>{'use strict';
 const ROOT='smartlibverse_foyer_playable_demo_v1';
 const GAME_KEY='smartlibverse_demo_v1';
@@ -85,7 +86,7 @@ const HOTSPOTS=[
  {id:'map',title:'World Map',x:1373,y:730,stopX:1260,stopY:735,r:140,kind:'map',icon:'🗺'}
 ];
 const $=s=>document.querySelector(s);const canvas=$('#world');const ctx=canvas.getContext('2d'); const stage=$('#stage');
-const img=(src)=>{const i=new Image();i.src=src;return i;};const BG=img('assets/start-plaza/grand_foyer_portal_hub.png');const sprites={lelaki:img('assets/start-plaza/avatar_lelaki_production_walk4.png'),perempuan:img('assets/start-plaza/avatar_perempuan_production_walk4.png')};
+const img=(src)=>{const i=new Image();i.src=src;return i;};const BG=img('assets/hd2d/zones/plaza.webp');const plazaLayers=createPlazaLayers();const sprites={lelaki:img('assets/start-plaza/avatar_lelaki_production_walk4.png'),perempuan:img('assets/start-plaza/avatar_perempuan_production_walk4.png')};
 const init={gender:'lelaki',x:823,y:812,xp:0,metLibra:false,visited:[],portalVisits:[],trophyClaimed:false};let st={...init};try{const dat=JSON.parse(localStorage.getItem(ROOT)||'null');if(dat&&typeof dat==='object')st={...init,...dat};}catch(e){}
 st.gender=currentAvatar()||st.gender;st.x=Math.max(400,Math.min(1330,Number(st.x)||823));st.y=Math.max(580,Math.min(866,Number(st.y)||812));if(!Array.isArray(st.visited))st.visited=[];if(!Array.isArray(st.portalVisits))st.portalVisits=[];if(!['lelaki','perempuan'].includes(st.gender))st.gender='lelaki';
 function save(){try{localStorage.setItem(ROOT,JSON.stringify(st));}catch(e){}};
@@ -291,15 +292,18 @@ function draw(){ctx.clearRect(0,0,viewport.w,viewport.h);camera();const sca=view
   const outline=(pts,color,fill)=>{ctx.beginPath();pts.forEach(([x,y],i)=>{const p=sc(x,y);i?ctx.lineTo(...p):ctx.moveTo(...p)});ctx.closePath();ctx.strokeStyle=color;ctx.lineWidth=2;ctx.stroke();ctx.fillStyle=fill;ctx.fill();};
   ctx.save();outline(WALK_POLY,'#6cfdc2','#41cf9640');COLLIDERS.forEach(o=>{if(o.points)outline(o.points,'#ff7b78','#f5443f44');else{const [x,y,r]=o.circle,p=sc(x,y);ctx.beginPath();ctx.arc(p[0],p[1],(r+CFG.feetRadius)*sca,0,Math.PI*2);ctx.fillStyle='#f5443f55';ctx.fill();ctx.strokeStyle='#ff7b78';ctx.stroke();}});ctx.restore();
  }
+ plazaLayers.ground(ctx,viewport,time,window.matchMedia('(prefers-reduced-motion: reduce)').matches);
  HOTSPOTS.forEach(floorMark);
  const [screenX,screenY]=sc(st.x,st.y);const px=Math.round(screenX*viewport.dpr)/viewport.dpr,py=Math.round(screenY*viewport.dpr)/viewport.dpr;const depth=.80+(.32*(st.y-583)/(862-583));const spriteW=71*depth,spriteH=117*depth;
- ctx.save();ctx.fillStyle='rgba(2,20,44,.45)';ctx.beginPath();ctx.ellipse(px,py-1,23*depth,7*depth,0,0,6.283);ctx.fill();ctx.restore();
+ const avatarLayer={y:st.y,draw:()=>{ctx.save();ctx.fillStyle='rgba(2,20,44,.45)';ctx.beginPath();ctx.ellipse(px,py-1,23*depth,7*depth,0,0,6.283);ctx.fill();ctx.restore();
  const image=sprites[st.gender];if(image.complete&&image.naturalWidth){const dmap={front:0,back:1,left:2,right:3};
  const prefersReduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
  const frame=(walking&&!prefersReduced)?Math.floor(strideDistance/CFG.stridePx)%4:0;
  ctx.imageSmoothingEnabled=false;ctx.drawImage(image,frame*256,dmap[dir]*420,256,420,px-spriteW/2,py-spriteH*(405/420),spriteW,spriteH);
  ctx.imageSmoothingEnabled=true;
  }else{ctx.font='45px sans-serif';ctx.fillText('🧑‍🎓',px,py)}
+ }};
+ [...plazaLayers.objects(ctx,viewport),avatarLayer].sort((a,b)=>a.y-b.y).forEach(layer=>layer.draw());
  portalLabel(px,py,spriteH);
 };
 let fixedAccumulator=0;

@@ -28,12 +28,12 @@ export const missions = [
  {id:'secret',title:'Penjelajah Rahsia',goal:'Cari buku tersembunyi dan selesaikan teka-teki di Zon Rahsia.',xp:50,coins:25,stars:1,badge:'Penjelajah Rahsia'}
 ];
 export const zones = [
- {id:'plaza',name:'Plaza Mula',icon:'🏛',color:'#12594b',objects:[['guide','LIBRA BOT',500,240,'robot']]},
- {id:'library',name:'Perpustakaan Maya',icon:'📚',color:'#75523a',objects:[['cerita','Rak Cerita Bergambar',250,250,'shelf'],['alam','Rak Sains & Alam',500,250,'shelf'],['umum','Rak Pengetahuan Am',750,250,'shelf']]},
- {id:'gallery',name:'Galeri Cerita',icon:'📖',color:'#73513f',objects:books.map((b,i)=>[b.id,b.title,250+i*250,280,'book'])},
- {id:'quiz',name:'Arena Kuiz',icon:'🧩',color:'#554d72',objects:[['quiz','Cabaran Kefahaman',500,260,'desk']]},
- {id:'awards',name:'Dewan Anugerah',icon:'🏆',color:'#6b5830',objects:[['awards','Pentas Pencapaian',500,260,'trophy']]},
- {id:'garden',name:'Taman Ilmu',icon:'🌿',color:'#316e48',objects:[['tree','Pokok',230,240,'tree'],['flower','Bunga',470,260,'flower'],['butterfly','Rama-rama',730,240,'butterfly'],['pond','Kolam',300,440,'pond'],['board','Papan Maklumat Alam',700,440,'board']]},
- {id:'secret',name:'Zon Rahsia',icon:'🔑',color:'#315665',objects:[['hidden','Buku Tersembunyi',280,280,'book'],['riddle','Teka-teki Ilmu',700,280,'desk']]}
+ {id:'plaza',name:'Plaza Mula',icon:'🏛',color:'#172e57',objects:[['guide','LIBRA BOT',500,240,'robot']]},
+ {id:'library',name:'Perpustakaan Maya',icon:'📚',color:'#183d75',objects:[['cerita','Cerita Bergambar',250,270,'shelf'],['alam','Sains & Alam',500,246,'shelf'],['umum','Pengetahuan',750,270,'shelf']]},
+ {id:'gallery',name:'Galeri Cerita',icon:'📖',color:'#283e77',objects:books.map((b,i)=>[b.id,b.title,250+i*250,280,'book'])},
+ {id:'quiz',name:'Arena Kuiz',icon:'🧩',color:'#214b7f',objects:[['quiz','Cabaran Kefahaman',500,260,'desk']]},
+ {id:'awards',name:'Dewan Anugerah',icon:'🏆',color:'#4d4d79',objects:[['awards','Pentas Pencapaian',500,260,'trophy']]},
+ {id:'garden',name:'Taman Ilmu',icon:'🌿',color:'#2b5d80',objects:[['tree','Pokok',230,240,'tree'],['flower','Bunga',470,260,'flower'],['butterfly','Rama-rama',730,240,'butterfly'],['pond','Kolam',300,440,'pond'],['board','Papan Maklumat Alam',700,440,'board']]},
+ {id:'secret',name:'Zon Rahsia',icon:'🔑',color:'#2c477d',objects:[['hidden','Buku Tersembunyi',280,280,'book'],['riddle','Teka-teki Ilmu',700,280,'desk']]}
 ];
 export const facts={tree:'Pokok menghasilkan oksigen dan memberi teduhan.',flower:'Bunga membantu menarik serangga pendebunga.',butterfly:'Rama-rama bermula sebagai telur, ulat, kepompong dan kemudian dewasa.',pond:'Kolam ialah habitat hidupan seperti ikan dan tumbuhan air.',board:'Jaga alam: jangan petik tumbuhan tanpa izin dan jangan buang sampah.'};

@@ -12,7 +12,7 @@ async function fixture(reduced=false){
  const window={addEventListener:(n,fn)=>{(listeners[n]??=[]).push(fn)},matchMedia:()=>({matches:reduced}),localStorage:storage(),location:{href:'https://example.test/smartlibverse/'}};
  document.activeElement=node('#world');
  class Image{constructor(){this.complete=false;this.naturalWidth=0;}}
- const context={...helper,window,document,Image,localStorage:window.localStorage,requestAnimationFrame(){},devicePixelRatio:1,performance,URL,URLSearchParams,setTimeout:()=>0,clearTimeout(){},matchMedia:window.matchMedia};
+ const context={...helper,createPlazaLayers:()=>({ground(){},objects(){return[];}}),window,document,Image,localStorage:window.localStorage,requestAnimationFrame(){},devicePixelRatio:1,performance,URL,URLSearchParams,setTimeout:()=>0,clearTimeout(){},matchMedia:window.matchMedia};
  vm.runInNewContext(source,context);
  const event=(key)=>({key,preventDefault(){}});
  return{qa:window.SMARTLIBverseQA,nodes,window,fire:(name,key)=>listeners[name].forEach(fn=>fn(event(key))),pointer:(name,e)=>nodes.get('#foyerJoystick').events[name].forEach(fn=>fn(e))};

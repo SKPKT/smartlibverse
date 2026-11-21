@@ -1,0 +1,151 @@
+{
+  "sourcePackage": "SMARTLIBverse_HD2D_Library_BACKGROUND_HOLOGRAMS_CODEX_FINAL.zip",
+  "files": [
+    {
+      "path": "assets/hd2d/library/cerita_bergambar.png",
+      "sha256": "2b1954fd3f7472d104084dafa716e6d2cfac97b3ea81e18528cef203a5331800",
+      "bytes": 363772,
+      "dimensions": [
+        480,
+        620
+      ]
+    },
+    {
+      "path": "assets/hd2d/library/cerita_bergambar.webp",
+      "sha256": "3e5eece1cbff299908678fc79636b2ce06a9eb2b23c3203704ead9352f2ae9e9",
+      "bytes": 100496,
+      "dimensions": [
+        480,
+        620
+      ]
+    },
+    {
+      "path": "assets/hd2d/library/library-hall.png",
+      "sha256": "db7527b6d2e0a0cabaf1b512de3f80059881d3d03b30535b52e6e4ad60299a53",
+      "bytes": 1277374,
+      "dimensions": [
+        1000,
+        680
+      ]
+    },
+    {
+      "path": "assets/hd2d/library/library-hall.webp",
+      "sha256": "ccdc4599ec1b66b43762a4fd5cc11239519bdc779b5e95dc2774786e17bdf39d",
+      "bytes": 233398,
+      "dimensions": [
+        1000,
+        680
+      ]
+    },
+    {
+      "path": "assets/hd2d/library/pengetahuan.png",
+      "sha256": "025d84e4ca63a55f326032f3ba3a433b8fd967f1a20717e013cac74ef4707dc7",
+      "bytes": 356125,
+      "dimensions": [
+        480,
+        620
+      ]
+    },
+    {
+      "path": "assets/hd2d/library/pengetahuan.webp",
+      "sha256": "0bb0d2e94c105c9270111d6f516472582e14a022492c69bafd6fec11c5e95e24",
+      "bytes": 102002,
+      "dimensions": [
+        480,
+        620
+      ]
+    },
+    {
+      "path": "assets/hd2d/library/sains_dan_alam.png",
+      "sha256": "b00d2619b984e6d28d7375707e76d06ad481845a4b46a6aef26e81a1d3756cfd",
+      "bytes": 355570,
+      "dimensions": [
+        480,
+        620
+      ]
+    },
+    {
+      "path": "assets/hd2d/library/sains_dan_alam.webp",
+      "sha256": "b8114e31e840708c0ed97bfafa6e5aa2d6f3b73ba5f0649ac2b638022de713da",
+      "bytes": 106176,
+      "dimensions": [
+        480,
+        620
+      ]
+    },
+    {
+      "path": "assets/hd2d/zones/awards.webp",
+      "sha256": "e70dfed756047c2f3ffc8f7e0941793a102f6758ddb4fb29cf35403ff2abcd4f",
+      "bytes": 485522,
+      "dimensions": [
+        1520,
+        1035
+      ]
+    },
+    {
+      "path": "assets/hd2d/zones/gallery.webp",
+      "sha256": "09cbb991318bc6574fbda2186e7ffa4f7528911b952ec321f80cd9c3e58f5810",
+      "bytes": 352972,
+      "dimensions": [
+        1520,
+        1035
+      ]
+    },
+    {
+      "path": "assets/hd2d/zones/garden.webp",
+      "sha256": "379dd98e2342e998e40928e5d102c3e5f0b8cb2a7d67a25551ab9246f885ac57",
+      "bytes": 499126,
+      "dimensions": [
+        1520,
+        1035
+      ]
+    },
+    {
+      "path": "assets/hd2d/zones/plaza.webp",
+      "sha256": "d7dad2354746b73bf9b13ac5651769d3376e7bce9f93c4ae706b8894f7ff2dc1",
+      "bytes": 446218,
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "path": "assets/hd2d/zones/quiz.webp",
+      "sha256": "1b943b2bf47716a2e4bb97633e0635e087e8f4105f7fd58aba15b5b0cc5aefdb",
+      "bytes": 566674,
+      "dimensions": [
+        1520,
+        1035
+      ]
+    },
+    {
+      "path": "assets/hd2d/zones/secret.webp",
+      "sha256": "b1cea0d6741d7165682de5dd3d8c3bb7e6b01f286235f95f2b4da18f10aa4e4f",
+      "bytes": 501712,
+      "dimensions": [
+        1521,
+        1034
+      ]
+    },
+    {
+      "path": "assets/hd2d/props/reception-counter.webp",
+      "sha256": "2dd22690a45accfb1eb1fad336260a56021aa259660a19b423cdb73b5a9bf2c2",
+      "bytes": 266532,
+      "dimensions": [
+        1774,
+        887
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/hd2d/props/world-map.webp",
+      "sha256": "b5e81e327870ffd147a525b2d3efe1bc785747c582f3d55a0b37d3c0f7dd111f",
+      "bytes": 427594,
+      "dimensions": [
+        1402,
+        1122
+      ],
+      "mode": "RGBA"
+    }
+  ]
+}
