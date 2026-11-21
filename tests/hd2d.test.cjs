@@ -6,7 +6,7 @@ test('All seven independent backgrounds and exact transparent library assets are
   const {backgrounds}=await visuals;assert.equal(new Set(Object.values(backgrounds)).size,7);
   for(const name of Object.values(backgrounds))assert(fs.existsSync(path.join(root,name)));
   const manifest=JSON.parse(fs.readFileSync(path.join(root,'assets/hd2d/manifest.json'),'utf8'));
-  assert.equal(manifest.files.length,16);
+  assert.equal(manifest.files.length,20);
   for(const e of manifest.files)assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(root,e.path))).digest('hex'),e.sha256,e.path);
   for(const id of ['cerita_bergambar','sains_dan_alam','pengetahuan']){
     const png=fs.readFileSync(path.join(root,`assets/hd2d/library/${id}.png`));assert.equal(png[25],6,'RGBA PNG must retain transparency');

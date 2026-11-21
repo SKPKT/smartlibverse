@@ -1,0 +1,54 @@
+{
+  "method": "Built-in image_gen; original artwork used as reference. Mechanical alpha trimming, resizing and lossless WebP encoding only.",
+  "reference": "assets/start-plaza/grand_foyer_portal_hub.png",
+  "assets": [
+    {
+      "path": "assets/hd2d/props/reception-desk-restored.webp",
+      "sha256": "e889159c9fe37edcd497fde31c48855a7a69ae59dcfd3ee028043d2000a08ca6",
+      "bytes": 430516,
+      "dimensions": [
+        1056,
+        444
+      ],
+      "mode": "RGBA",
+      "sourcePngSha256": "a6ab0dbc1a425ef4058f9a89f986cce7eb7e362d4818c555d7c2ed0baa0a02ac",
+      "prompt": "Use case: background-extraction / precise-object-edit. Reference image: the approved old SMARTLIBverse foyer. Restore ONLY its left reception DESK as an isolated transparent RGBA game prop. Match the original sweeping curved counter seen on the left, with elegant dark navy-blue paneled wood, broad metallic gold countertop and bottom trim, subtle three-quarter perspective, the right end receding, and the original blue hanging pennant with an open white-and-gold book emblem on the front. The original desk is a broad low curved arc, approximately 2.3 times wider than high. Preserve the illustrated HD-2D JRPG pixel-art appearance, no photorealism. Show the complete desk with clean edges. Absolutely NO robot, tablet, lamps, books, flowerpot, scenery, floor, backdrop, cast background shadow, text, sparkles or UI. The countertop must be EMPTY so independently rendered accessories can be placed on it. Transparent background, no surrounding old artwork fragments."
+    },
+    {
+      "path": "assets/hd2d/props/reception-tablet.webp",
+      "sha256": "1a8533ad6292d60c8ecac3143102fd64f3458c0864da42956448f7f38bd25858",
+      "bytes": 118034,
+      "dimensions": [
+        360,
+        330
+      ],
+      "mode": "RGBA",
+      "sourcePngSha256": "17ac564f339c9a49d3d62429d4f57c24d9f788f48d2e4298a06e4f05405e6fc4",
+      "prompt": "Use case: background-extraction / precise-object-edit. Reference image: the approved old SMARTLIBverse foyer. Isolate and faithfully restore ONLY the small BLUE HOLOGRAPHIC TABLET from the reception counter, as a transparent RGBA sprite. Same angled upright display as the original: a thin luminous cyan-blue rectangular screen leaning back and slanting slightly to the right on a small navy/silver stand, displaying a simple glowing open-book symbol. Three-quarter view, front visible, HD-2D JRPG illustrated pixel-art edge style matching the reference. Full object with crisp clean alpha edges. NO desk, robot, lamps, books, scenery, floor, background fragments, text, user interface or solid background. Tight composition around this one independent tablet prop."
+    },
+    {
+      "path": "assets/hd2d/props/reception-lamp.webp",
+      "sha256": "bba16898f65d3b8c09795badc640bb117adb8cafaf2af4949877907fbca2800f",
+      "bytes": 52780,
+      "dimensions": [
+        160,
+        303
+      ],
+      "mode": "RGBA",
+      "sourcePngSha256": "67b3c8702359892b8f3c79c600ab2b29252a3c1ef26c284a5c7dcfadc95939a9",
+      "prompt": "Use case: background-extraction / precise-object-edit. Reference image: the approved old SMARTLIBverse foyer. Isolate and restore ONLY the SMALL GOLD DECORATIVE LAMP that stands to the right of the blue tablet on the original reception desk. A small elegant gold teardrop/oval lantern with warm white-gold luminous center, a tiny pointed cap, narrow gold stem and round gold foot. Faithfully match the HD-2D JRPG illustrated pixel-art style and three-quarter view. Transparent RGBA, clean crisp edges, full lamp. NO desk, tablet, robot, books, scenery, floor, text, UI, or surrounding artwork fragments. Do not make a large street lantern or introduce a new design."
+    },
+    {
+      "path": "assets/hd2d/props/reception-books.webp",
+      "sha256": "af46f7ceddaae9375416951fce90558f72c9812b3852784420da8500d78cb19a",
+      "bytes": 74464,
+      "dimensions": [
+        256,
+        186
+      ],
+      "mode": "RGBA",
+      "sourcePngSha256": "d9a5088d36e8408d2900bd348533cdd6008d45c62838c0417d5c2a2eb1800d31",
+      "prompt": "Use case: background-extraction / precise-object-edit. Reference image: the approved old SMARTLIBverse foyer. Isolate and restore ONLY the small horizontal stack of THREE CLOSED BOOKS beside the robot at the left reception desk, with teal, blue and burgundy covers, pale pages and small gold details. Match the original HD-2D JRPG pixel-art style, gentle three-quarter perspective. Transparent RGBA game prop with crisp alpha edges. NO desk, lamp, robot, tablet, flowerpot, floor, background, scenery, text or UI. Full small stack only."
+    }
+  ]
+}
