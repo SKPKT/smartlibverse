@@ -21,6 +21,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
+      - run: npm ci
       - run: npm test
       - run: npm run build
       - uses: actions/configure-pages@v5
@@ -29,3 +30,18 @@ jobs:
           path: dist
       - uses: actions/deploy-pages@v4
         id: deployment
+      - run: npx playwright install --with-deps chromium
+      - name: Verify deployed game in Chromium
+        env:
+          BASE_URL: https://skpkt.github.io/smartlibverse/
+        run: |
+          for attempt in 1 2 3; do
+            if npm run test:browser; then exit 0; fi
+            sleep 15
+          done
+          exit 1
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: live-start-plaza-acceptance
+          path: test-results/

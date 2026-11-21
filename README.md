@@ -2,6 +2,18 @@
 
 Independent educational RPG demo for SK Pendidikan Khas Taiping. Public entry: https://skpkt.github.io/smartlibverse/. Return link: https://skpkt.github.io/smartlib/.
 
+## Start Plaza v4 integration
+
+The new homepage uses the six exact PNG files supplied in SMARTLIBverse_V4_CODEX_COMPLETE_PACKAGE.zip. Their SHA-256 manifest is assets/start-plaza/manifest.json. No scenery or avatar art was regenerated or recompressed.
+
+- Project root: HD-2D Grand Foyer with male/female four-phase walking sprites, LIBRA reception, three portal arches and the physical map.
+- world/index.html?zone=library|gallery|quiz|awards|garden|secret: original learning game, stories, quizzes, rewards and certificates. Beranda and internal Plaza portals return to the foyer.
+- smartlibverse_demo_v1 remains the version-1 learning save. smartlibverse_foyer_playable_demo_v1 contains separate foyer position/UI state. Avatar edits preserve all unrelated saved fields; corrupt/unsupported saves are never silently replaced.
+- Switch between D-pad and joystick in the same control slot. WASD/arrows move, E interacts, C toggles the collision overlay, click-to-walk uses the supplied optimized pathfinder. Navigasi Bantuan walks to each physical hotspot.
+- Existing state.mjs reward/eligibility functions remain authoritative. Foyer displays validated totals and awards the existing tutorial once after walking to LIBRA.
+
+See INTEGRATION_V4.md for the baseline, verification and limitations.
+
 ## Play and development
 
 Production needs only a browser. No school login, backend, Gemini key or student dataset is used. Run `npm test` and `npm run build` with Node 22+ for development. Serve `dist` using any static HTTP server. Never open JavaScript modules through file://.
@@ -18,7 +30,7 @@ Move using WASD/arrows or the Pointer Events joystick. E/Interaksi activates a n
 
 The approved reference uses illustrated 2.5D artwork. This release uses Canvas2D with independent background, interactive geometry, collision, depth-sorted avatar sprites, camera, minimap and DOM HUD. Babylon.js supports real 3D/WebGL/WebGPU, but no rigged GLB characters, 3D library model, PBR asset set or physical-device performance results were supplied. Retaining the illustrated renderer avoids claiming hyperrealistic 3D from raster artwork. A Babylon renderer is a separate future upgrade after those assets and performance requirements are validated. Reference: https://www.babylonjs.com/specifications/.
 
-Sprites provide front, angled and back views for both characters, with walking bob. This is not a fully rigged skeletal animation system. Background artwork and avatar atlas are AI-derived from the user-supplied visual reference. Existing LIBRA artwork is preserved. Art is loaded only on the independent game page. Canvas2D does not require WebGL. If Canvas is unavailable, all learning activities remain accessible through DOM collection, map and assistance controls.
+The v4 sprites have four rows (front, back, left, right), four animation slots, 256×420 frames and a y=405 foot anchor. Front/back rows contain three distinct poses and a repeated neutral slot; they are not sixteen separately hand-drawn poses. The old world renderer now uses the same approved sheets. The six inner-world scene styles are retained and are not being advertised as fully restyled. This is not a rigged 3D system. Art is loaded only on the independent game page. Canvas2D does not require WebGL. If Canvas is unavailable, all learning activities remain accessible through DOM collection, map and assistance controls.
 
 ## Licensed BIM videos
 

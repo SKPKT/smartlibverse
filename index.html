@@ -1,10 +1,302 @@
 <!doctype html>
-<html lang="ms"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#064e3b"><title>SMARTLIBverse — Jelajah Dunia Ilmu</title><link rel="icon" href="./icon-192.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="./css/game.css?v=20261119.2"><script type="module" src="./js/main.mjs?v=20261119.3"></script></head>
-<body><div class="game-shell">
-<header class="hud"><div class="identity"><span class="profile-avatar" id="avatar-icon" aria-hidden="true">👦</span><div><strong id="player-name">Penjelajah Buku</strong><span id="level">Tahap 1</span><progress id="xp-progress" value="0" max="50" aria-label="Kemajuan XP"></progress><small id="xp">0 XP</small></div></div><div class="brand"><h1>📖 SMARTLIB<span>verse</span></h1><p>Jelajah Dunia Ilmu · <b>DEMO</b></p></div><div class="wallet"><span id="coins">🪙 0</span><span id="stars">⭐ 0</span><button type="button" data-menu="awards">🏅 Lencana</button></div></header>
-<main><div class="world-top"><div><small>KAWASAN SEMASA</small><h2 id="zone-name">Plaza Mula</h2></div><button type="button" id="map-button">🗺 Peta Kawasan</button><button type="button" id="help">🤖 Tanya LIBRA</button></div>
-<div class="world-wrap"><canvas id="world" width="1000" height="680" tabindex="0" aria-label="Dunia RPG. Gunakan WASD atau anak panah untuk bergerak, E untuk interaksi. Kawalan bantuan tersedia di bawah.">Pelayar anda tidak menyokong Canvas. Gunakan navigasi bantuan di bawah untuk semua aktiviti.</canvas><div class="mission-card"><b>📋 Misi anda</b><p id="mission-hint">Pergi ke LIBRA BOT dan tekan Interaksi.</p></div><canvas id="minimap" width="150" height="110" aria-label="Peta mini lokasi avatar"></canvas><span class="zone-label" id="nearby">Selamat datang, pengembara!</span></div>
-<div class="controls"><div class="joystick" id="joystick" aria-label="Joystick sentuhan"><span id="stick"></span><i aria-hidden="true">✥</i></div><p class="keyboard-hint">WASD / ↑ ↓ ← →<br>E: Interaksi · Shift: Lari</p><div class="actions"><button type="button" id="interact">💬 Interaksi</button><button type="button" id="run" aria-pressed="false">🏃 Lari</button></div></div>
-<details class="assist"><summary>Navigasi bantuan · Mod Mudah</summary><p>Pilih destinasi untuk berjalan terus ke penandanya. Tekan Interaksi apabila tiba.</p><div id="destinations"></div></details><p id="status" role="status" aria-live="polite">Kemajuan demo disimpan pada peranti ini. Bukan rekod NILAM rasmi.</p></main>
-<nav class="bottom-nav" aria-label="Menu permainan"><button type="button" data-menu="inventory">🎒<span>Inventori</span></button><button type="button" data-menu="collection">📚<span>Koleksi</span></button><button type="button" id="home">🏛<span>Beranda</span></button><button type="button" data-menu="missions">📋<span>Misi</span></button><button type="button" data-menu="profile">👤<span>Profil</span></button></nav><footer><a href="https://skpkt.github.io/smartlib/">← Kembali ke SMARTLIB</a><span>© 2026 SMARTLIB |Syahida Suffian</span></footer></div>
-<dialog id="panel" aria-labelledby="panel-title"><header><h2 id="panel-title"></h2><button type="button" id="close-panel" aria-label="Tutup dialog">✕</button></header><div id="panel-body"></div></dialog><div id="toast" role="status" aria-live="polite"></div><noscript>Aktifkan JavaScript untuk bermain. Permainan tidak memerlukan akaun SMARTLIB.</noscript></body></html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#061630">
+<title>SMARTLIBverse — Plaza Mula HD-2D</title>
+<style>
+:root{--navy:#081a36;--deep:#05132b;--glass:#0d2b53;--cyan:#6aefff;--blue:#1478c9;--gold:#ffdc8b;--pale:#eaf7ff;--muted:#a9c9e8;--line:rgba(98,210,255,.44);--shadow:0 18px 60px rgba(0,0,0,.38)}
+*{box-sizing:border-box}html{background:#030d22}body{margin:0;min-height:100vh;color:var(--pale);background:radial-gradient(ellipse 1100px 620px at 50% -15%,#19569a 0%,#0b264f 43%,#04112a 100%);font-family:Trebuchet MS,Segoe UI,Arial,sans-serif;overflow-x:hidden}body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.34;background-image:radial-gradient(circle at 6% 15%,#e8f9ff 1px,transparent 1.8px),radial-gradient(circle at 35% 51%,#fff 1px,transparent 2px),radial-gradient(circle at 84% 20%,#8edbff 1px,transparent 1.8px);background-size:160px 170px,230px 210px,260px 300px}
+button{font:inherit;cursor:pointer}button:focus-visible,[tabindex]:focus-visible{outline:3px solid #fdf1b1;outline-offset:3px}.app{max-width:1488px;margin:auto;padding:16px clamp(10px,2vw,30px) 16px;position:relative}
+.mast{display:flex;gap:14px;align-items:center;justify-content:space-between;padding:0 10px 14px;flex-wrap:wrap}.brand{display:flex;align-items:center;gap:12px}.brandmark{font-size:40px;filter:drop-shadow(0 1px 10px #17ccff)}.brand-title{font-weight:1000;letter-spacing:.2px;line-height:1;font-size:clamp(27px,3.1vw,47px);text-shadow:0 2px 16px #008fc6}.brand-title span{color:#4df4ff}.brand-sub{color:#a7d8ee;font-size:11px;letter-spacing:2.4px;margin-top:7px}.version{border:1.5px solid #ffd784;border-radius:13px;background:linear-gradient(135deg,#3a3b4c,#182c4d);color:var(--gold);padding:7px 14px;font-weight:1000;letter-spacing:1.5px;box-shadow:inset 0 0 12px #f6ce5760}
+.dashboard{display:flex;gap:11px;margin-bottom:12px;flex-wrap:wrap}.stat{display:flex;align-items:center;gap:9px;padding:11px 16px;border-radius:15px;background:linear-gradient(170deg,#173f74d8,#0d254acc);border:1px solid #46d7ff88;box-shadow:inset 0 1px 0 #d4f8ff55,0 0 18px #05bff61c;font-size:14px;font-weight:900}.stat strong{color:#ffe096}.stat svg{width:20px;height:20px}.stat .star{font-size:20px}.dash-right{margin-left:auto;display:flex;gap:8px}.smallbtn{border:1px solid #6acff9a5;border-radius:14px;background:#153b6c;color:#e0f5ff;font-weight:800;padding:10px 14px;white-space:nowrap}.smallbtn:hover{background:#205890}
+.mainlayout{display:grid;grid-template-columns:minmax(0,1fr) 258px;gap:14px;align-items:start}.maincol{min-width:0}.play-window{padding:7px;border:2px solid #61deff;border-radius:26px;background:linear-gradient(135deg,#114e84,#081e40 42%,#082e5a);box-shadow:0 0 0 4px #0b2b50,inset 0 0 15px #79e8ff6b,0 0 28px #10bbfb30;overflow:hidden;position:relative}.location{position:absolute;top:14px;left:15px;right:15px;z-index:2;pointer-events:none;display:flex;align-items:flex-start;justify-content:space-between;gap:8px}.locchip{padding:7px 14px;background:linear-gradient(90deg,#0a254adc,#114579db);border:1px solid #84eaffc9;border-radius:10px;box-shadow:0 5px 16px #050d2099}.locchip b{display:block;font-size:clamp(12px,1.35vw,20px);color:#fff}.locchip small{color:#bfe1ff;font-size:11px}.hintchip{background:#0a244bdc;border:1px solid #67d7ffb0;color:#e4f8ff;padding:7px 10px;border-radius:9px;font-size:11px;font-weight:900;white-space:nowrap}.stage{height:clamp(360px,56vw,680px);min-height:360px;max-height: min(72vh,680px);position:relative;overflow:hidden;border-radius:19px;isolation:isolate;background:#102b53}.stage:after{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 36px #061e4fb0}canvas{display:block;width:100%;height:100%;cursor:crosshair;touch-action:none}.world-prompt{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);z-index:3;border:1px solid #92eaff;border-radius:18px;padding:9px 13px;background:#071e3bdd;backdrop-filter:blur(9px);box-shadow:0 4px 16px #03142b;font-size:clamp(11px,1.25vw,14px);line-height:1.35;max-width:86%;text-align:center;pointer-events:none}.world-prompt b{color:#ffe19a}.questside{border:2px solid #e8c07b;background:linear-gradient(180deg,#0e3562eb,#0b1e3eef);border-radius:20px;box-shadow:inset 0 0 0 3px #214674,inset 0 0 20px #0ba6fa36,0 13px 26px #02091670;padding:17px 15px}.s-title{font-weight:1000;font-size:17px;color:#ffe09c;border-bottom:1px solid #f7d58f61;padding-bottom:11px;margin-bottom:12px;display:flex;gap:8px;align-items:center}.queststep{display:flex;align-items:center;gap:10px;margin-bottom:10px;padding:10px 8px;border-radius:12px;background:#133961ce;border:1px solid #5dc4ef54;color:#e5f7ff;font-size:12px;font-weight:700;line-height:1.35}.queststep.done{border-color:#ebc47f99;background:#29476e}.number{height:27px;width:27px;border-radius:50%;flex:none;background:linear-gradient(#fff3bb,#f0b755);color:#1b2f4c;display:grid;place-items:center;font-weight:1000}.stepcheck{margin-left:auto;color:#ffe28c;font-size:18px}.compass-btn{width:100%;margin-top:6px;border:1px solid #76dffc;color:white;border-radius:13px;background:linear-gradient(140deg,#2561a4,#103968);font-weight:900;padding:12px}.compass-btn:hover{filter:brightness(1.18)}.libra-mini{margin-top:12px;display:flex;gap:9px;align-items:center;padding:9px;border:1px solid #5cd1ed70;border-radius:12px;background:#0b284b}.libra-mini img{width:52px;height:58px;object-fit:contain;filter:drop-shadow(0 0 7px #2bd8ff66)}.libra-mini b{font-size:12px;color:#a4f4ff}.libra-mini small{display:block;color:#bed6ed;font-size:10px;line-height:1.5;margin-top:4px}
+.controlpanel{margin-top:13px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 20px;background:linear-gradient(100deg,#0d305ca8,#062144d9);border:1px solid #5cd7ff78;border-radius:20px}.move-help{font-size:11px;color:#b4d1e9;margin-top:8px}.control-left{display:flex;align-items:center;gap:18px}.dpad{display:grid;grid-template-columns:repeat(3,43px);grid-template-rows:repeat(3,43px);gap:3px}.dir{border:1px solid #83e7ff;border-radius:10px;background:linear-gradient(145deg,#1a79aa,#0b3367);color:#fff;font-size:24px;font-weight:1000;box-shadow:inset 0 0 10px #7de8ff54,0 3px 1px #051831;touch-action:none;user-select:none}.dir:active,.dir.pressed{background:#267cbd;transform:translateY(2px)}.up{grid-column:2;grid-row:1}.left{grid-column:1;grid-row:2}.right{grid-column:3;grid-row:2}.down{grid-column:2;grid-row:3}.dpad-core{grid-column:2;grid-row:2;display:grid;place-items:center;color:#74cfe7;font-size:19px}.actions{display:flex;gap:10px;align-items:center;justify-content:end;flex-wrap:wrap}.action-interact{padding:13px 30px;min-width:185px;border:3px solid #fff0b9;color:#1e2540;border-radius:99px;background:linear-gradient(#fff2bd,#ffc95f 64%,#eda02c);box-shadow:0 5px 0 #906026,inset 0 2px 0 #fff,0 0 18px #ffca5d52;font-size:21px;font-weight:1000}.action-interact:active{transform:translateY(4px);box-shadow:0 1px 0 #906026}.action-map{border:1px solid #71d5ef;background:#0b3d75;color:white;padding:13px 16px;border-radius:12px;font-weight:900}.footer{text-align:center;font-size:11px;color:#8ca9c6;padding:14px 0 0}
+.toast{position:fixed;bottom:25px;left:50%;transform:translate(-50%,20px);background:#132d53f7;border:1px solid #8be8ff;color:#eafaff;border-radius:16px;padding:12px 18px;font-size:13px;font-weight:750;max-width:92vw;text-align:center;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:40}.toast.show{opacity:1;transform:translate(-50%,0)}.overlay{position:fixed;inset:0;background:#020819b5;z-index:50;display:none;align-items:center;justify-content:center;padding:15px;backdrop-filter:blur(9px)}.overlay.open{display:flex}.dialog{position:relative;max-height:min(90dvh,810px);overflow-y:auto;width:min(670px,100%);border:2px solid #8be6ff;border-radius:23px;padding:24px;background:linear-gradient(145deg,#164278,#071f48 70%);box-shadow:inset 0 0 0 5px #0c2d57,0 0 44px #17cafa6d,0 20px 64px #000b}.xclose{position:absolute;right:12px;top:12px;background:#102950;border:1px solid #66bbdd;color:#fff;width:34px;height:34px;border-radius:10px;font-size:20px}.dlg-kicker{color:#73eaff;font-size:11px;font-weight:900;letter-spacing:2px;margin-bottom:5px}.dialog h2{font-size:clamp(23px,3vw,30px);margin:3px 35px 16px 0;color:#fff}.dialog p{color:#c9e5fa;font-size:14px;line-height:1.55}.libra-dlg{display:flex;align-items:center;gap:15px}.libra-dlg img{width:125px;max-width:30%;height:170px;object-fit:contain;filter:drop-shadow(0 0 14px #17e1ff55)}.dialog-actions{display:flex;gap:9px;margin-top:14px;flex-wrap:wrap}.btn{border:1px solid #89e4ff;background:linear-gradient(130deg,#1b619c,#0c365c);border-radius:11px;color:#fff;padding:11px 14px;font-size:13px;font-weight:900}.btn.gold{border-color:#ffe5a5;color:#26334c;background:linear-gradient(#ffedae,#f2b54d)}.btn:hover{filter:brightness(1.14)}.zonegrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.zone{border:1px solid #5baee6a8;border-radius:15px;padding:13px;min-height:99px;text-align:left;background:linear-gradient(135deg,var(--z1,#164775),var(--z2,#0f2751));display:flex;flex-direction:column;gap:4px;color:white}.zone:hover{filter:brightness(1.17);border-color:#e7d089}.zone b{font-size:13px}.zone small{font-size:11px;color:#c4deeb}.zone .emoji{font-size:27px}.pill{display:inline-block;border:1px solid #eacb82;color:#ffe1a4;padding:4px 10px;border-radius:99px;font-size:12px;font-weight:850}.video-placeholder{height:180px;display:grid;place-items:center;text-align:center;border:1.5px dashed #87d7ff;background:#061a35;border-radius:14px;color:#d9eaff;font-size:14px;gap:5px;padding:20px}.video-placeholder span{font-size:35px}.avatar-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.avatar-choice{border:1px solid #5ca8d7;background:#0a305b;color:white;border-radius:15px;padding:15px 8px;display:flex;flex-direction:column;gap:6px;align-items:center}.avatar-choice.selected{border:2px solid #ffe79f;background:#194c7d}.avatar-choice img{width:100px;height:169px;object-fit:contain;image-rendering:pixelated;object-position:top}
+@media(max-width:1120px){.mainlayout{grid-template-columns: minmax(0,1fr) 225px}.questside{padding:13px 10px}.s-title{font-size:15px}.queststep{font-size:11px}.controlpanel{padding:11px}}
+@media(max-width:780px){.mast{padding:0 2px 12px}.brandmark{font-size:31px}.brand-title{font-size:29px}.brand-sub{font-size:9px;letter-spacing:1.2px}.version{font-size:12px}.stat{padding:8px 9px;font-size:11px;gap:6px}.dash-right{margin-left:0}.smallbtn{padding:8px 10px;font-size:11px}.mainlayout{display:flex;flex-direction:column}.maincol,.questside{width:100%}.questside{display:none}.questside.expanded{display:block}.stage{height:min(57vh,520px);min-height:360px;max-height:none}.location{top:11px;left:11px;right:11px}.locchip{padding:6px 9px}.locchip b{font-size:14px}.locchip small{font-size:10px}.hintchip{font-size:9px;max-width:116px;white-space:normal;text-align:right}.controlpanel{padding:11px 12px}.move-help{display:none}.dpad{grid-template-columns:repeat(3,40px);grid-template-rows:repeat(3,40px)}.action-interact{min-width:140px;padding:12px 17px;font-size:17px}.action-map{padding:9px 11px;font-size:11px}.actions{gap:7px}.footer{font-size:9px}.world-prompt{max-width:92%;bottom:8px}}
+@media(max-width:420px){.brand-title{font-size:25px}.version{padding:5px 8px;font-size:11px}.brand-sub{font-size:8px}.stat:nth-child(3){display:none}.stage{height:55vh;min-height:360px}.controlpanel{gap:8px}.action-interact{min-width:130px;padding:11px 13px;font-size:16px}.action-map{padding:8px}.dpad{grid-template-columns:repeat(3,37px);grid-template-rows:repeat(3,37px)}.dashboard{gap:6px}.zonegrid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
+
+.sprite-lab-pair{display:flex;justify-content:center;gap:clamp(14px,5vw,50px);align-items:end;margin:16px auto 10px}.sprite-lab-card{display:grid;justify-items:center;gap:8px;min-width:128px;color:#d8edfd}.sprite-lab-figure{width:128px;height:210px;background-size:512px 840px;background-repeat:no-repeat;background-position:0 0;image-rendering:pixelated;animation:sprite-four .72s steps(4,end) infinite;filter:drop-shadow(0 7px 6px #02152f)}@keyframes sprite-four{from{background-position-x:0}to{background-position-x:-512px}}.sprite-lab-directions{display:flex;gap:6px;justify-content:center;flex-wrap:wrap}.sprite-lab-directions .btn{padding:8px 9px;font-size:12px}@media(prefers-reduced-motion:reduce){.sprite-lab-figure{animation:none}}
+.movement-slot{display:grid;justify-items:center;gap:7px}.movement-slot .smallbtn{min-height:44px;padding:6px 10px}.foyer-joystick{width:120px;height:120px;border:2px solid #83e7ff;border-radius:50%;position:relative;background:#0a335e;touch-action:none;user-select:none}.foyer-joystick[hidden],.dpad[hidden]{display:none}#foyerStick{position:absolute;width:42px;height:42px;border-radius:50%;top:37px;left:37px;background:#d6f7ff;border:3px solid #55d5f3;pointer-events:none}.xclose{width:44px;height:44px}@media(max-width:420px){.foyer-joystick{width:117px;height:117px}#foyerStick{top:35px;left:35px}}
+.foyer-assist{margin-top:14px;padding:8px 14px;border:1px solid #62cbe3;border-radius:14px;background:#0b2c50;font-size:13px}.foyer-assist summary{min-height:44px;display:list-item;padding-top:12px;cursor:pointer;font-weight:bold}.foyer-assist .btn{margin:4px}.foyer-assist p{line-height:1.5}
+</style>
+</head>
+<body>
+<div class="app">
+ <header class="mast">
+   <div class="brand"><div class="brandmark" aria-hidden="true">📖</div><div><div class="brand-title">SMARTLIB<span>verse</span> <span aria-hidden="true">✦</span></div><div class="brand-sub">JELAJAH DUNIA ILMU — JRPG REIMAGINED</div></div></div>
+   <div class="version">✧ HD-2D</div>
+ </header>
+ <div class="dashboard" role="status" aria-live="polite"><div class="stat">✦ <span id="lvl">TAHAP 1</span></div><div class="stat"><span class="star">⭐</span> <strong id="xp">0 XP</strong></div><div class="stat">🧭 <span id="count">0/6 ZON</span></div><div class="dash-right"><button id="chooseAvatar" class="smallbtn">👤 Avatar</button><button id="spriteLab" class="smallbtn" aria-label="Uji animasi avatar">🎞️ Uji Sprite</button><button id="toggleQuest" class="smallbtn" aria-controls="questside" aria-expanded="false">📋 Misi</button></div></div>
+ <main class="mainlayout">
+  <div class="maincol">
+   <div class="play-window">
+    <div class="location"><div class="locchip"><b>📚 PLAZA MULA <span style="color:#ffdc95">· Grand Foyer</span></b><small>Kaunter LIBRA AI · Portal Dunia Ilmu</small></div><div class="hintchip" id="hintTop">WASD / ↑↓←→ · E · C: collision</div></div>
+    <div class="stage" id="stage"><canvas id="world" tabindex="0" role="application" aria-label="Dunia Start Plaza interaktif. Gunakan kekunci anak panah atau WASD untuk menggerakkan avatar, E untuk berinteraksi. Ketik lokasi untuk berjalan ke situ."></canvas><div class="world-prompt" id="prompt" aria-live="polite">Gunakan <b>kekunci anak panah</b> atau butang arah untuk bergerak. Dekati <b>LIBRA AI</b> dan tekan Interaksi.</div></div>
+   </div>
+   <div class="controlpanel"><div class="control-left"><div class="movement-slot"><button id="movementMode" class="smallbtn" aria-pressed="false">Guna joystick</button><div id="foyerJoystick" class="foyer-joystick" hidden aria-label="Joystick sentuhan"><span id="foyerStick"></span></div><div class="dpad" aria-label="Kawalan pergerakan"><button class="dir up" data-dir="up" aria-label="Gerak ke atas">↑</button><button class="dir left" data-dir="left" aria-label="Gerak ke kiri">←</button><div class="dpad-core">✦</div><button class="dir right" data-dir="right" aria-label="Gerak ke kanan">→</button><button class="dir down" data-dir="down" aria-label="Gerak ke bawah">↓</button></div></div><div class="move-help">GERAK · WASD / ARROW<br>INTERAKSI · E / SPACE<br>KLIK · AUTO-LALUAN<br>UJIAN COLLISION · KEKUNCI C</div></div><div class="actions"><button class="action-map" id="worldMapBtn">🗺️ Peta Dunia</button><button class="action-interact" id="interactBtn">✦ Interaksi</button></div></div>
+   <details class="foyer-assist"><summary>Navigasi Bantuan</summary><p>Pilih penanda untuk berjalan melalui laluan selamat.</p><div><button class="btn" data-hotspot="libra">Kaunter LIBRA AI</button><button class="btn" data-hotspot="portal1">Portal Cerita</button><button class="btn" data-hotspot="portal2">Portal Cabaran</button><button class="btn" data-hotspot="portal3">Portal Penemuan</button><button class="btn" data-hotspot="map">World Map</button></div></details>
+  </div>
+  <aside class="questside" id="questside" aria-label="Panel misi"><div class="s-title">🏆 Misi SMARTLIBverse</div><div id="questRows"></div><button class="compass-btn" id="openMapSide">🗺️ Lihat 6 Zon</button><div class="libra-mini"><img src="assets/start-plaza/libra_ai.png" alt="Robot LIBRA AI"><div><b>LIBRA AI</b><small>Temui saya di kaunter kiri. Semua arahan tersedia dalam bentuk teks.</small></div></div></aside>
+ </main>
+ <div class="footer"><a href="https://skpkt.github.io/smartlib/" style="color:#91ecff">← Kembali ke SMARTLIB</a> · Permainan pembelajaran · Rekod disimpan pada peranti ini · © 2026 SMARTLIB | Developed by Syahida Suffian</div>
+</div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<div id="overlay" class="overlay" role="presentation"><div id="dialog" class="dialog" role="dialog" aria-modal="true" aria-label="Panel permainan"></div></div>
+<script type="module">
+import {readProgress,chooseAvatar,completeTutorial,progressTotals,secretAvailable} from "./js/foyer-progress.mjs?v=4";
+(()=>{'use strict';
+const ROOT='smartlibverse_foyer_playable_demo_v1';
+const GAME_KEY='smartlibverse_demo_v1';
+const gameStorage={getItem:key=>window.localStorage.getItem(key),setItem:(key,value)=>window.localStorage.setItem(key,value)};
+const WORLD_PATH='./world/index.html';
+const worldIds={library:'library',story:'gallery',edu:'quiz',trophy:'awards',garden:'garden',secret:'secret'};
+function readGame(){return readProgress(gameStorage)}
+function xpTotal(s){return progressTotals(s).xp}
+function canUnlockSecret(s){return secretAvailable(s)}
+function currentAvatar(){const a=readGame()?.profile?.avatar;return a==='perempuan'||a==='lelaki'?a:null}
+function syncAvatar(){const ok=chooseAvatar(gameStorage,st.gender);if(!ok)toast('Kemajuan tidak dapat disimpan. Simpanan lama tidak diubah.');return ok}
+function enterWorld(z){const key=worldIds[z.id];if(!key)return;
+ const game=readGame();
+ if(key==='secret'&&!canUnlockSecret(game)){openModal('<div class="dlg-kicker">ZON TERKUNCI</div><h2>🔒 Secret Zone</h2><p>Untuk membuka Zon Rahsia, capai Tahap 3, lengkapkan tiga misi dan kumpulkan dua lencana.</p><div class="dialog-actions"><button class="btn" data-close="1">Kembali ke Plaza</button></div>','locked');return;}
+ syncAvatar();
+ window.location.href=WORLD_PATH+'?zone='+encodeURIComponent(key);
+}
+
+const zoneData=[
+ {id:'library',name:'Virtual Library',icon:'📚',desc:'Terokai rak ajaib, katalog buku dan misi pembacaan.',shade:['#154b87','#0b2356']},
+ {id:'story',name:'Storytelling',icon:'🎭',desc:'Dewan bercerita dan pentas video Bahasa Isyarat.',shade:['#50438f','#10295c']},
+ {id:'edu',name:'Eduverse',icon:'🧠',desc:'Cabaran pembelajaran dan kuiz holografik.',shade:['#12658b','#122d60']},
+ {id:'trophy',name:'Trophy',icon:'🏆',desc:'Galeri ganjaran, XP dan pencapaian murid.',shade:['#7c582f','#17325e']},
+ {id:'garden',name:'Knowledge Garden',icon:'🌺',desc:'Taman ilmu, alam semula jadi dan penemuan.',shade:['#155f76','#174357']},
+ {id:'secret',name:'Secret Zone',icon:'🔮',desc:'Cabaran rahsia yang indah dan mesra kanak-kanak.',shade:['#4b3c85','#122c5b']}
+];
+const HOTSPOTS=[
+ {id:'libra',title:'LIBRA AI',x:455,y:727,stopX:533,stopY:724,r:132,kind:'libra',icon:'🤖'},
+ {id:'portal1',title:'Portal Cerita',x:546,y:556,stopX:549,stopY:600,r:145,kind:'portal',icon:'①',zones:['library','story']},
+ {id:'portal2',title:'Portal Cabaran',x:841,y:554,stopX:840,stopY:605,r:145,kind:'portal',icon:'②',zones:['edu','trophy']},
+ {id:'portal3',title:'Portal Penemuan',x:1137,y:556,stopX:1125,stopY:605,r:145,kind:'portal',icon:'③',zones:['garden','secret']},
+ {id:'map',title:'World Map',x:1373,y:730,stopX:1260,stopY:735,r:140,kind:'map',icon:'🗺'}
+];
+const $=s=>document.querySelector(s);const canvas=$('#world');const ctx=canvas.getContext('2d'); const stage=$('#stage');
+const img=(src)=>{const i=new Image();i.src=src;return i;};const BG=img('assets/start-plaza/grand_foyer_portal_hub.png');const sprites={lelaki:img('assets/start-plaza/avatar_lelaki_production_walk4.png'),perempuan:img('assets/start-plaza/avatar_perempuan_production_walk4.png')};
+const init={gender:'lelaki',x:823,y:812,xp:0,metLibra:false,visited:[],portalVisits:[],trophyClaimed:false};let st={...init};try{const dat=JSON.parse(localStorage.getItem(ROOT)||'null');if(dat&&typeof dat==='object')st={...init,...dat};}catch(e){}
+st.gender=currentAvatar()||st.gender;st.x=Math.max(400,Math.min(1330,Number(st.x)||823));st.y=Math.max(580,Math.min(866,Number(st.y)||812));if(!Array.isArray(st.visited))st.visited=[];if(!Array.isArray(st.portalVisits))st.portalVisits=[];if(!['lelaki','perempuan'].includes(st.gender))st.gender='lelaki';
+function save(){try{localStorage.setItem(ROOT,JSON.stringify(st));}catch(e){}};
+let joystick={x:0,y:0},joyPointer=null;
+let dir='front',pressed=new Set(),walking=false,route=null,walkDistance=0,strideDistance=0,debugColliders=false,goal=null,near=null,viewport={w:1,h:1,scale:1,left:0,top:0},time=0,last=0,toastTimeout,modalType=null;
+function level(){return 1+Math.floor(xpTotal(readGame())/50)};
+function addXp(id,pts){/* World missions are the authoritative demo reward source. */}
+function claimedZones(){const game=readGame();return (game?.visited||[]).filter(id=>['library','gallery','quiz','awards','garden','secret'].includes(id)).length}
+function updateUi(){const game=readGame(),x=xpTotal(game);$('#lvl').textContent='TAHAP '+level();$('#xp').textContent=x+' XP';$('#count').textContent=claimedZones()+'/6 ZON';
+ const rs=game?.rewards||[],lines=[['Bertemu LIBRA AI',rs.includes('tutorial')],['Teroka zon pembelajaran',claimedZones()>0],['Baca satu cerita',(game?.read||[]).length>0],['Lulus satu kuiz',(game?.quizzes||[]).length>0]];
+ $('#questRows').innerHTML=lines.map((l,i)=>`<div class="queststep ${l[1]?'done':''}"><span class="number">${i+1}</span><span>${l[0]}</span><span class="stepcheck">${l[1]?'✓':''}</span></div>`).join('')}
+function toast(s){const t=$('#toast');t.textContent=s;t.classList.add('show');clearTimeout(toastTimeout);toastTimeout=setTimeout(()=>t.classList.remove('show'),2300)};
+function openModal(html,type){modalType=type;$('#dialog').innerHTML=`<button class="xclose" data-close="1" aria-label="Tutup">×</button>`+html;$('#overlay').classList.add('open');pressed.clear();releaseJoystick();goal=null;route=null;$('#dialog').querySelector('button')?.focus();};
+function closeModal(){$('#overlay').classList.remove('open');modalType=null;canvas.focus({preventScroll:true})};
+function zoneCard(z){let yes=st.visited.includes('zone:'+z.id);return `<button class="zone" style="--z1:${z.shade[0]};--z2:${z.shade[1]}" data-zone="${z.id}"><span class="emoji">${z.icon}</span><b>${z.name} ${yes?'✓':''}</b><small>${z.desc}</small></button>`};
+function mapModal(){openModal(`<div class="dlg-kicker">WORLD MAP · SMARTLIBverse</div><h2>🗺️ Enam Dunia Ilmu</h2><p>Pilih zon untuk memasuki dunia pembelajaran sebenar. Kemajuan menggunakan simpanan permainan yang sama.</p><div class="zonegrid">${zoneData.map(zoneCard).join('')}</div><div class="dialog-actions"><button class="btn" data-close="1">Kembali ke Plaza</button></div>`,'map');};
+function libraModal(){if(!st.metLibra){st.metLibra=true;save();}const game=readGame()||freshGame();if(walkDistance>8&&!game.rewards.includes('tutorial')){if(completeTutorial(gameStorage))toast('🎖️ Misi LIBRA selesai · +20 XP');else toast('Kemajuan tidak dapat disimpan; simpanan lama dikekalkan.');}updateUi();openModal(`<div class="dlg-kicker">PENJAGA ILMU · NPC</div><h2>🤖 LIBRA AI</h2><div class="libra-dlg"><img src="assets/start-plaza/libra_ai.png" alt="LIBRA AI robot pembimbing"><p><b style="color:#fff">Hai, penjelajah!</b> Selamat datang ke Plaza Mula. Bergerak ke tiga portal bercahaya untuk menerokai dunia ilmu. Jika perlukan panduan, buka Peta Dunia di sebelah kanan.</p></div><p>♿ Panduan diberikan secara teks dan visual, tanpa keperluan audio.</p><div class="dialog-actions"><button class="btn gold" data-action="map">🗺️ Buka Peta Dunia</button><button class="btn" data-close="1">Teruskan menjelajah</button></div>`,'libra')};
+function portalModal(h){if(!st.portalVisits.includes(h.id)){st.portalVisits.push(h.id);addXp(h.id,10);save();updateUi()};const zs=h.zones.map(id=>zoneData.find(z=>z.id===id));openModal(`<div class="dlg-kicker">PORTAL AKTIF · PILIH DESTINASI</div><h2>✨ ${h.title}</h2><p>Satu portal membawa ke dua destinasi. Pilih zon untuk meneruskan pengembaraan dan aktiviti pembelajaran.</p><div class="zonegrid">${zs.map(zoneCard).join('')}</div><div class="dialog-actions"><button class="btn" data-action="map">Semua 6 zon</button><button class="btn" data-close="1">Kembali ke Foyer</button></div>`,'portal')};
+function zoneModal(z){enterWorld(z)}
+function avatarModal(){let selected=st.gender;openModal(`<div class="dlg-kicker">PENJELAJAH SMARTLIBverse</div><h2>👤 Pilih Avatar</h2><p>Kedua-dua karakter berpakaian sopan. Pilihan disimpan pada pelayar ini sahaja.</p><div class="avatar-choices"><button class="avatar-choice ${selected==='lelaki'?'selected':''}" data-avatar="lelaki"><img src="assets/start-plaza/avatar_lelaki_preview.png" style="object-fit:contain" alt="Avatar lelaki HD-2D"><b>👦 Lelaki</b></button><button class="avatar-choice ${selected==='perempuan'?'selected':''}" data-avatar="perempuan"><img src="assets/start-plaza/avatar_perempuan_preview.png" style="object-fit:contain" alt="Avatar perempuan bertudung HD-2D"><b>👧 Perempuan Bertudung</b></button></div><div class="dialog-actions"><button class="btn" data-close="1">Kembali ke permainan</button></div>`,'avatar')};
+
+function spriteLabModal(){
+ const card=(key,label)=>`<div class="sprite-lab-card"><div class="sprite-lab-figure" data-sprite-preview="${key}" style="background-image:url('assets/start-plaza/avatar_${key}_production_walk4.png')"></div><b>${label}</b></div>`;
+ openModal(`<div class="dlg-kicker">UJI ANIMASI · ASSET PRODUKSI</div><h2>🎞️ Pergerakan Avatar HD-2D</h2><p>Uji empat fasa animasi berulang untuk setiap arah. Titik pijakan kekal sama apabila karakter bergerak.</p><div class="sprite-lab-pair">${card('lelaki','👦 Lelaki')}${card('perempuan','👧 Perempuan bertudung')}</div><div class="sprite-lab-directions"><button class="btn" data-lab-dir="front">↓ Hadapan</button><button class="btn" data-lab-dir="back">↑ Belakang</button><button class="btn" data-lab-dir="left">← Kiri</button><button class="btn" data-lab-dir="right">→ Kanan</button></div><p style="font-size:12px">Arah sisi menggunakan empat lukisan pose berbeza. Depan dan belakang mengandungi tiga pose ilustrasi dengan satu fasa neutral berulang. Ujian gameplay sebenar menggunakan sprite sheet yang sama.</p><div class="dialog-actions"><button class="btn gold" data-close="1">Kembali bermain</button></div>`,'sprite-lab');
+}
+function interact(){if($('#overlay').classList.contains('open'))return;if(near){activate(near);return;}let h=HOTSPOTS.reduce((a,b)=>Math.hypot(b.stopX-st.x,b.stopY-st.y)<Math.hypot(a.stopX-st.x,a.stopY-st.y)?b:a);if(walkTo(h.stopX,h.stopY,h.id))toast('🚶 Avatar menuju ke '+h.title)};
+function activate(h){goal=null; if(h.kind==='libra')libraModal();else if(h.kind==='portal')portalModal(h);else mapModal()};
+$('#dialog').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.close){closeModal();return};if(b.dataset.labDir){const y={front:0,back:210,left:420,right:630}[b.dataset.labDir];$('#dialog').querySelectorAll('[data-sprite-preview]').forEach(el=>el.style.backgroundPositionY='-'+y+'px');return};if(b.dataset.avatar){st.gender=b.dataset.avatar;save();const avatarSaved=syncAvatar();if(avatarSaved)toast('Avatar '+(st.gender==='lelaki'?'lelaki':'perempuan')+' dipilih');closeModal();return};if(b.dataset.zone){const z=zoneData.find(z=>z.id===b.dataset.zone);zoneModal(z);return};if(b.dataset.action==='map'){mapModal();return};});
+document.addEventListener('keydown',e=>{if(e.key!=='Tab'||!$('#overlay').classList.contains('open'))return;const items=[...$('#dialog').querySelectorAll('button,a[href],input,select,[tabindex="0"]')].filter(el=>!el.disabled);if(!items.length)return;const first=items[0],end=items[items.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();end.focus()}else if(!e.shiftKey&&document.activeElement===end){e.preventDefault();first.focus()}});
+$('#overlay').addEventListener('click',e=>{if(e.target===$('#overlay'))closeModal()});
+$('#chooseAvatar').onclick=avatarModal;$('#spriteLab').onclick=spriteLabModal;$('#worldMapBtn').onclick=mapModal;$('#openMapSide').onclick=mapModal;$('#interactBtn').onclick=interact;$('#toggleQuest').onclick=()=>{const el=$('#questside');const exp=el.classList.toggle('expanded');$('#toggleQuest').setAttribute('aria-expanded',String(exp));if(innerWidth>780){el.classList.remove('expanded');toast('Panel misi sentiasa kelihatan pada desktop')}};
+function movingKey(k){return ({arrowup:'up',w:'up',arrowdown:'down',s:'down',arrowleft:'left',a:'left',arrowright:'right',d:'right'})[k]};
+window.addEventListener('keydown',e=>{if(e.key==='Escape'){if($('#overlay').classList.contains('open'))closeModal();return};if($('#overlay').classList.contains('open'))return;if(['INPUT','TEXTAREA','BUTTON'].includes(document.activeElement?.tagName)&&document.activeElement!==canvas)return;const k=e.key.toLowerCase();const d=movingKey(k);if(d){pressed.add(d);goal=null;route=null;e.preventDefault()}else if(k==='e'||k===' '){interact();e.preventDefault()}else if(k==='m'){mapModal();e.preventDefault()}else if(k==='c'){debugColliders=!debugColliders;toast(debugColliders?'Paparan collision: aktif':'Paparan collision: dimatikan');e.preventDefault()}});
+window.addEventListener('keyup',e=>{const d=movingKey(e.key.toLowerCase());if(d)pressed.delete(d)});window.addEventListener('blur',()=>{pressed.clear();releaseJoystick();document.querySelectorAll('.dir').forEach(b=>b.classList.remove('pressed'));last=0;fixedAccumulator=0;});
+[...document.querySelectorAll('.dir')].forEach(b=>{const d=b.dataset.dir;function release(e){pressed.delete(d);b.classList.remove('pressed');try{b.releasePointerCapture(e.pointerId)}catch(x){}}b.addEventListener('pointerdown',e=>{e.preventDefault();pressed.add(d);goal=null;route=null;b.classList.add('pressed');try{b.setPointerCapture(e.pointerId)}catch(err){}});b.addEventListener('pointerup',release);b.addEventListener('pointercancel',release);b.addEventListener('lostpointercapture',()=>{pressed.delete(d);b.classList.remove('pressed')})});
+function clamp(n,l,h){return Math.max(l,Math.min(h,n))};
+const joy=$('#foyerJoystick');function releaseJoystick(){joyPointer=null;joystick={x:0,y:0};$('#foyerStick').style.transform='translate(0,0)'}
+function dragJoystick(e){if(e.pointerId!==joyPointer)return;const r=joy.getBoundingClientRect();let x=(e.clientX-r.left-r.width/2)/40,y=(e.clientY-r.top-r.height/2)/40;const n=Math.max(1,Math.hypot(x,y));joystick={x:x/n,y:y/n};if(Math.hypot(x,y)<.15)joystick={x:0,y:0};$('#foyerStick').style.transform='translate('+joystick.x*30+'px,'+joystick.y*30+'px)';route=null;goal=null}
+joy.addEventListener('pointerdown',e=>{if($('#overlay').classList.contains('open'))return;joyPointer=e.pointerId;joy.setPointerCapture(e.pointerId);dragJoystick(e)});joy.addEventListener('pointermove',dragJoystick);['pointerup','pointercancel','lostpointercapture'].forEach(type=>joy.addEventListener(type,releaseJoystick));
+$('#movementMode').onclick=()=>{releaseJoystick();pressed.clear();const on=joy.hidden;joy.hidden=!on;$('.dpad').hidden=on;$('#movementMode').setAttribute('aria-pressed',String(on));$('#movementMode').textContent=on?'Guna butang arah':'Guna joystick'};
+
+document.querySelectorAll('[data-hotspot]').forEach(b=>b.addEventListener('click',()=>{const h=HOTSPOTS.find(h=>h.id===b.dataset.hotspot);if(h&&!$('#overlay').classList.contains('open'))walkTo(h.stopX,h.stopY,h.id)}));
+function resize(){const r=stage.getBoundingClientRect();const dpr=Math.min(devicePixelRatio||1,2);canvas.width=Math.round(r.width*dpr);canvas.height=Math.round(r.height*dpr);canvas.style.width=r.width+'px';canvas.style.height=r.height+'px';ctx.setTransform(dpr,0,0,dpr,0,0);viewport.w=r.width;viewport.h=r.height;viewport.dpr=dpr};if('ResizeObserver' in window)new ResizeObserver(resize).observe(stage);else window.addEventListener('resize',resize);resize();
+function camera(){const vw=1672,vh=941;let s=Math.max(viewport.w/vw,viewport.h/vh);let visW=viewport.w/s,visH=viewport.h/s;let cx=clamp(st.x,visW/2,vw-visW/2),cy=clamp(710,visH/2,vh-visH/2);viewport.scale=s;viewport.left=cx-visW/2;viewport.top=cy-visH/2;};
+function sc(x,y){return [(x-viewport.left)*viewport.scale,(y-viewport.top)*viewport.scale]};function worldFromClient(e){const r=canvas.getBoundingClientRect();return [viewport.left+(e.clientX-r.left)/viewport.scale,viewport.top+(e.clientY-r.top)/viewport.scale]};
+// Physics coordinates are authored in the original 1672×941 foyer artwork.
+// This simulation is independent of canvas size, zoom, pixel ratio or orientation.
+const WALK_POLY=[[432,565],[1242,565],[1455,916],[215,916]];
+const COLLIDERS=[
+ {id:'libra-desk',name:'Kaunter LIBRA AI',points:[[0,490],[314,491],[393,539],[468,585],[508,676],[506,770],[290,802],[0,786]]},
+ {id:'worldmap-stand',name:'Papan World Map',points:[[1373,394],[1672,394],[1672,758],[1341,758],[1328,674]]},
+ {id:'left-crystal',name:'Tiang kristal kiri',circle:[460,583,22]},
+ {id:'middle-left-crystal',name:'Tiang kristal tengah kiri',circle:[683,581,19]},
+ {id:'middle-right-crystal',name:'Tiang kristal tengah kanan',circle:[995,581,19]},
+ {id:'right-crystal',name:'Tiang kristal kanan',circle:[1227,583,22]}
+];
+const CFG={feetRadius:13,moveSpeed:205,physicsMs:1000/60,subStep:3.4,stridePx:17,navStep:28};
+const qaMetrics={collisionBlocks:0,slides:0,pathRequests:0,pathComputations:0,pathCacheNodes:0,lastPathMs:0,lastPathLength:0,routeReplans:0,blockedRoutes:0,frameUpdates:0,maxUpdateMs:0,physicsTicks:0};
+const boxOf=p=>({minX:Math.min(...p.map(n=>n[0])),maxX:Math.max(...p.map(n=>n[0])),minY:Math.min(...p.map(n=>n[1])),maxY:Math.max(...p.map(n=>n[1]))});
+const walkBox=boxOf(WALK_POLY);COLLIDERS.forEach(o=>{o.box=o.points?boxOf(o.points):{minX:o.circle[0]-o.circle[2],maxX:o.circle[0]+o.circle[2],minY:o.circle[1]-o.circle[2],maxY:o.circle[1]+o.circle[2]}});
+function insidePolygon(x,y,poly){let inside=false;for(let i=0,j=poly.length-1;i<poly.length;j=i++){
+ const [ax,ay]=poly[i], [bx,by]=poly[j];if((ay>y)!==(by>y)&&x<(bx-ax)*(y-ay)/(by-ay)+ax)inside=!inside;
+}return inside;}
+function segmentDistance(x,y,ax,ay,bx,by){const dx=bx-ax,dy=by-ay,den=dx*dx+dy*dy||1,t=clamp(((x-ax)*dx+(y-ay)*dy)/den,0,1);return Math.hypot(x-(ax+t*dx),y-(ay+t*dy));}
+function edgeDistance(x,y,poly){let closest=Infinity;for(let i=0;i<poly.length;i++){const a=poly[i],b=poly[(i+1)%poly.length];closest=Math.min(closest,segmentDistance(x,y,a[0],a[1],b[0],b[1]));}return closest;}
+function canStand(x,y,r=CFG.feetRadius){if(!Number.isFinite(x)||!Number.isFinite(y))return false;
+ if(x<walkBox.minX+r||x>walkBox.maxX-r||y<walkBox.minY+r||y>walkBox.maxY-r)return false;
+ if(!insidePolygon(x,y,WALK_POLY)||edgeDistance(x,y,WALK_POLY)<r-1e-7)return false;
+ for(const ob of COLLIDERS){const bb=ob.box;if(x<bb.minX-r||x>bb.maxX+r||y<bb.minY-r||y>bb.maxY+r)continue;
+  if(ob.points){if(insidePolygon(x,y,ob.points)||edgeDistance(x,y,ob.points)<r-1e-7)return false;}
+  else if(Math.hypot(x-ob.circle[0],y-ob.circle[1])<ob.circle[2]+r-1e-7)return false;
+ }return true;
+}
+function nearestStand(x,y){if(canStand(x,y))return {x,y};
+ // The search keeps invalid clicks off the furniture while returning a nearby reachable tile.
+ for(let radius=8;radius<=850;radius+=10){for(let k=0;k<32;k++){const theta=k*Math.PI/16,px=x+radius*Math.cos(theta),py=y+radius*Math.sin(theta);if(canStand(px,py))return {x:px,y:py};}}
+ return {x:823,y:812};
+}
+function clearPath(a,b){const length=Math.hypot(b.x-a.x,b.y-a.y);const count=Math.max(1,Math.ceil(length/4));for(let i=0;i<=count;i++){const t=i/count;if(!canStand(a.x+(b.x-a.x)*t,a.y+(b.y-a.y)*t))return false;}return true;}
+const nav={nodes:[],byKey:new Map(),ready:false};
+function buildNav(){if(nav.ready)return;const step=CFG.navStep,ox=219,oy=571,nx=45,ny=13;
+ for(let j=0;j<ny;j++)for(let i=0;i<nx;i++){const x=ox+i*step,y=oy+j*step;if(canStand(x,y)){const n={i,j,x,y,id:j*nx+i,neighbors:[]};nav.nodes.push(n);nav.byKey.set(n.id,n);}}
+ for(const n of nav.nodes)for(const [di,dj] of [[1,0],[-1,0],[0,1],[0,-1],[1,1],[-1,1],[1,-1],[-1,-1]]){
+ const other=nav.byKey.get((n.j+dj)*nx+n.i+di);if(other&&clearPath(n,other))n.neighbors.push([other.id,Math.hypot(di,dj)*step]);
+ }nav.ready=true;qaMetrics.pathCacheNodes=nav.nodes.length;
+}
+function navConnect(point){const candidate=[];
+ for(const n of nav.nodes){const d=Math.hypot(n.x-point.x,n.y-point.y);if(d<=165)candidate.push({n,d});}
+ candidate.sort((a,b)=>a.d-b.d);let visible=[];
+ for(const v of candidate){if(clearPath(point,v.n)){visible.push(v);if(visible.length>=9)break;}}
+ if(visible.length)return visible;
+ // Fallback to a wider connector search for positions near narrow entrances.
+ const others=nav.nodes.map(n=>({n,d:Math.hypot(n.x-point.x,n.y-point.y)})).sort((a,b)=>a.d-b.d);
+ for(const v of others){if(v.d>165&&clearPath(point,v.n)){visible.push(v);if(visible.length>=3)break;}}
+ return visible;
+}
+function findPath(x,y){qaMetrics.pathRequests++;const started=performance.now();const from={x:st.x,y:st.y},to=nearestStand(x,y);
+ if(clearPath(from,to)){qaMetrics.lastPathMs=performance.now()-started;qaMetrics.lastPathLength=Math.hypot(to.x-from.x,to.y-from.y);return [to];}
+ buildNav();qaMetrics.pathComputations++;
+ const entrances=navConnect(from),exits=navConnect(to);if(!entrances.length||!exits.length)return null;
+ const endSet=new Map(exits.map(v=>[v.n.id,v.d]));const open=new Set(),g=new Map(),came=new Map(),f=new Map();
+ for(const v of entrances){open.add(v.n.id);g.set(v.n.id,v.d);f.set(v.n.id,v.d+Math.hypot(v.n.x-to.x,v.n.y-to.y));}
+ let best=null,bestScore=Infinity,iter=0;
+ while(open.size&&iter++<nav.nodes.length+30){let curr=null,score=Infinity;for(const id of open){const candidate=f.get(id)??Infinity;if(candidate<score){score=candidate;curr=id;}}
+  if(curr===null||score>=bestScore)break;
+  open.delete(curr);const node=nav.byKey.get(curr),scoreToEnd=endSet.get(curr);
+  if(scoreToEnd!==undefined){const total=g.get(curr)+scoreToEnd;if(total<bestScore){best=curr;bestScore=total;}continue;}
+  for(const [neighbor,d] of node.neighbors){const tentative=g.get(curr)+d;if(tentative+1e-7<(g.get(neighbor)??Infinity)){
+    came.set(neighbor,curr);g.set(neighbor,tentative);const next=nav.byKey.get(neighbor);f.set(neighbor,tentative+Math.hypot(next.x-to.x,next.y-to.y));open.add(neighbor);
+  }}
+ }
+ if(best===null){qaMetrics.lastPathMs=performance.now()-started;return null;}
+ let rev=[],id=best,guard=0;while(id!==undefined&&guard++<nav.nodes.length+5){const node=nav.byKey.get(id);rev.push({x:node.x,y:node.y});id=came.get(id);}rev.reverse();
+ // Furthest-visible-node smoothing; never remove an obstacle-avoidance waypoint.
+ const raw=[...rev,to],smooth=[];let pivot=from,i=0;
+ while(i<raw.length){let far=i;for(let k=raw.length-1;k>=i;k--){if(clearPath(pivot,raw[k])){far=k;break;}}
+  if(!clearPath(pivot,raw[far])){qaMetrics.lastPathMs=performance.now()-started;return null;}
+  smooth.push(raw[far]);pivot=raw[far];i=far+1;
+ }
+ qaMetrics.lastPathMs=performance.now()-started;qaMetrics.lastPathLength=[from,...smooth].reduce((sum,p,k,a)=>k?sum+Math.hypot(p.x-a[k-1].x,p.y-a[k-1].y):sum,0);return smooth;
+}
+function moveColliding(dx,dy){const len=Math.hypot(dx,dy);if(len<1e-6)return 0;const n=Math.max(1,Math.ceil(len/CFG.subStep));const sx=dx/n,sy=dy/n;let moved=0;
+ for(let i=0;i<n;i++){
+  const ox=st.x,oy=st.y;
+  if(canStand(ox+sx,oy+sy)){st.x=ox+sx;st.y=oy+sy;}
+  else{
+   qaMetrics.collisionBlocks++;
+   // Try the axis with greatest intended travel first; permits smooth wall sliding.
+   const first=Math.abs(sx)>=Math.abs(sy)?'x':'y';const order=[first,first==='x'?'y':'x'];
+   for(const axis of order){if(axis==='x'&&sx!==0&&canStand(st.x+sx,st.y)){st.x+=sx;qaMetrics.slides++;}
+    if(axis==='y'&&sy!==0&&canStand(st.x,st.y+sy)){st.y+=sy;qaMetrics.slides++;}}
+  }
+  moved+=Math.hypot(st.x-ox,st.y-oy);
+ }
+ return moved;
+}
+function walkTo(x,y,after=null){const path=findPath(x,y);if(!path||!path.length){qaMetrics.blockedRoutes++;toast('Laluan terhalang. Pilih lokasi di lantai.');return false;}
+ route={points:path,index:0,after,target:{x:path[path.length-1].x,y:path[path.length-1].y},replans:0,stallMs:0};goal=null;return true;
+}
+if(!canStand(st.x,st.y)){const p=nearestStand(st.x,st.y);st.x=p.x;st.y=p.y;save();}
+window.SMARTLIBverseQA={canStand,findPath,colliders:COLLIDERS,walkablePolygon:WALK_POLY,
+ getState:()=>({...st,direction:dir,walking,walkDistance,strideDistance,animFrame:(walking&&!matchMedia('(prefers-reduced-motion: reduce)').matches)?Math.floor(strideDistance/CFG.stridePx)%4:0,route:route?{index:route.index,points:route.points.length,after:route.after,stallMs:route.stallMs}:null}),
+ setPosition:(x,y)=>{if(!canStand(x,y))return false;st.x=x;st.y=y;route=null;strideDistance=0;save();return true;},
+ move:(dx,dy)=>moveColliding(dx,dy),
+ toggleCollision:()=>{debugColliders=!debugColliders;return debugColliders;},
+ metrics:()=>({...qaMetrics}),
+ walkTo:(x,y,after)=>walkTo(x,y,after),
+ advance:(ticks=1)=>{let allSafe=true;for(let i=0;i<ticks;i++){update(CFG.physicsMs);allSafe=allSafe&&canStand(st.x,st.y);}return {state:{...st},route:route?{index:route.index,points:route.points.length}:null,allSafe};},
+ simulate:(direction,ticks=60)=>{pressed.add(direction);for(let i=0;i<ticks;i++)update(CFG.physicsMs);pressed.delete(direction);return {...st};},
+ testPath:(x,y)=>{const points=findPath(x,y);return points?{points,safe:[{x:st.x,y:st.y},...points].every((p,i,a)=>i===0||clearPath(a[i-1],p))}:null;}
+};
+canvas.addEventListener('pointerdown',e=>{if($('#overlay').classList.contains('open'))return;const [wx,wy]=worldFromClient(e);const h=HOTSPOTS.find(h=>Math.hypot(wx-h.x,wy-h.y)<105);
+ if(h){if(walkTo(h.stopX,h.stopY,h.id))toast(`🚶 Menuju ke ${h.title}`)}
+ else if(walkTo(wx,wy))toast('🚶 Menuju ke lokasi dipilih');
+ canvas.focus({preventScroll:true});});
+function nearHotspot(){let arr=HOTSPOTS.map(h=>({h,d:Math.hypot(st.x-h.stopX,st.y-h.stopY)})).filter(v=>v.d<=v.h.r).sort((a,b)=>a.d-b.d);return arr.length?arr[0].h:null};
+function finishRoute(r){if(route!==r)return;route=null;save();if(r.after){const h=HOTSPOTS.find(h=>h.id===r.after);if(h&&Math.hypot(st.x-h.stopX,st.y-h.stopY)<=30)activate(h);}}
+function update(dt){const started=performance.now();qaMetrics.physicsTicks++;time+=dt;const prevWalking=walking;walking=false;
+ const kx=(pressed.has('right')?1:0)-(pressed.has('left')?1:0);
+ const ky=(pressed.has('down')?1:0)-(pressed.has('up')?1:0);let vx=kx+joystick.x,vy=ky+joystick.y,targetDist=Infinity;
+ if(vx||vy){route=null;}
+ else if(route){let p=route.points[route.index];if(p){const dx=p.x-st.x,dy=p.y-st.y;targetDist=Math.hypot(dx,dy);
+  if(targetDist<=.65){st.x=p.x;st.y=p.y;route.index++;p=route.points[route.index];if(!p){finishRoute(route);}
+   else{const xx=p.x-st.x,yy=p.y-st.y;targetDist=Math.hypot(xx,yy);if(targetDist>0){vx=xx/targetDist;vy=yy/targetDist;}}
+  }else{vx=dx/targetDist;vy=dy/targetDist;}
+ }}
+ const m=Math.hypot(vx,vy);
+ if(m>0){const speed=CFG.moveSpeed;const dist=Math.min(speed*dt/1000,targetDist);const heading=(Math.abs(vx)>=Math.abs(vy)*1.12)?(vx<0?'left':'right'):(Math.abs(vy)>=Math.abs(vx)*1.12)?(vy<0?'back':'front'):(dir==='left'||dir==='right'?(vx<0?'left':'right'):(vy<0?'back':'front'));
+ const oldDir=dir;dir=heading;
+ const moved=moveColliding((vx/m)*dist,(vy/m)*dist);
+ walking=moved>0.08;
+ if(walking){if(!prevWalking||oldDir!==dir)strideDistance=0;strideDistance+=moved;walkDistance+=moved;
+  if(route)route.stallMs=0;
+  if(Math.floor(time/850)!==Math.floor((time-dt)/850))save();
+ }else if(route){route.stallMs+=dt;if(route.stallMs>200){
+  if(route.replans<1){const pending=route,redirect=findPath(pending.target.x,pending.target.y);pending.replans++;qaMetrics.routeReplans++;
+   if(redirect&&redirect.length){route.points=redirect;route.index=0;route.stallMs=0;}else{route=null;qaMetrics.blockedRoutes++;toast('Laluan terhalang. Cuba lokasi lain.');}}
+  else{route=null;qaMetrics.blockedRoutes++;toast('Laluan tersekat. Pilih destinasi lain.');}
+ }}
+ }else{strideDistance=0;}
+ near=nearHotspot();const msg=near?`<b>${near.title}</b> · Tekan <b>Interaksi</b> atau <b>E</b> untuk membuka`:route?'Avatar mengikut laluan selamat. Tekan arah untuk mengambil alih.':'Gerakkan avatar ke <b>LIBRA AI</b>, portal atau <b>World Map</b>. Ketik lokasi untuk auto-laluan.';
+ if($('#prompt').innerHTML!==msg)$('#prompt').innerHTML=msg;
+ const t=performance.now()-started;qaMetrics.maxUpdateMs=Math.max(t,qaMetrics.maxUpdateMs);qaMetrics.frameUpdates++;
+}
+function floorMark(h){const [x,y]=sc(h.stopX,h.stopY),s=viewport.scale;const radius=(near?.id===h.id?29:21)*Math.max(.75,s);const wobble=window.matchMedia('(prefers-reduced-motion: reduce)').matches?0:Math.sin(time/500+h.x)*2;ctx.save();ctx.globalAlpha=(near?.id===h.id)?0.92:0.45;ctx.lineWidth=2;ctx.strokeStyle=near?.id===h.id?'#ffe398':'#80eaff';ctx.shadowColor='#43dfff';ctx.shadowBlur=14;ctx.beginPath();ctx.ellipse(x,y,Math.max(17,radius+wobble),Math.max(7,radius/2),0,0,Math.PI*2);ctx.stroke();ctx.restore();if(near?.id===h.id){ctx.save();ctx.font='bold 13px Trebuchet MS';ctx.textAlign='center';ctx.fillStyle='#fff1b7';ctx.shadowColor='#001627';ctx.shadowBlur=6;ctx.fillText('✦ Interaksi: '+h.title,x,y-30);ctx.restore()}};
+function draw(){ctx.clearRect(0,0,viewport.w,viewport.h);camera();const sca=viewport.scale;
+ if(BG.complete&&BG.naturalWidth){ctx.imageSmoothingEnabled=true;ctx.drawImage(BG,-viewport.left*sca,-viewport.top*sca,1672*sca,941*sca)}
+ else{ctx.fillStyle='#12315b';ctx.fillRect(0,0,viewport.w,viewport.h)};
+ if(debugColliders){
+  const outline=(pts,color,fill)=>{ctx.beginPath();pts.forEach(([x,y],i)=>{const p=sc(x,y);i?ctx.lineTo(...p):ctx.moveTo(...p)});ctx.closePath();ctx.strokeStyle=color;ctx.lineWidth=2;ctx.stroke();ctx.fillStyle=fill;ctx.fill();};
+  ctx.save();outline(WALK_POLY,'#6cfdc2','#41cf9640');COLLIDERS.forEach(o=>{if(o.points)outline(o.points,'#ff7b78','#f5443f44');else{const [x,y,r]=o.circle,p=sc(x,y);ctx.beginPath();ctx.arc(p[0],p[1],(r+CFG.feetRadius)*sca,0,Math.PI*2);ctx.fillStyle='#f5443f55';ctx.fill();ctx.strokeStyle='#ff7b78';ctx.stroke();}});ctx.restore();
+ }
+ HOTSPOTS.forEach(floorMark);
+ const [screenX,screenY]=sc(st.x,st.y);const px=Math.round(screenX*viewport.dpr)/viewport.dpr,py=Math.round(screenY*viewport.dpr)/viewport.dpr;const depth=.80+(.32*(st.y-583)/(862-583));const spriteW=71*depth,spriteH=117*depth;
+ ctx.save();ctx.fillStyle='rgba(2,20,44,.45)';ctx.beginPath();ctx.ellipse(px,py-1,23*depth,7*depth,0,0,6.283);ctx.fill();ctx.restore();
+ const image=sprites[st.gender];if(image.complete&&image.naturalWidth){const dmap={front:0,back:1,left:2,right:3};
+ const prefersReduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const frame=(walking&&!prefersReduced)?Math.floor(strideDistance/CFG.stridePx)%4:0;
+ ctx.imageSmoothingEnabled=false;ctx.drawImage(image,frame*256,dmap[dir]*420,256,420,px-spriteW/2,py-spriteH*(405/420),spriteW,spriteH);
+ ctx.imageSmoothingEnabled=true;
+ }else{ctx.font='45px sans-serif';ctx.fillText('🧑‍🎓',px,py)}
+};
+let fixedAccumulator=0;
+function loop(t){if(!last)last=t;const elapsed=Math.min(100,Math.max(0,t-last));last=t;
+ if(!$('#overlay').classList.contains('open')){
+  fixedAccumulator+=elapsed;let steps=0;
+  while(fixedAccumulator>=CFG.physicsMs&&steps<6){update(CFG.physicsMs);fixedAccumulator-=CFG.physicsMs;steps++;}
+  if(steps===6)fixedAccumulator=Math.min(fixedAccumulator,CFG.physicsMs);
+ }else fixedAccumulator=0;
+ draw();requestAnimationFrame(loop);
+}
+window.addEventListener('pagehide',save);document.addEventListener('visibilitychange',()=>{pressed.clear();last=0;fixedAccumulator=0;if(document.hidden)save();});
+BG.onload=draw;Object.values(sprites).forEach(im=>im.onload=draw);updateUi();requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
