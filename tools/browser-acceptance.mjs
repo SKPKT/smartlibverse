@@ -24,6 +24,11 @@ try{
   // Actual keyboard events, direction changes, collision overlay and normalized diagonals.
   for(const key of ['w','a','s','d','ArrowUp','ArrowDown','ArrowLeft','ArrowRight']){await page.evaluate(()=>window.SMARTLIBverseQA.setPosition(823,812));await page.locator('#world').focus();await page.keyboard.down(key);await frame(page,10);await page.keyboard.up(key);await frame(page,2);assert(await page.evaluate(()=>{const s=window.SMARTLIBverseQA.getState();return window.SMARTLIBverseQA.canStand(s.x,s.y)&&!s.walking;}));}
   await page.keyboard.press('c');await page.keyboard.press('c');
+  // Capture each nearby portal caption at every supported viewport for visual review.
+  for(const [id,x,y]of [['portal1',549,600],['portal2',840,605],['portal3',1125,605]]){
+   await page.evaluate(([x,y])=>window.SMARTLIBverseQA.setPosition(x,y),[x,y]);await frame(page);
+   await page.screenshot({path:`test-results/${id}-${width}.png`,fullPage:true});
+  }
   // Real pointer capture/release in the same control slot.
   await page.locator('#movementMode').click();await page.locator('#foyerJoystick').scrollIntoViewIfNeeded();const joy=await page.locator('#foyerJoystick').boundingBox();await page.mouse.move(joy.x+joy.width/2,joy.y+joy.height/2);await page.mouse.down();await page.mouse.move(joy.x+joy.width-10,joy.y+joy.height/2);await frame(page,10);await page.mouse.up();await frame(page,2);assert.equal(await page.evaluate(()=>window.SMARTLIBverseQA.getState().walking),false);
   await page.getByText('Navigasi Bantuan',{exact:true}).click();
