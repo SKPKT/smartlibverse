@@ -1,6 +1,7 @@
 import {books,missions,zones,facts} from '../data/content.mjs';
 import {videos} from '../data/videos.mjs';
-import {fresh,load,save,totals,unlocked,earn,grade,move,assistedRoute} from './state.mjs?v=20261119.3';
+import {fresh,load,totals,unlocked,earn,grade,move,assistedRoute} from './state.mjs?v=20261119.3';
+import {writeProgress as save} from './foyer-progress.mjs';
 import {createRenderer,nearest,targets} from './world.mjs?v=20261121.4';
 const $=id=>document.getElementById(id),panel=$('panel'),body=$('panel-body'),canvas=$('world');
 let storage;try{storage=window.localStorage;}catch{storage={getItem(){throw Error();},setItem(){throw Error();}};}

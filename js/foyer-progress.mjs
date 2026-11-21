@@ -26,5 +26,12 @@ export function completeTutorial(storage) {
     if (earn(verified,'tutorial') && !raw.rewards.includes('tutorial')) raw.rewards.push('tutorial');
   });
 }
+// The reused learning world writes known v1 fields without dropping extension fields.
+export function writeProgress(storage, state) {
+  return editProgress(storage, raw => {
+    const profile = {...raw.profile, ...state.profile};
+    Object.assign(raw, state, {profile});
+  });
+}
 export const progressTotals = state => totals(sanitize(state));
 export const secretAvailable = state => unlocked(sanitize(state));
