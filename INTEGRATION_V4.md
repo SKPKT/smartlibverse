@@ -10,11 +10,13 @@ Integration corrections: original reward/secret engine reused; raw v1 fields pre
 
 Validation completed locally:
 
-- npm test: 15 passed, zero failures/skips. Includes original stories/quiz grading/rewards, storage preservation, blocked storage, all movement directions, normalized diagonals, stop, collision, safe paths, pointer cancellation/blur, four animation slots, reduced motion, exact PNG hashes and activation of LIBRA, all three arches and physical map through the actual simulation.
+- npm test: 16 passed, zero failures/skips. Includes original stories/quiz grading/rewards, storage preservation (including extension fields in reused worlds), blocked storage, all movement directions, normalized diagonals, stop, collision, safe paths, pointer cancellation/blur, four animation slots, reduced motion, exact PNG hashes and activation of LIBRA, all three arches and physical map through the actual simulation.
 - npm run build: passed, including module syntax checks and public secret scan. Static allowlist includes world and the original modules/assets.
 - Browser desktop 1366×768: no horizontal overflow/uncaught errors; female avatar persisted over reload; all five unlocked learning routes opened and returned to foyer. Locked Secret rejected; eligible Secret opened. Three stories required all four pages before completion. Quiz score 4/5 passed, repeat retained 120 XP, certificate preview showed demo-only status. Missing BIM video honestly reported.
 - Browser click-to-walk activated a safe route. Subsequent physical-hotspot browser loop was interrupted by the browser-control service timing out; its outcome is not claimed. Automated simulation activation tests passed separately.
 
-Pending before production release: finish integration-specific 820×980 and 390×844 browser checks, verify the final public page and referenced assets in a working browser, and confirm deployment workflow success. Physical Android/iPad, multi-touch hardware and physical printing have not been tested.
+Automated Chromium acceptance passed at 1366×768, 820×980 and 390×844 in Actions run 44861368463. It exercised all physical-hotspot dialogs, keyboard and joystick release, six learning destinations, return routes, three stories, quiz reward idempotency, certificate and locked/unlocked Secret with zero uncaught errors, missing resources or horizontal overflow. Screenshots were inspected at all three sizes. An initial CI run caught extension-field loss on legacy saves; the writeback now preserves those fields and corrupt saves fail closed.
+
+Release verification is recorded by the Pages workflow and PR #3. The workflow runs the same browser acceptance against the deployed public URL; consult its actual result before claiming production success. Physical Android/iPad, multi-touch hardware and physical printing have not been tested.
 
 Limits: the six inner learning zones retain their previous artwork. No authorized BIM videos/captions were supplied. Demo data/rewards/certificates are not official NILAM records. SKPKT/smartlib login, backend, APIs, deployment/settings and all school/member databases are outside this change and were not modified.
