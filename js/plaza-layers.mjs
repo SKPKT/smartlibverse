@@ -3,6 +3,7 @@ const TAU=Math.PI*2;
 // Clean foyer scenery has no NPC, map or active portal energy baked into it.
 export function createPlazaLayers(){
   const images=createImageCache(),robot=images.get('./assets/start-plaza/libra_ai.png');
+  const counter=images.get('./assets/hd2d/props/reception-counter.webp'),map=images.get('./assets/hd2d/props/world-map.webp');
   function world(ctx,view,paint){ctx.save();ctx.translate(-view.left*view.scale,-view.top*view.scale);ctx.scale(view.scale,view.scale);paint();ctx.restore();}
   function ground(ctx,view,time,reduced){world(ctx,view,()=>{
     for(const [i,x]of [546,841,1137].entries()){
@@ -15,11 +16,13 @@ export function createPlazaLayers(){
   });}
   function receptionist(ctx){
     if(imageReady(robot)){const im=robot.image,h=225,w=h*im.naturalWidth/im.naturalHeight;ctx.drawImage(im,410-w/2,735-h,w,h);}
+    if(imageReady(counter)){const im=counter.image,w=360,h=w*im.naturalHeight/im.naturalWidth;ctx.drawImage(im,145,800-h,w,h);return;}
     // Static reception counter is an independent occluding prop, not background scenery.
     ctx.fillStyle='#153967';ctx.fillRect(270,700,220,79);ctx.fillStyle='#f0cc7a';ctx.fillRect(260,688,240,17);ctx.fillRect(270,774,220,8);
     ctx.strokeStyle='#8fe6f4';ctx.lineWidth=3;ctx.strokeRect(283,712,194,49);ctx.strokeStyle='#e9d198';ctx.beginPath();ctx.moveTo(360,719);ctx.lineTo(380,725);ctx.lineTo(400,719);ctx.lineTo(400,747);ctx.lineTo(380,753);ctx.lineTo(360,747);ctx.closePath();ctx.stroke();
   }
   function worldMap(ctx){
+    if(imageReady(map)){const im=map.image,w=300,h=w*im.naturalHeight/im.naturalWidth;ctx.drawImage(im,1340,758-h,w,h);return;}
     ctx.translate(60,0);
     ctx.fillStyle='#e5c781';ctx.beginPath();ctx.roundRect(1280,508,255,210,16);ctx.fill();ctx.fillStyle='#112c57';ctx.fillRect(1290,518,235,190);ctx.strokeStyle='#72dfef';ctx.strokeRect(1300,528,215,170);
     const points=[[1332,561],[1410,550],[1484,572],[1350,641],[1430,617],[1481,668]];
@@ -28,8 +31,8 @@ export function createPlazaLayers(){
     ctx.fillStyle='#d9bc7a';ctx.fillRect(1337,718,17,36);ctx.fillRect(1460,718,17,36);
   }
   function objects(ctx,view){return[
-    {id:'libra',y:779,draw:()=>world(ctx,view,()=>receptionist(ctx))},
-    {id:'map',y:754,draw:()=>world(ctx,view,()=>worldMap(ctx))}
+    {id:'libra',y:800,draw:()=>world(ctx,view,()=>receptionist(ctx))},
+    {id:'map',y:758,draw:()=>world(ctx,view,()=>worldMap(ctx))}
   ];}
   return {ground,objects};
 }

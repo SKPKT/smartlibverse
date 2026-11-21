@@ -126,6 +126,26 @@
         1521,
         1034
       ]
+    },
+    {
+      "path": "assets/hd2d/props/reception-counter.webp",
+      "sha256": "2dd22690a45accfb1eb1fad336260a56021aa259660a19b423cdb73b5a9bf2c2",
+      "bytes": 266532,
+      "dimensions": [
+        1774,
+        887
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/hd2d/props/world-map.webp",
+      "sha256": "b5e81e327870ffd147a525b2d3efe1bc785747c582f3d55a0b37d3c0f7dd111f",
+      "bytes": 427594,
+      "dimensions": [
+        1402,
+        1122
+      ],
+      "mode": "RGBA"
     }
   ]
 }

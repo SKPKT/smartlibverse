@@ -16,10 +16,10 @@
  .world-info{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;margin-bottom:12px}
  .mission-card{position:static;max-width:none;padding:12px 16px;background:#102f56;color:var(--cream);border-color:#65bed6;box-shadow:none}
  #minimap{position:static;display:block;width:115px;border-color:#80dff2;background:#0b2141}
- .zone-label{background:#0b2344ec;border-color:#7ad9ea;color:var(--cream)}
+ .zone-label{position:static;display:block;transform:none;max-width:none;margin:8px;border-radius:12px;background:#0b2344ec;border-color:#7ad9ea;color:var(--cream)}
  .joystick{background:#143d65;border-color:#83dce9}.joystick i{color:#78aaca}
  .keyboard-hint,#status{color:#c3def0}.actions button{box-shadow:0 4px #06192e}.actions #run[aria-pressed=true]{background:#785824}
- .assist{background:#0c2b50;border-color:#648ea8}.bottom-nav{background:#174474;border-color:#74c7df}
+ .assist{background:#0c2b50;border-color:#648ea8}.assist summary{min-height:44px;padding-top:8px}.bottom-nav{background:#174474;border-color:#74c7df}
  .bottom-nav button{background:linear-gradient(#f0f7ff,#c1d9ed);color:#123764}.bottom-nav #home{background:linear-gradient(#235e9a,#122f59);color:#ffe0a0}
  dialog{background:var(--scene-paper);color:var(--scene-ink);border-color:#7dcbdc}dialog::backdrop{background:#020c22b8}dialog>header{background:#123c6b;color:var(--cream)}
  input,select{color:var(--scene-ink);background:#fff;border-color:#839ab5}.card{background:#fff;border-color:#bdd5e9}.muted{color:#415574}

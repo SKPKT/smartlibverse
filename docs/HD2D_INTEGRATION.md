@@ -6,6 +6,7 @@ Baseline: `2b43e2a7b09250dabbca433e33069b2a85efe1fd`. Scope is exclusively SKPKT
 
 - `assets/hd2d/library/`: the four supplied WebP production assets and four exact PNG fallbacks. All ZIP manifest checksums were verified before copying. The blue/cyan/gold hall is scenery only; the preview composite and high-resolution source are not runtime assets.
 - `assets/hd2d/zones/`: six optimized WebP backgrounds created with the built-in image_gen tool. Plaza is an edit of the existing approved foyer, preserving arch positions while removing the baked NPC, desk, map and active portal energy. Gallery, quiz, awards, garden and secret are distinct new static environments. Original generated PNGs remain outside this repository; the game consumes project-local WebPs.
+- `assets/hd2d/props/`: independently generated transparent reception counter and physical world map, matching the approved foyer's detailed pixel art. Alpha is retained; robot, counter and map are separate cached images.
 - `docs/hd2d-image-prompts.json`: exact prompt set and tool provenance. `assets/hd2d/manifest.json`: runtime asset sizes, dimensions and SHA256 checksums. The build verifies every delivered asset.
 - Existing approved walking sheets are unchanged, including the hijab, four direction rows, alpha and 405/420 foot anchor. Portrait sprites use proportional contain sizing.
 
@@ -21,7 +22,7 @@ The inner worlds use one existing requestAnimationFrame loop and one visible wor
 6. Independent four-phase player sprite.
 7. Objects, avatar and portal foreground sorted by ground depth.
 8. Separate interaction captions/highlights.
-9. Separate Canvas minimap plus semantic DOM HUD/controls. The DOM provides accessible counters and buttons; it is not baked into the artwork. Mission/minimap cards sit outside the inner-world canvas to avoid obscuring content.
+9. Separate Canvas minimap plus semantic DOM HUD/controls. The DOM provides accessible counters and buttons; it is not baked into the artwork. Mission/minimap cards and the bottom guidance sit outside the inner-world canvas to avoid obscuring content.
 
 The foyer also uses clean static scenery, independent NPC/counter/map props, separate portal energy and sorted player overlap. Its existing collision geometry and recent above-head portal captions remain intact.
 
@@ -37,7 +38,7 @@ Images are cached by URL and loaded per active zone. WebP library failures try t
 
 ## Validation and release
 
-`npm test` covers actual renderer draw calls/cache separation, proportional fitting, independent/reduced animations, safe approach routes, identity-to-book mapping, fallback loading, asset integrity and all prior gameplay tests. `npm run build` checks module syntax, public secret patterns and the fourteen production asset hashes.
+`npm test` covers actual renderer draw calls/cache separation, proportional fitting, independent/reduced animations, safe approach routes, identity-to-book mapping, fallback loading, asset integrity and all prior gameplay tests. `npm run build` checks module syntax, public secret patterns and the sixteen production asset hashes.
 
 `npm run test:browser` exercises the real UI at 1366×768, 820×980 and 390×844, including all zones, assisted walking to each library station, Interaksi → correct book, reduced motion, run toggle, original stories, quizzes, repeated reward protection, certificate, Secret lock/unlock and progress retention. Consult the actual Actions result for the tested revision; screenshots and the deployable build are attached to the PR run.
 

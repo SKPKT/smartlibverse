@@ -29,6 +29,7 @@ async function inspectWorld(page,zone,width){
   await page.locator('#run').click();assert.equal(await page.locator('#run').getAttribute('aria-pressed'),'true');await page.locator('#run').click();
  }
  await page.locator('#world').screenshot({path:`test-results/world-${zone}-${width}.png`});
+ if(zone==='library')await page.screenshot({path:`test-results/library-ui-${width}.png`,fullPage:true});
 }
 try{
  for(const [width,height]of [[1366,768],[820,980],[390,844]]){
