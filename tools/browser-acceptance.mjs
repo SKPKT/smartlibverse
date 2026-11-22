@@ -4,12 +4,25 @@ import {spawn} from 'node:child_process';
 import {once} from 'node:events';
 import {mkdir,writeFile} from 'node:fs/promises';
 import assert from 'node:assert/strict';
+import {receptionParts} from '../js/plaza-layers.mjs';
 const base=process.env.BASE_URL||'http://127.0.0.1:4192/smartlibverse/';
 let server;if(!process.env.BASE_URL){server=spawn(process.execPath,['tools/serve-test.mjs'],{stdio:['ignore','pipe','inherit']});await once(server.stdout,'data');}
 await mkdir('test-results',{recursive:true});
 const browser=await chromium.launch({headless:true});const results=[];
 const fresh={version:1,profile:{nickname:'Penguji CI',avatar:'lelaki',easy:false},location:{zone:'plaza',x:500,y:510},opened:[],read:[],quizzes:[],nature:[],rewards:[],visited:['plaza'],secretBook:false,customPreserved:'keep'};
 async function frame(page,n=8){await page.evaluate(n=>new Promise(resolve=>{function tick(){if(--n<=0)resolve();else requestAnimationFrame(tick);}requestAnimationFrame(tick);}),n);}
+async function checkReceptionAssets(page){
+ const urls=[...new Set(receptionParts.filter(p=>p.id!=='robot').map(p=>p.url))];
+ const decoded=await page.evaluate(async urls=>Promise.all(urls.map(async url=>{
+  const image=new Image();image.src=url;await image.decode();
+  const canvas=document.createElement('canvas');canvas.width=image.naturalWidth;canvas.height=image.naturalHeight;
+  const ctx=canvas.getContext('2d');ctx.drawImage(image,0,0);
+  const data=ctx.getImageData(0,0,canvas.width,canvas.height).data;
+  let transparent=0,visible=0;for(let i=3;i<data.length;i+=4){if(data[i]===0)transparent++;if(data[i]>128)visible++;}
+  return {url,width:canvas.width,height:canvas.height,transparent,visible};
+ })),urls);
+ for(const asset of decoded){assert(asset.width>0&&asset.height>0,asset.url);assert(asset.transparent>0,asset.url+' must have alpha');assert(asset.visible>asset.width*asset.height*.2,asset.url+' must contain a visible sprite');}
+}
 async function inspectWorld(page,zone,width){
  await page.waitForFunction(()=>window.SMARTLIBverseWorldQA?.inspect().backgroundStatus==='ready');
  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
@@ -37,6 +50,7 @@ try{
   await context.addInitScript(state=>{if(!sessionStorage.getItem('v4-ci-seeded')){localStorage.setItem('smartlibverse_demo_v1',JSON.stringify(state));localStorage.removeItem('smartlibverse_foyer_playable_demo_v1');sessionStorage.setItem('v4-ci-seeded','1');}},fresh);
   const page=await context.newPage(),errors=[],bad=[];page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.url().startsWith(base)&&r.status()>=400)bad.push(r.url());});
   await page.goto(base);await page.waitForFunction(()=>!!window.SMARTLIBverseQA);await frame(page);
+  await checkReceptionAssets(page);
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
   await page.getByRole('button',{name:'👤 Avatar',exact:true}).click();await page.locator('[data-avatar="perempuan"]').click();await page.reload();await page.waitForFunction(()=>!!window.SMARTLIBverseQA);
   const afterFoyer=await page.evaluate(()=>JSON.parse(localStorage.getItem('smartlibverse_demo_v1')));
@@ -53,7 +67,16 @@ try{
   // Real pointer capture/release in the same control slot.
   await page.locator('#movementMode').click();await page.locator('#foyerJoystick').scrollIntoViewIfNeeded();const joy=await page.locator('#foyerJoystick').boundingBox();await page.mouse.move(joy.x+joy.width/2,joy.y+joy.height/2);await page.mouse.down();await page.mouse.move(joy.x+joy.width-10,joy.y+joy.height/2);await frame(page,10);await page.mouse.up();await frame(page,2);assert.equal(await page.evaluate(()=>window.SMARTLIBverseQA.getState().walking),false);
   await page.getByText('Navigasi Bantuan',{exact:true}).click();
-  for(const [id,title]of [['libra','🤖 LIBRA AI'],['portal1','✨ Portal Cerita'],['portal2','✨ Portal Cabaran'],['portal3','✨ Portal Penemuan'],['map','🗺️ Enam Dunia Ilmu']]){await page.locator(`[data-hotspot="${id}"]`).click();await page.getByRole('heading',{name:title,exact:true}).waitFor({timeout:15000});await page.getByRole('button',{name:'Tutup',exact:true}).click();}
+  for(const [id,title]of [['libra','🤖 LIBRA AI'],['portal1','✨ Portal Cerita'],['portal2','✨ Portal Cabaran'],['portal3','✨ Portal Penemuan'],['map','🗺️ Enam Dunia Ilmu']]){
+   await page.locator(`[data-hotspot="${id}"]`).click();await page.getByRole('heading',{name:title,exact:true}).waitFor({timeout:15000});await page.getByRole('button',{name:'Tutup',exact:true}).click();
+   if(id==='libra'){
+    const state=await page.evaluate(()=>window.SMARTLIBverseQA.getState());assert(Math.hypot(state.x-533,state.y-724)<=30);
+    await frame(page);await page.locator('#world').screenshot({path:`test-results/libra-reception-${width}.png`});
+    const xp=await page.locator('#xp').innerText();
+    await page.locator('#interactBtn').click();await page.getByRole('heading',{name:title,exact:true}).waitFor();await page.getByRole('button',{name:'Tutup',exact:true}).click();
+    assert.equal(await page.locator('#xp').innerText(),xp,'Repeat LIBRA interaction must not duplicate tutorial rewards');
+   }
+  }
   await page.locator('#worldMapBtn').click();await page.locator('[data-zone="secret"]').click();await page.getByText('Untuk membuka Zon Rahsia, capai Tahap 3, lengkapkan tiga misi dan kumpulkan dua lencana.',{exact:true}).waitFor();await page.getByRole('button',{name:'Tutup',exact:true}).click();
   for(const [id,zone,title]of [['library','library','Perpustakaan Maya'],['story','gallery','Galeri Cerita'],['edu','quiz','Arena Kuiz'],['trophy','awards','Dewan Anugerah'],['garden','garden','Taman Ilmu']]){await page.locator('#worldMapBtn').click();await page.locator(`[data-zone="${id}"]`).click();await page.waitForURL(base+`world/index.html?zone=${zone}`);await page.getByRole('heading',{name:title,exact:true}).waitFor();await inspectWorld(page,zone,width);await page.locator('#home').click();await page.waitForURL(base);await page.waitForFunction(()=>!!window.SMARTLIBverseQA);}
   // Preserve and exercise the real legacy story/quiz UI at the project subpath.

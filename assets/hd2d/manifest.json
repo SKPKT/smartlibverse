@@ -146,6 +146,46 @@
         1122
       ],
       "mode": "RGBA"
+    },
+    {
+      "path": "assets/hd2d/props/reception-desk-restored.webp",
+      "sha256": "e889159c9fe37edcd497fde31c48855a7a69ae59dcfd3ee028043d2000a08ca6",
+      "bytes": 430516,
+      "dimensions": [
+        1056,
+        444
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/hd2d/props/reception-tablet.webp",
+      "sha256": "1a8533ad6292d60c8ecac3143102fd64f3458c0864da42956448f7f38bd25858",
+      "bytes": 118034,
+      "dimensions": [
+        360,
+        330
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/hd2d/props/reception-lamp.webp",
+      "sha256": "bba16898f65d3b8c09795badc640bb117adb8cafaf2af4949877907fbca2800f",
+      "bytes": 52780,
+      "dimensions": [
+        160,
+        303
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/hd2d/props/reception-books.webp",
+      "sha256": "af46f7ceddaae9375416951fce90558f72c9812b3852784420da8500d78cb19a",
+      "bytes": 74464,
+      "dimensions": [
+        256,
+        186
+      ],
+      "mode": "RGBA"
     }
   ]
 }

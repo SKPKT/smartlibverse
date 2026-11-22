@@ -1,9 +1,20 @@
 import {createImageCache,imageReady} from './image-cache.mjs';
 const TAU=Math.PI*2;
+// Foyer coordinates, not screen pixels: the existing camera scales every part together.
+// The counter occludes LIBRA's lower body; tabletop props never get baked into scenery.
+export const receptionParts=[
+  {id:'robot',url:'./assets/start-plaza/libra_ai.png',x:138,bottom:755,height:345},
+  {id:'counter',url:'./assets/hd2d/props/reception-desk-restored.webp',x:8,bottom:790,width:480},
+  {id:'books',url:'./assets/hd2d/props/reception-books.webp',x:124,bottom:650,width:86},
+  {id:'left-lamp',url:'./assets/hd2d/props/reception-lamp.webp',x:73,bottom:650,height:89},
+  {id:'tablet',url:'./assets/hd2d/props/reception-tablet.webp',x:357,bottom:632,width:114},
+  {id:'right-lamp',url:'./assets/hd2d/props/reception-lamp.webp',x:447,bottom:607,height:62}
+];
 // Clean foyer scenery has no NPC, map or active portal energy baked into it.
-export function createPlazaLayers(){
-  const images=createImageCache(),robot=images.get('./assets/start-plaza/libra_ai.png');
-  const counter=images.get('./assets/hd2d/props/reception-counter.webp'),map=images.get('./assets/hd2d/props/world-map.webp');
+export function createPlazaLayers({makeImage}={}){
+  const images=createImageCache(makeImage);
+  const reception=receptionParts.map(part=>({...part,entry:images.get(part.url)}));
+  const map=images.get('./assets/hd2d/props/world-map.webp');
   function world(ctx,view,paint){ctx.save();ctx.translate(-view.left*view.scale,-view.top*view.scale);ctx.scale(view.scale,view.scale);paint();ctx.restore();}
   function ground(ctx,view,time,reduced){world(ctx,view,()=>{
     for(const [i,x]of [546,841,1137].entries()){
@@ -15,11 +26,19 @@ export function createPlazaLayers(){
     }
   });}
   function receptionist(ctx){
-    if(imageReady(robot)){const im=robot.image,h=225,w=h*im.naturalWidth/im.naturalHeight;ctx.drawImage(im,410-w/2,735-h,w,h);}
-    if(imageReady(counter)){const im=counter.image,w=360,h=w*im.naturalHeight/im.naturalWidth;ctx.drawImage(im,145,800-h,w,h);return;}
-    // Static reception counter is an independent occluding prop, not background scenery.
-    ctx.fillStyle='#153967';ctx.fillRect(270,700,220,79);ctx.fillStyle='#f0cc7a';ctx.fillRect(260,688,240,17);ctx.fillRect(270,774,220,8);
-    ctx.strokeStyle='#8fe6f4';ctx.lineWidth=3;ctx.strokeRect(283,712,194,49);ctx.strokeStyle='#e9d198';ctx.beginPath();ctx.moveTo(360,719);ctx.lineTo(380,725);ctx.lineTo(400,719);ctx.lineTo(400,747);ctx.lineTo(380,753);ctx.lineTo(360,747);ctx.closePath();ctx.stroke();
+    for(const part of reception){
+      if(imageReady(part.entry)){
+        const im=part.entry.image;
+        const w=part.width??part.height*im.naturalWidth/im.naturalHeight;
+        const h=part.height??part.width*im.naturalHeight/im.naturalWidth;
+        ctx.drawImage(im,part.x,part.bottom-h,w,h);
+      }else if(part.id==='counter'){
+        // Bounded fallback keeps the same foreground occlusion while the prop loads.
+        ctx.fillStyle='#153967';ctx.beginPath();ctx.roundRect(8,646,480,143,18);ctx.fill();
+        ctx.fillStyle='#f0cc7a';ctx.fillRect(8,636,480,18);ctx.fillRect(8,778,480,10);
+        ctx.strokeStyle='#e9d198';ctx.lineWidth=3;ctx.strokeRect(310,665,58,90);
+      }
+    }
   }
   function worldMap(ctx){
     if(imageReady(map)){const im=map.image,w=300,h=w*im.naturalHeight/im.naturalWidth;ctx.drawImage(im,1340,758-h,w,h);return;}
