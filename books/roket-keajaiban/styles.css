@@ -23,3 +23,49 @@ button{min-height:44px}
  .benefit-text h3{font-size:calc(15px*var(--scale))}.benefit-text p{font-size:calc(14px*var(--scale))}
 }
 @media(max-width:370px){.part strong{font-size:calc(15px*var(--scale))}.part span{font-size:calc(14px*var(--scale))}}
+
+/* Pages 2–4: natural-height panels and complete source illustrations. */
+.book-page:is([data-page-type="intro"],[data-page-type="parts"],[data-page-type="launch"]){
+ min-height:0;overflow:visible;
+}
+.book-page:is([data-page-type="intro"],[data-page-type="parts"],[data-page-type="launch"]) .img{
+ width:100%;height:auto;min-height:0;max-height:none;object-fit:contain;aspect-ratio:auto;
+}
+.book-page:is([data-page-type="intro"],[data-page-type="parts"],[data-page-type="launch"]) :is(.two-cols,.comic-grid,.parts-layout,.launch-layout,.steps){
+ display:grid;grid-template-columns:minmax(0,1fr);align-items:start;gap:16px;min-width:0;
+}
+.book-page:is([data-page-type="intro"],[data-page-type="parts"],[data-page-type="launch"]) :is(.comic,.step){
+ min-width:0;height:auto;max-height:none;overflow:visible;
+}
+.book-page:is([data-page-type="intro"],[data-page-type="parts"]) .comic img{
+ height:auto;max-height:none;object-fit:contain;border-radius:14px 14px 0 0;
+}
+.book-page:is([data-page-type="intro"],[data-page-type="parts"]) .comic .text{
+ padding:12px 14px;font-size:calc(16px*var(--scale));line-height:1.5;
+}
+.book-page[data-page-type="intro"] .fact{
+ font-size:calc(16px*var(--scale));line-height:1.5;align-items:flex-start;
+}
+.book-page[data-page-type="parts"] .rocket-image{
+ width:auto;max-width:100%;height:auto;max-height:560px;margin-inline:auto;
+}
+.book-page[data-page-type="parts"] .parts-list{gap:10px;min-width:0}
+.book-page[data-page-type="parts"] .part{padding:12px 14px}
+.book-page[data-page-type="parts"] .part strong{font-size:calc(16px*var(--scale));line-height:1.4}
+.book-page[data-page-type="parts"] .part span{font-size:calc(16px*var(--scale));line-height:1.5}
+.book-page[data-page-type="launch"] .launch-large{order:-1;align-self:start}
+.book-page[data-page-type="launch"] .step img{height:auto;object-fit:contain;border-radius:13px 13px 0 0}
+.book-page[data-page-type="launch"] .step-title{
+ padding:12px 14px;font-size:calc(16px*var(--scale));line-height:1.5;align-items:flex-start;
+}
+.book-page[data-page-type="launch"] .step-num{width:29px;height:29px;flex-shrink:0}
+.book-page[data-page-type="launch"] .countdown{padding:8px 12px}
+@media(min-width:760px){
+ .book-page:is([data-page-type="intro"],[data-page-type="parts"]) .comic-grid,
+ .book-page[data-page-type="intro"] .two-cols,
+ .book-page[data-page-type="launch"] .launch-layout{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .book-page[data-page-type="parts"] .parts-layout{grid-template-columns:minmax(150px,.7fr) minmax(0,1.3fr)}
+ .book-page[data-page-type="parts"] .part strong{font-size:calc(19px*var(--scale))}
+ .book-page[data-page-type="parts"] .part span{font-size:calc(17px*var(--scale))}
+ .book-page[data-page-type="launch"] .launch-large{order:0}
+}
