@@ -1,0 +1,120 @@
+{
+  "date": "2026-11-22",
+  "tool": "built-in image_gen",
+  "scope": "Only eight character conversation illustrations on Roket pages 2 and 3. Original source assets, page 4, book text and game progress remain unchanged.",
+  "processing": "Resize generated 1536x1024 PNG to 1200x800; WebP quality 86, method 6. No cropping.",
+  "assets": [
+    {
+      "sourceAsset": "intro-kids-1.webp",
+      "asset": "art/intro-kids-1-v2.webp",
+      "width": 1200,
+      "height": 800,
+      "bytes": 251568,
+      "sha256": "3bb8dcd31c1ff11b1cc97c24abb4dc932382cbc9cb24b310dee89f6a41f6acbb",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: identity-preserve / children's book illustration edit. Produce ONE standalone landscape 3:2 illustration, 1536x1024, for an editable Malay educational flipbook.\nInput image 1 is the old cropped panel to recompose. Input image 2 (book cover illustration) is the authoritative character identity and rendering-style reference.\nRestore a much wider and taller framing than the cropped input. Both the Malay schoolboy and schoolgirl must have COMPLETE heads, hair/hijab, entire faces, shoulders, hands and bodies down to waist visible within the image. Leave at least 10% empty scenic safety margin above both heads and 8% at left/right edges. Do not clip hair, hijab, faces or gesture hands. Characters occupy the lower two-thirds, their heads below the top safety margin, never a close-up. Wide medium two-shot from waist up; boy on left, girl on right.\nPreserve their original identities: friendly childlike large brown eyes, boy short tousled black hair, white short-sleeved school shirt and navy tie, small navy/gold shield crest; girl white hijab, modest long-sleeved white blouse with navy school pinafore and small shield crest. Match original polished warm cartoon linework and soft shading, colorful deep-blue starry space with golden clouds. Preserve a cohesive cartoon illustration, not photorealism, not pixel art. This is a fresh composition of the same scene, not a screenshot enlargement.\nNo text of any language, no lettering, numbers, speech bubbles, decorative calligraphy, caption boxes, panel borders, UI, watermark, or new logos. No sacred calligraphic emblems. One scene only, no collage or multiple panels. Fill entire canvas with scenery. Keep the pupils as the clearly readable main subjects and all facial features unobstructed.\nScene: The boy smiles and points upward to a white-and-gold rocket in the distant central sky. The girl listens with interested expression, hands together at chest level. Their complete faces and hands are comfortably inside the frame. Blue twilight sky and warm golden clouds.",
+      "references": [
+        "intro-kids-1.webp",
+        "cover-hero.webp"
+      ]
+    },
+    {
+      "sourceAsset": "intro-kids-2.webp",
+      "asset": "art/intro-kids-2-v2.webp",
+      "width": 1200,
+      "height": 800,
+      "bytes": 211086,
+      "sha256": "16718f4fe7e7762ee821f29524e3f17d4051664b7811e42a4d465466889ca457",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: identity-preserve / children's book illustration edit. Produce ONE standalone landscape 3:2 illustration, 1536x1024, for an editable Malay educational flipbook.\nInput image 1 is the old cropped panel to recompose. Input image 2 (book cover illustration) is the authoritative character identity and rendering-style reference.\nRestore a much wider and taller framing than the cropped input. Both the Malay schoolboy and schoolgirl must have COMPLETE heads, hair/hijab, entire faces, shoulders, hands and bodies down to waist visible within the image. Leave at least 10% empty scenic safety margin above both heads and 8% at left/right edges. Do not clip hair, hijab, faces or gesture hands. Characters occupy the lower two-thirds, their heads below the top safety margin, never a close-up. Wide medium two-shot from waist up; boy on left, girl on right.\nPreserve their original identities: friendly childlike large brown eyes, boy short tousled black hair, white short-sleeved school shirt and navy tie, small navy/gold shield crest; girl white hijab, modest long-sleeved white blouse with navy school pinafore and small shield crest. Match original polished warm cartoon linework and soft shading, colorful deep-blue starry space with golden clouds. Preserve a cohesive cartoon illustration, not photorealism, not pixel art. This is a fresh composition of the same scene, not a screenshot enlargement.\nNo text of any language, no lettering, numbers, speech bubbles, decorative calligraphy, caption boxes, panel borders, UI, watermark, or new logos. No sacred calligraphic emblems. One scene only, no collage or multiple panels. Fill entire canvas with scenery. Keep the pupils as the clearly readable main subjects and all facial features unobstructed.\nScene: The boy explains with one open palm towards a small distant orbiting satellite and rocket above a curved Earth. The girl thoughtfully holds one finger near her chin. Both complete faces and upper bodies visible. Satellite is schematic background illustration, no labels.",
+      "references": [
+        "intro-kids-2.webp",
+        "cover-hero.webp"
+      ]
+    },
+    {
+      "sourceAsset": "intro-kids-3.webp",
+      "asset": "art/intro-kids-3-v2.webp",
+      "width": 1200,
+      "height": 800,
+      "bytes": 245200,
+      "sha256": "020a89f2b97fb9a4464461bbb337f7bf65282a132a98efcb15277df327a26fef",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: identity-preserve / children's book illustration edit. Produce ONE standalone landscape 3:2 illustration, 1536x1024, for an editable Malay educational flipbook.\nInput image 1 is the old cropped panel to recompose. Input image 2 (book cover illustration) is the authoritative character identity and rendering-style reference.\nRestore a much wider and taller framing than the cropped input. Both the Malay schoolboy and schoolgirl must have COMPLETE heads, hair/hijab, entire faces, shoulders, hands and bodies down to waist visible within the image. Leave at least 10% empty scenic safety margin above both heads and 8% at left/right edges. Do not clip hair, hijab, faces or gesture hands. Characters occupy the lower two-thirds, their heads below the top safety margin, never a close-up. Wide medium two-shot from waist up; boy on left, girl on right.\nPreserve their original identities: friendly childlike large brown eyes, boy short tousled black hair, white short-sleeved school shirt and navy tie, small navy/gold shield crest; girl white hijab, modest long-sleeved white blouse with navy school pinafore and small shield crest. Match original polished warm cartoon linework and soft shading, colorful deep-blue starry space with golden clouds. Preserve a cohesive cartoon illustration, not photorealism, not pixel art. This is a fresh composition of the same scene, not a screenshot enlargement.\nNo text of any language, no lettering, numbers, speech bubbles, decorative calligraphy, caption boxes, panel borders, UI, watermark, or new logos. No sacred calligraphic emblems. One scene only, no collage or multiple panels. Fill entire canvas with scenery. Keep the pupils as the clearly readable main subjects and all facial features unobstructed.\nScene: Both children watch a white-and-gold rocket rising in the distant center against stars, with a long golden-orange thrust plume. Boy looks excited with small raised fist near his chest; girl points upward, smiling. Both heads and gesture hands fully visible with safety space.",
+      "references": [
+        "intro-kids-3.webp",
+        "cover-hero.webp"
+      ]
+    },
+    {
+      "sourceAsset": "intro-kids-4.webp",
+      "asset": "art/intro-kids-4-v2.webp",
+      "width": 1200,
+      "height": 800,
+      "bytes": 235662,
+      "sha256": "1ad51be4e5375b32244e4acd0f144fcd8a41b34e697b49930100594b0275bd0b",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: identity-preserve / children's book illustration edit. Produce ONE standalone landscape 3:2 illustration, 1536x1024, for an editable Malay educational flipbook.\nInput image 1 is the old cropped panel to recompose. Input image 2 (book cover illustration) is the authoritative character identity and rendering-style reference.\nRestore a much wider and taller framing than the cropped input. Both the Malay schoolboy and schoolgirl must have COMPLETE heads, hair/hijab, entire faces, shoulders, hands and bodies down to waist visible within the image. Leave at least 10% empty scenic safety margin above both heads and 8% at left/right edges. Do not clip hair, hijab, faces or gesture hands. Characters occupy the lower two-thirds, their heads below the top safety margin, never a close-up. Wide medium two-shot from waist up; boy on left, girl on right.\nPreserve their original identities: friendly childlike large brown eyes, boy short tousled black hair, white short-sleeved school shirt and navy tie, small navy/gold shield crest; girl white hijab, modest long-sleeved white blouse with navy school pinafore and small shield crest. Match original polished warm cartoon linework and soft shading, colorful deep-blue starry space with golden clouds. Preserve a cohesive cartoon illustration, not photorealism, not pixel art. This is a fresh composition of the same scene, not a screenshot enlargement.\nNo text of any language, no lettering, numbers, speech bubbles, decorative calligraphy, caption boxes, panel borders, UI, watermark, or new logos. No sacred calligraphic emblems. One scene only, no collage or multiple panels. Fill entire canvas with scenery. Keep the pupils as the clearly readable main subjects and all facial features unobstructed.\nScene: Both pupils gaze upward thoughtfully in wonder at a large blue Earth and starry space behind them. Boy on left smiles in curiosity; girl on right smiles with hands gently together at chest height. Both pupils' COMPLETE heads and faces are visible with generous scenic margin.",
+      "references": [
+        "intro-kids-4.webp",
+        "cover-hero.webp"
+      ]
+    },
+    {
+      "sourceAsset": "parts-kids-a.webp",
+      "asset": "art/parts-kids-a-v2.webp",
+      "width": 1200,
+      "height": 800,
+      "bytes": 258206,
+      "sha256": "7047470a6cb7255c0946c1b257238c2156dedd7eec3206eb9761faa1fe70aa1d",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: identity-preserve / children's book illustration edit. Produce ONE standalone landscape 3:2 illustration, 1536x1024, for an editable Malay educational flipbook.\nInput image 1 is the old cropped panel to recompose. Input image 2 (book cover illustration) is the authoritative character identity and rendering-style reference.\nRestore a much wider and taller framing than the cropped input. Both the Malay schoolboy and schoolgirl must have COMPLETE heads, hair/hijab, entire faces, shoulders, hands and bodies down to waist visible within the image. Leave at least 10% empty scenic safety margin above both heads and 8% at left/right edges. Do not clip hair, hijab, faces or gesture hands. Characters occupy the lower two-thirds, their heads below the top safety margin, never a close-up. Wide medium two-shot from waist up; boy on left, girl on right.\nPreserve their original identities: friendly childlike large brown eyes, boy short tousled black hair, white short-sleeved school shirt and navy tie, small navy/gold shield crest; girl white hijab, modest long-sleeved white blouse with navy school pinafore and small shield crest. Match original polished warm cartoon linework and soft shading, colorful deep-blue starry space with golden clouds. Preserve a cohesive cartoon illustration, not photorealism, not pixel art. This is a fresh composition of the same scene, not a screenshot enlargement.\nNo text of any language, no lettering, numbers, speech bubbles, decorative calligraphy, caption boxes, panel borders, UI, watermark, or new logos. No sacred calligraphic emblems. One scene only, no collage or multiple panels. Fill entire canvas with scenery. Keep the pupils as the clearly readable main subjects and all facial features unobstructed.\nScene: The boy on the left asks curiously why rockets rise, smiling with his index finger pointing upwards. The girl on the right thoughtfully touches her chin and looks towards him. Distant garden and domed school building under the starry sky, a small white-and-gold rocket above. Show both COMPLETE heads, faces and hands; generous headroom.",
+      "references": [
+        "parts-kids-a.webp",
+        "cover-hero.webp"
+      ]
+    },
+    {
+      "sourceAsset": "parts-kids-b.webp",
+      "asset": "art/parts-kids-b-v2.webp",
+      "width": 1200,
+      "height": 800,
+      "bytes": 255710,
+      "sha256": "ca19016a1b4af21a83f41665b5aa00ed83afbed5f2c4738a65cda94902ef4bd0",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: identity-preserve / children's book illustration edit. Produce ONE standalone landscape 3:2 illustration, 1536x1024, for an editable Malay educational flipbook.\nInput image 1 is the old cropped panel to recompose. Input image 2 (book cover illustration) is the authoritative character identity and rendering-style reference.\nRestore a much wider and taller framing than the cropped input. Both the Malay schoolboy and schoolgirl must have COMPLETE heads, hair/hijab, entire faces, shoulders, hands and bodies down to waist visible within the image. Leave at least 10% empty scenic safety margin above both heads and 8% at left/right edges. Do not clip hair, hijab, faces or gesture hands. Characters occupy the lower two-thirds, their heads below the top safety margin, never a close-up. Wide medium two-shot from waist up; boy on left, girl on right.\nPreserve their original identities: friendly childlike large brown eyes, boy short tousled black hair, white short-sleeved school shirt and navy tie, small navy/gold shield crest; girl white hijab, modest long-sleeved white blouse with navy school pinafore and small shield crest. Match original polished warm cartoon linework and soft shading, colorful deep-blue starry space with golden clouds. Preserve a cohesive cartoon illustration, not photorealism, not pixel art. This is a fresh composition of the same scene, not a screenshot enlargement.\nNo text of any language, no lettering, numbers, speech bubbles, decorative calligraphy, caption boxes, panel borders, UI, watermark, or new logos. No sacred calligraphic emblems. One scene only, no collage or multiple panels. Fill entire canvas with scenery. Keep the pupils as the clearly readable main subjects and all facial features unobstructed.\nScene: The girl explains the rocket's thrust with one open hand gesturing towards a white-and-gold rocket rising in the distant center, a long warm golden plume behind it. The boy listens with an interested smile. Show both complete heads, hijab, all faces and hands within safe margins, waist-up. No girl-only crop: BOTH characters must be present.",
+      "references": [
+        "parts-kids-b.webp",
+        "cover-hero.webp"
+      ]
+    },
+    {
+      "sourceAsset": "parts-kids-c.webp",
+      "asset": "art/parts-kids-c-v2.webp",
+      "width": 1200,
+      "height": 800,
+      "bytes": 248300,
+      "sha256": "9b349c3931fd97a30b601b8e1e859b8926f8c7d3a1122c2925310431d2b61d5d",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: identity-preserve / children's book illustration edit. Produce ONE standalone landscape 3:2 illustration, 1536x1024, for an editable Malay educational flipbook.\nInput image 1 is the old cropped panel to recompose. Input image 2 (book cover illustration) is the authoritative character identity and rendering-style reference.\nRestore a much wider and taller framing than the cropped input. Both the Malay schoolboy and schoolgirl must have COMPLETE heads, hair/hijab, entire faces, shoulders, hands and bodies down to waist visible within the image. Leave at least 10% empty scenic safety margin above both heads and 8% at left/right edges. Do not clip hair, hijab, faces or gesture hands. Characters occupy the lower two-thirds, their heads below the top safety margin, never a close-up. Wide medium two-shot from waist up; boy on left, girl on right.\nPreserve their original identities: friendly childlike large brown eyes, boy short tousled black hair, white short-sleeved school shirt and navy tie, small navy/gold shield crest; girl white hijab, modest long-sleeved white blouse with navy school pinafore and small shield crest. Match original polished warm cartoon linework and soft shading, colorful deep-blue starry space with golden clouds. Preserve a cohesive cartoon illustration, not photorealism, not pixel art. This is a fresh composition of the same scene, not a screenshot enlargement.\nNo text of any language, no lettering, numbers, speech bubbles, decorative calligraphy, caption boxes, panel borders, UI, watermark, or new logos. No sacred calligraphic emblems. One scene only, no collage or multiple panels. Fill entire canvas with scenery. Keep the pupils as the clearly readable main subjects and all facial features unobstructed.\nScene: The boy folds his arms thoughtfully while the girl points upward explaining that rocket parts have their own functions. They smile and look at each other. An unlabelled white-and-gold rocket stands in the distant center under a starry sky; small flowers at the very bottom. BOTH heads, complete hijab, faces and gesture hands fully in frame, with generous sky margin.",
+      "references": [
+        "parts-kids-c.webp",
+        "cover-hero.webp"
+      ]
+    },
+    {
+      "sourceAsset": "parts-kids-d.webp",
+      "asset": "art/parts-kids-d-v2.webp",
+      "width": 1200,
+      "height": 800,
+      "bytes": 226232,
+      "sha256": "c8d3c01b4809c86b0f1cec899fcab7fa27bd97f19f3cef8af4a5cbce9fdb9e8d",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: identity-preserve / children's book illustration edit. Produce ONE standalone landscape 3:2 illustration, 1536x1024, for an editable Malay educational flipbook.\nInput image 1 is the old cropped panel to recompose. Input image 2 (book cover illustration) is the authoritative character identity and rendering-style reference.\nRestore a much wider and taller framing than the cropped input. Both the Malay schoolboy and schoolgirl must have COMPLETE heads, hair/hijab, entire faces, shoulders, hands and bodies down to waist visible within the image. Leave at least 10% empty scenic safety margin above both heads and 8% at left/right edges. Do not clip hair, hijab, faces or gesture hands. Characters occupy the lower two-thirds, their heads below the top safety margin, never a close-up. Wide medium two-shot from waist up; boy on left, girl on right.\nPreserve their original identities: friendly childlike large brown eyes, boy short tousled black hair, white short-sleeved school shirt and navy tie, small navy/gold shield crest; girl white hijab, modest long-sleeved white blouse with navy school pinafore and small shield crest. Match original polished warm cartoon linework and soft shading, colorful deep-blue starry space with golden clouds. Preserve a cohesive cartoon illustration, not photorealism, not pixel art. This is a fresh composition of the same scene, not a screenshot enlargement.\nNo text of any language, no lettering, numbers, speech bubbles, decorative calligraphy, caption boxes, panel borders, UI, watermark, or new logos. No sacred calligraphic emblems. One scene only, no collage or multiple panels. Fill entire canvas with scenery. Keep the pupils as the clearly readable main subjects and all facial features unobstructed.\nScene: The boy raises a small encouraging fist near his chest; the girl looks up in wonder, hands gently together at chest height. Behind them in the distant center is a white-and-gold rocket with a glowing engine plume, visually suggesting its body and engine. Show both complete smiling faces, boy's hair and girl's full hijab comfortably inside frame with generous headroom.",
+      "references": [
+        "parts-kids-d.webp",
+        "cover-hero.webp"
+      ]
+    }
+  ]
+}

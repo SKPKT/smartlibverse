@@ -24,4 +24,4 @@ for(const [file,expected]of Object.entries(bookManifest.sha256)){
  if(createHash('sha256').update(await readFile(path.join(bookRoot,file))).digest('hex')!==expected)throw Error('Book asset mismatch: '+file);
 }
 if((await readdir(path.join(root,'dist'))).includes('REFERENCE_ARTWORK'))throw Error('Reference artwork must not be published');
-console.log('Verified editable five-page ROKET reader, original text and 21 source illustrations.');
+console.log('Verified editable five-page ROKET reader, original text, 21 source illustrations and 8 restored character scenes.');

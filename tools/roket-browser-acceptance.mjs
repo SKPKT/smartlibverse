@@ -67,6 +67,20 @@ export async function inspectRoket(page,base,width){
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
   await checkContentPanels(page,width);
   const displayed=await page.locator('#page img').evaluateAll(images=>images.map(image=>image.getAttribute('src')));
+  if(i===1||i===2){
+   const names=i===1?['intro-kids-1','intro-kids-2','intro-kids-3','intro-kids-4']:['parts-kids-a','parts-kids-b','parts-kids-c','parts-kids-d'];
+   const scenes=await page.locator('#page .comic img').evaluateAll(images=>images.map(image=>{
+    const bounds=image.getBoundingClientRect();
+    return {src:image.getAttribute('src'),natural:[image.naturalWidth,image.naturalHeight],ratio:bounds.width/bounds.height,fit:getComputedStyle(image).objectFit,alt:image.alt,version:image.dataset.characterArt};
+   }));
+   assert.deepEqual(scenes.map(scene=>scene.src),names.map(name=>'art/'+name+'-v2.webp'));
+   for(const scene of scenes){
+    assert.deepEqual(scene.natural,[1200,800]);assert(Math.abs(scene.ratio-1.5)<.02,'Show the entire 3:2 character composition');
+    assert.equal(scene.fit,'contain');assert.equal(scene.version,'v2');assert(scene.alt.length>35);
+   }
+   const rows=await page.locator('#page .comic').evaluateAll(cards=>cards.map(card=>Math.round(card.getBoundingClientRect().top)));
+   assert.equal(rows[0]===rows[1],width>=760,'Character panels stack on mobile and share a row on desktop/tablet');
+  }
   displayed.forEach(src=>seen.add(src));
   if(i===3)assert.deepEqual(displayed,['art/launch-step-1.webp','art/launch-step-2.webp','art/launch-step-3.webp','art/launch-step-4.webp','art/launch-hero.webp']);
   await page.locator('#reader').screenshot({path:`test-results/roket-page-${i+1}-${width}.png`});

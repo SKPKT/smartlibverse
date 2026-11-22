@@ -34,16 +34,35 @@ test('Reader uses editable DOM text and isolated local storage keys',()=>{
  assert.doesNotMatch(js,/smartlibverse_demo_v1/);
  assert.match(html,/\.\.\/\.\.\/world\/index\.html\?zone=library/);
 });
-test('Twenty-one exact supplied illustrations and original Malay content are preserved; references stay unpublished',()=>{
+test('Twenty-one supplied illustrations remain intact alongside eight restored character scenes; references stay unpublished',()=>{
  const files=fs.readdirSync(path.join(app,'art')).filter(x=>x.endsWith('.webp'));
- assert.equal(files.length,21);
+ assert.equal(files.filter(file=>!file.endsWith('-v2.webp')).length,21);
+ assert.equal(files.length,29);
  const manifest=JSON.parse(fs.readFileSync(path.join(app,'manifest.json'),'utf8'));
- assert.equal(Object.keys(manifest.sha256).length,22);
+ assert.equal(Object.keys(manifest.sha256).length,30);
  assert.equal(manifest.editedPage4Reference.file,'04_pelancaran_TANPA_KHAT_ALLAH.png');
  assert.equal(manifest.editedPage4Reference.published,false);
  assert(!fs.existsSync(path.join(root,'REFERENCE_ARTWORK')));
  for(const [file,hash]of Object.entries(manifest.sha256))assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(app,file))).digest('hex'),hash,file);
  assert.equal(manifest.sha256['art/launch-hero.webp'],'631cb4cbb001c00b34f8344927c164f397c78d98570d8f33d53dbbdd98758f16');
+});
+
+test('Only the eight requested character panels use versioned 3:2 artwork with reserved dimensions',()=>{
+ const manifest=JSON.parse(fs.readFileSync(path.join(app,'manifest.json'),'utf8'));
+ const expected=['intro-kids-1','intro-kids-2','intro-kids-3','intro-kids-4','parts-kids-a','parts-kids-b','parts-kids-c','parts-kids-d'];
+ assert.deepEqual(manifest.characterArt.map(entry=>entry.sourceAsset),expected.map(name=>name+'.webp'));
+ for(const entry of manifest.characterArt){
+  assert.equal(entry.asset,'art/'+entry.sourceAsset.replace('.webp','-v2.webp'));
+  assert.equal(entry.width,1200);assert.equal(entry.height,800);
+  assert.equal(entry.sha256,manifest.sha256[entry.asset]);
+  const bytes=fs.readFileSync(path.join(app,entry.asset));
+  assert.equal(bytes.toString('ascii',0,4),'RIFF');assert.equal(bytes.toString('ascii',8,12),'WEBP');
+  assert(bytes.length<300000,'Character scene must stay within its per-image delivery budget');
+ }
+ const js=fs.readFileSync(path.join(app,'reader.js'),'utf8');
+ for(const name of expected)assert(js.includes("'"+name+"':"));
+ assert.match(js,/width="1200" height="800" data-character-art="v2"/);
+ assert.match(fs.readFileSync(path.join(app,'styles.css'),'utf8'),/aspect-ratio:3\/2;object-fit:contain/);
 });
 
 test('Science shelf links to the flipbook at the actual GitHub Pages subpath without adding a quiz book',async()=>{
