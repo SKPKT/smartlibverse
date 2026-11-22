@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ms"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#081b3a">
+<title>ROKET — Flipbook Sains & Alam | SMARTLIBverse</title>
+<meta name="description" content="Buku Roket, lima halaman dengan ilustrasi dan teks Urbanist yang boleh diedit.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head><body>
+<div class="app-shell">
+<header class="topline">
+  <a class="back" href="../../world/index.html?zone=library" aria-label="Kembali ke Perpustakaan Maya">← Perpustakaan Maya</a>
+  <div class="brand"><span>📖</span><span>SMARTLIB<span class="aqua">verse</span></span><span class="brandstar">✦</span></div>
+  <span class="edition">EDISI INTERAKTIF</span>
+</header>
+<div class="bookbar">
+  <div class="bookinfo"><span class="eyebrow">SAINS & ALAM · BACAAN DIGITAL</span><h1>ROKET <small>Keajaiban Ciptaan Allah di Angkasa</small></h1></div>
+  <div class="tools" role="group" aria-label="Alat pembaca">
+    <button id="editToggle" type="button" title="Edit teks buku" aria-pressed="false">✎ Edit teks</button>
+    <button id="exportBtn" type="button" title="Eksport teks suntingan">↓ Eksport JSON</button>
+    <button id="importBtn" type="button" title="Import teks buku">↑ Import JSON</button><input id="importFile" type="file" accept="application/json,.json" aria-label="Pilih fail teks buku JSON" hidden>
+    <button id="resetBtn" type="button" title="Pulihkan teks asal">↺ Teks asal</button>
+  </div>
+</div>
+<div class="message" id="message" role="status" aria-live="polite">Leret ke kiri/kanan atau gunakan butang untuk menyelak halaman.</div>
+<main id="reader" aria-label="Pembaca flipbook Roket">
+  <div class="readerbar"><span id="pageLabel" aria-live="polite">Halaman 1 / 5</span><div id="dots" class="dots" role="group" aria-label="Pilih halaman"></div><div class="readerbuttons"><button id="zoomOut" title="Kecilkan teks" aria-label="Kecilkan teks">A−</button><button id="zoomIn" title="Besarkan teks" aria-label="Besarkan teks">A+</button><button id="fullscreen" title="Skrin penuh" aria-label="Skrin penuh" aria-pressed="false">⛶</button></div></div>
+  <div class="book-stage"><article id="page" class="book-page" aria-live="polite"></article></div>
+  <div class="booknav"><button id="prev" type="button">← Sebelumnya</button><span id="progressText">1 daripada 5 halaman</span><button id="next" type="button">Seterusnya →</button></div>
+  <div class="completion"><button id="done" disabled type="button">✓ Tamat Membaca</button><span id="completionHint">Lawati semua lima halaman untuk menamatkan bacaan.</span></div>
+</main>
+<footer>© 2026 SMARTLIB | Developed by Syahida Suffian · Flipbook pendidikan · Tiada integrasi dengan rekod NILAM rasmi.</footer>
+</div>
+<script src="book-data.js"></script><script src="reader.js" defer></script>
+</body></html>

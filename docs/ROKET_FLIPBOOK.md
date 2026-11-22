@@ -1,0 +1,53 @@
+# ROKET editable flipbook integration
+
+Source package: `SMARTLIBverse_Roket_Flipbook_Urbanist_EDITABLE_COMPLETE (1).zip`.
+ZIP SHA-256: `8e111f80fbd34d584d701985ae8c3dc05ce088c371e899196dfaf440f095bc13`.
+Baseline: `ebe2ca81918644ea0dc02567acccfb37fe248909`.
+Branch: `feature/roket-editable-flipbook`.
+
+## Entry point and preserved gameplay
+
+Perpustakaan Maya → Sains & Alam → **ROKET: Keajaiban Ciptaan Allah di Angkasa** → **Buka Flipbook**.
+
+`js/main.mjs` keeps the existing shelf book choices and adds one supplemental card only for `library` / `alam`. It uses `new URL('./books/roket-keajaiban/index.html', document.baseURI).href`. With the existing `<base href="../">`, the resulting route is `/smartlibverse/books/roket-keajaiban/index.html`. The directory route `/smartlibverse/books/roket-keajaiban/` also works on Pages. The reader returns via the supplied `../../world/index.html?zone=library` link.
+
+The three original quiz books remain in `data/content.mjs`, unchanged. No XP, badge, quiz, mission, collision, avatar or game-state logic changes. Reading this supplemental flipbook does not award XP or create official NILAM records. The reader never accesses `smartlibverse_demo_v1`.
+
+## Source integrity and editable copy
+
+- Exactly five pages: cover, introduction, rocket parts, launch and benefits/conclusion.
+- All 21 supplied WebP illustrations are byte-identical. Twenty are currently displayed; the extra engine illustration remains available as supplied.
+- All original Malay data fields are unchanged. Two already visible section headings, **Mari Bercerita** and **Perbualan Sains**, were moved from fixed reader markup into new `conversationTitle` fields, so these headings are editable too.
+- `books/roket-keajaiban/manifest.json` records source/current hashes and a canonical digest of the original content. Unit tests verify that every original field remains unchanged, independently of the two additional editable headings.
+- The supplied edited page-4 reference, `04_pelancaran_TANPA_KHAT_ALLAH.png`, was visually inspected. Its audit hash is `ab796d586cee8de48b8d9db3c94f018756b3ce62b6a53ee82af91d192aa4b8aa`. The original obsolete page-4 asset is not used.
+- `REFERENCE_ARTWORK`, original reference PNGs, package prompts and package preview files stay outside the repository and public build. No font files are bundled.
+
+## Editing and local storage
+
+Use **Edit teks** to edit text on the displayed page, then **Eksport JSON**. **Import JSON** restores compatible five-page text editions. **Teks asal** asks for confirmation before restoring the shipped text, without resetting game progress or the separate reading receipt.
+
+Edits use `smartlibverse_roket_edits_urbanist_v1`; reading completion uses `smartlibverse_roket_read_v1`. Both are browser-local only. Exporting or importing never publishes to GitHub automatically. To publish an approved editorial revision, update `book-data.js` and intentionally update the manifest's text checksum/content baseline in the same reviewed change. Illustration checksums should remain fixed unless new artwork is explicitly supplied.
+
+Reader adjustments preserve the supplied layout/art and add keyboard-accessible import, meaningful editor/fullscreen labels, larger page-selection targets, plain-text paste, safe text-only JSON rendering, import limits, touch cancellation, reliable horizontal gestures, reduced motion and explicit messages when browser storage/fullscreen is unavailable. Zoom now also applies to mobile body copy. Urbanist loads once from Google Fonts, with the supplied system-font fallback.
+
+## Validation and review evidence
+
+- `npm test`: 27 unit tests passed.
+- `npm run build`: static build, JavaScript syntax/public-secret scan, 20 existing HD-2D hashes, all 21 new illustrations, reader files and reference-art exclusion passed.
+- `npm run test:browser`: Chromium acceptance at 1366 × 768, 820 × 980 and 390 × 844. This includes actual science-shelf navigation, five pages and image decoding, keyboard arrows/PageDown, numbered page controls, mobile CDP touch swipes/cancellation, edit persistence, JSON download/read-back/import, invalid/oversize import rejection, reset acceptance/cancellation, plain-text paste, fullscreen, zoom, reduced motion and the exact return route.
+- Online Urbanist font faces were confirmed loaded. A separate context blocks Google Fonts to validate readable fallback.
+- Existing stories, 4/5 quiz grading, reward idempotency, secret lock, avatars, physics, portals and extended saved progress remain covered by the original acceptance suite.
+- Before/after game storage is compared byte-for-byte while inside the reader. On return to the library, profile, readings, quizzes, rewards and extension fields are compared again.
+- Screenshots for all five pages at all three viewport sizes are uploaded by the unchanged Actions workflow. Selected review images are below.
+
+![Desktop cover and page four](review/roket-reader-desktop.webp)
+
+![Phone page four](review/roket-reader-phone.webp)
+
+## Editorial and test limits
+
+The supplied illustrations contain some cropped ornamental border fragments; page 4's `launch-hero.webp` has a small gold ornament at its upper edge, but no Arabic calligraphy is visible. Its bytes are retained as requested. The introduction's fourth illustration has the original decorative continuation mark rather than an invented extra dialogue. Original Malay wording and its scientific/religious framing have not been rewritten; school editorial review remains available through the text editor/export workflow.
+
+Responsive visual review was performed on actual Chromium screenshots. Interactive desktop browser-control tools were unavailable during this task, so manual input testing through that tool could not be completed; the automated suite exercised real browser controls and touch events at the actual local URL instead. No physical Android/iPad or dedicated screen-reader hardware testing is claimed.
+
+Only SKPKT/smartlibverse changes. SMARTLIB login, authentication, Apps Script, Google Sheets, other repositories and school databases are untouched.

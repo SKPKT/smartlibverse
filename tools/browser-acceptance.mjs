@@ -5,6 +5,7 @@ import {once} from 'node:events';
 import {mkdir,writeFile} from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import {receptionParts} from '../js/plaza-layers.mjs';
+import {inspectRoket} from './roket-browser-acceptance.mjs';
 const base=process.env.BASE_URL||'http://127.0.0.1:4192/smartlibverse/';
 let server;if(!process.env.BASE_URL){server=spawn(process.execPath,['tools/serve-test.mjs'],{stdio:['ignore','pipe','inherit']});await once(server.stdout,'data');}
 await mkdir('test-results',{recursive:true});
@@ -36,6 +37,11 @@ async function inspectWorld(page,zone,width){
    await page.getByRole('button',{name:book,exact:true}).click();await page.getByRole('heading',{name:book,exact:true}).waitFor();
    await page.locator('#close-panel').click();await page.locator('#world').screenshot({path:`test-results/library-${id}-${width}.png`});
   }
+  await page.locator('#destinations').getByRole('button',{name:'Sains & Alam',exact:true}).click();
+  await page.waitForFunction(()=>window.SMARTLIBverseWorldQA.inspect().active==='alam');await page.locator('#interact').click();
+  await page.getByRole('heading',{name:'ROKET: Keajaiban Ciptaan Allah di Angkasa',exact:true}).waitFor();
+  await page.getByRole('button',{name:'Buka Flipbook',exact:true}).click();
+  await inspectRoket(page,base,width);
   await page.emulateMedia({reducedMotion:'reduce'});await frame(page);
   const frozen=await page.evaluate(()=>window.SMARTLIBverseWorldQA.inspect());assert.equal(frozen.particles,0);assert(frozen.stations.every(s=>s.bob===0));
   await page.emulateMedia({reducedMotion:'no-preference'});
