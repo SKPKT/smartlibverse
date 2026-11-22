@@ -69,3 +69,11 @@ button{min-height:44px}
  .book-page[data-page-type="parts"] .part span{font-size:calc(17px*var(--scale))}
  .book-page[data-page-type="launch"] .launch-large{order:0}
 }
+
+/* Reframed character scenes: reserve their complete 3:2 canvas, never crop it. */
+.book-page:is([data-page-type="intro"],[data-page-type="parts"]) .comic img[data-character-art]{
+ aspect-ratio:3/2;object-fit:contain;object-position:center;height:auto;
+}
+@media(min-width:1100px){
+ .book-page:is([data-page-type="intro"],[data-page-type="parts"]){width:min(100%,1040px)}
+}

@@ -29,7 +29,15 @@
     "art/parts-kids-c.webp": "a121287b5b813d655bc00a47af0fbeb52e6ffc44e6d161aba53a2c346c862b8e",
     "art/parts-kids-d.webp": "37a960dd5b528ce5fabfb05cc7b078fad808a53b3a387fd2c743a82af56b6e15",
     "art/parts-rocket.webp": "9d3ed8ba7a8e1770541d40590898ff69b7ccaa1d45950c7870da55aa12a7547e",
-    "book-data.js": "ad6ff7d9588b0a2c14590d1f22bf49ecf9cf16103f6389b4206ddcf4906b4097"
+    "book-data.js": "ad6ff7d9588b0a2c14590d1f22bf49ecf9cf16103f6389b4206ddcf4906b4097",
+    "art/intro-kids-1-v2.webp": "3bb8dcd31c1ff11b1cc97c24abb4dc932382cbc9cb24b310dee89f6a41f6acbb",
+    "art/intro-kids-2-v2.webp": "16718f4fe7e7762ee821f29524e3f17d4051664b7811e42a4d465466889ca457",
+    "art/intro-kids-3-v2.webp": "020a89f2b97fb9a4464461bbb337f7bf65282a132a98efcb15277df327a26fef",
+    "art/intro-kids-4-v2.webp": "1ad51be4e5375b32244e4acd0f144fcd8a41b34e697b49930100594b0275bd0b",
+    "art/parts-kids-a-v2.webp": "7047470a6cb7255c0946c1b257238c2156dedd7eec3206eb9761faa1fe70aa1d",
+    "art/parts-kids-b-v2.webp": "ca19016a1b4af21a83f41665b5aa00ed83afbed5f2c4738a65cda94902ef4bd0",
+    "art/parts-kids-c-v2.webp": "9b349c3931fd97a30b601b8e1e859b8926f8c7d3a1122c2925310431d2b61d5d",
+    "art/parts-kids-d-v2.webp": "c8d3c01b4809c86b0f1cec899fcab7fa27bd97f19f3cef8af4a5cbce9fdb9e8d"
   },
   "sourceBookDataSha256": "3fd92bb7d980d61129003a9053977c431c62c262781988fe311ce34ee78be369",
   "sourceBookContentSha256": "4273e16765981b4e1285a70840584e60f04945867adf94c2e4be29eb8dbf9add",
@@ -38,5 +46,72 @@
     "pages.2.conversationTitle",
     "pages.1.conversations.3"
   ],
-  "layoutRevision": "20261122-panels"
+  "layoutRevision": "20261122-panels",
+  "characterArtRevision": "20261122-character-art-v2",
+  "characterArt": [
+    {
+      "sourceAsset": "intro-kids-1.webp",
+      "asset": "art/intro-kids-1-v2.webp",
+      "width": 1200,
+      "height": 800,
+      "bytes": 251568,
+      "sha256": "3bb8dcd31c1ff11b1cc97c24abb4dc932382cbc9cb24b310dee89f6a41f6acbb"
+    },
+    {
+      "sourceAsset": "intro-kids-2.webp",
+      "asset": "art/intro-kids-2-v2.webp",
+      "width": 1200,
+      "height": 800,
+      "bytes": 211086,
+      "sha256": "16718f4fe7e7762ee821f29524e3f17d4051664b7811e42a4d465466889ca457"
+    },
+    {
+      "sourceAsset": "intro-kids-3.webp",
+      "asset": "art/intro-kids-3-v2.webp",
+      "width": 1200,
+      "height": 800,
+      "bytes": 245200,
+      "sha256": "020a89f2b97fb9a4464461bbb337f7bf65282a132a98efcb15277df327a26fef"
+    },
+    {
+      "sourceAsset": "intro-kids-4.webp",
+      "asset": "art/intro-kids-4-v2.webp",
+      "width": 1200,
+      "height": 800,
+      "bytes": 235662,
+      "sha256": "1ad51be4e5375b32244e4acd0f144fcd8a41b34e697b49930100594b0275bd0b"
+    },
+    {
+      "sourceAsset": "parts-kids-a.webp",
+      "asset": "art/parts-kids-a-v2.webp",
+      "width": 1200,
+      "height": 800,
+      "bytes": 258206,
+      "sha256": "7047470a6cb7255c0946c1b257238c2156dedd7eec3206eb9761faa1fe70aa1d"
+    },
+    {
+      "sourceAsset": "parts-kids-b.webp",
+      "asset": "art/parts-kids-b-v2.webp",
+      "width": 1200,
+      "height": 800,
+      "bytes": 255710,
+      "sha256": "ca19016a1b4af21a83f41665b5aa00ed83afbed5f2c4738a65cda94902ef4bd0"
+    },
+    {
+      "sourceAsset": "parts-kids-c.webp",
+      "asset": "art/parts-kids-c-v2.webp",
+      "width": 1200,
+      "height": 800,
+      "bytes": 248300,
+      "sha256": "9b349c3931fd97a30b601b8e1e859b8926f8c7d3a1122c2925310431d2b61d5d"
+    },
+    {
+      "sourceAsset": "parts-kids-d.webp",
+      "asset": "art/parts-kids-d-v2.webp",
+      "width": 1200,
+      "height": 800,
+      "bytes": 226232,
+      "sha256": "c8d3c01b4809c86b0f1cec899fcab7fa27bd97f19f3cef8af4a5cbce9fdb9e8d"
+    }
+  ]
 }

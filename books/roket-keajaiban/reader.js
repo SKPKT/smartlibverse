@@ -12,7 +12,22 @@
  const visited = new Set([0]);
  const $ = id => document.getElementById(id);
  const reader = $('reader'), page = $('page');
- const art = (name,alt,cls='') => `<img class="img ${cls}" src="art/${name}.webp" alt="${alt}" loading="lazy">`;
+ // These eight source crops cut off pupils before rendering. Use recomposed
+ // landscape artwork; keep the original assets and editable book copy intact.
+ const characterArt = Object.freeze({
+   'intro-kids-1': 'Murid lelaki menunjuk ke roket dan murid perempuan memerhatikannya; kedua-dua wajah kelihatan penuh.',
+   'intro-kids-2': 'Dua murid berbincang tentang satelit dan roket di hadapan Bumi; wajah dan gerak tangan jelas.',
+   'intro-kids-3': 'Dua murid memerhatikan roket dengan nyalaan tujahan; kepala dan tangan mereka kelihatan penuh.',
+   'intro-kids-4': 'Dua murid memandang Bumi dan angkasa dengan kagum; kedua-dua wajah kelihatan penuh.',
+   'parts-kids-a': 'Murid lelaki bertanya sambil menunjuk ke atas dan murid perempuan berfikir tentang roket.',
+   'parts-kids-b': 'Murid perempuan menerangkan tujahan roket dengan gerak tangan dan murid lelaki mendengar.',
+   'parts-kids-c': 'Murid perempuan menerangkan bahagian roket dan murid lelaki mendengar sambil bersilang tangan.',
+   'parts-kids-d': 'Dua murid berbincang tentang badan dan enjin roket; wajah dan gerak tangan kelihatan jelas.'
+ });
+ const art = (name,alt,cls='') => {
+   const restored=Object.hasOwn(characterArt,name);
+   return `<img class="img ${cls}" src="art/${name}${restored?'-v2':''}.webp" alt="${restored?characterArt[name]:alt}" ${restored?'width="1200" height="800" data-character-art="v2" ':''}loading="lazy" decoding="async">`;
+ };
  const slot = (path,tag='span',cls='') => `<${tag} class="${cls}" data-field="${path}"></${tag}>`;
  const get = (obj,path) => path.split('.').reduce((cur,key)=>cur?.[key],obj);
  const set = (obj,path,value) => {let parts=path.split('.'),t=obj;for(let i=0;i<parts.length-1;i++)t=t[parts[i]];t[parts.at(-1)]=value;};
