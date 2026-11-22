@@ -28,7 +28,8 @@ window.ROKET_BOOK_DATA = {
       "conversations": [
         "Roket ialah kenderaan yang bergerak sangat laju ke udara dan angkasa.",
         "Roket digunakan untuk menghantar satelit, angkasawan dan kapal angkasa.",
-        "Roket bergerak menggunakan tujahan daripada enjin yang sangat kuat."
+        "Roket bergerak menggunakan tujahan daripada enjin yang sangat kuat.",
+        "Manusia menggunakan akal yang Allah kurniakan untuk mengkaji angkasa."
       ],
       "lessonTitle": "Elemen Islamik",
       "lesson": "Allah mencipta alam semesta yang luas. Manusia menggunakan akal yang Allah kurniakan untuk mengkaji angkasa."

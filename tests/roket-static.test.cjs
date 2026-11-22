@@ -13,10 +13,13 @@ test('Five source-grounded book pages and complete content',()=>{
  assert.equal(book.pages.length,5);
  assert.deepEqual(Array.from(book.pages,p=>p.type),['cover','intro','parts','launch','benefits']);
  assert.equal(book.pages[1].facts.length,3);
+ assert.equal(book.pages[1].conversations.length,4);
+ assert(book.pages[1].conversations.every(text=>typeof text==='string'&&text.trim().length>10));
+ assert.equal(book.pages[1].conversations[3],'Manusia menggunakan akal yang Allah kurniakan untuk mengkaji angkasa.');
  assert.equal(book.pages[2].parts.length,6);
  assert.equal(book.pages[3].steps.length,4);
  assert.equal(book.pages[4].benefits.length,4);
- const supplied=JSON.parse(JSON.stringify(book));delete supplied.pages[1].conversationTitle;delete supplied.pages[2].conversationTitle;
+ const supplied=JSON.parse(JSON.stringify(book));delete supplied.pages[1].conversationTitle;delete supplied.pages[2].conversationTitle;supplied.pages[1].conversations.pop();
  const manifest=JSON.parse(fs.readFileSync(path.join(app,'manifest.json'),'utf8'));
  assert.equal(crypto.createHash('sha256').update(JSON.stringify(supplied)).digest('hex'),manifest.sourceBookContentSha256,'Every original Malay field must remain unchanged');
  assert.equal(book.pages[1].conversationTitle,'Mari Bercerita');assert.equal(book.pages[2].conversationTitle,'Perbualan Sains');
