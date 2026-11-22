@@ -1,0 +1,40 @@
+{
+  "title": "ROKET: Keajaiban Ciptaan Allah di Angkasa",
+  "pages": 5,
+  "sourceZipSha256": "8e111f80fbd34d584d701985ae8c3dc05ce088c371e899196dfaf440f095bc13",
+  "editedPage4Reference": {
+    "file": "04_pelancaran_TANPA_KHAT_ALLAH.png",
+    "sha256": "ab796d586cee8de48b8d9db3c94f018756b3ce62b6a53ee82af91d192aa4b8aa",
+    "published": false
+  },
+  "sha256": {
+    "art/benefit-comms.webp": "75d2bf8275eef4a0ed0695a7b53a50a59ad361bc37609619577c9f350c1dbf5c",
+    "art/benefit-gps.webp": "667b7ff6e21cbd628e0542c049cc3987f371b079ac6e39ab72660e9c53c5120c",
+    "art/benefit-space.webp": "2cf7bb0f42cfd4039785d85227d3210bb1f7bb6559a921cf0a06cc0117f6e83e",
+    "art/benefit-weather.webp": "152279232371a62bb3a3863ba8426491cb801dd70b018953c5e6a34d4096d5e9",
+    "art/cover-hero.webp": "78710beea84678c9d76215f5f20056fd94de204a96d8c1a1fd4a03a74d2b5171",
+    "art/intro-kids-1.webp": "005615b790932bf9d23111bb51886bbcda30a40364bf037f092b4c599b8fa128",
+    "art/intro-kids-2.webp": "6595745953530a2057036c7a4746ca65338ed4d3d25775125da8f14ae5bcd9b7",
+    "art/intro-kids-3.webp": "7676c6c837e664942df24f09f47ecca5e4a8ca73d440d337bcc8c1c4a0d10168",
+    "art/intro-kids-4.webp": "a049da0704288c3acdd5540ef17e79123a66bfdcdab547dd5e580bbe1edcdd1b",
+    "art/intro-launchpad.webp": "b812d3a3bee569b789c477a381d0b669b56148153fe8c61013b1d57bfa114789",
+    "art/launch-hero.webp": "631cb4cbb001c00b34f8344927c164f397c78d98570d8f33d53dbbdd98758f16",
+    "art/launch-step-1.webp": "3af1724f7cc1bdec1659742f761eb354c9f7cdedeb68ee0e8e9c6b9656bd344f",
+    "art/launch-step-2.webp": "e7ce4ddf87d57e786833c04cd9bdb6363622c117109a08013b9f55f134ef5dbb",
+    "art/launch-step-3.webp": "300d862ae0c80fc8de4628b09f4e5f383b0e46fdc23e734e813a2c37dfe687a5",
+    "art/launch-step-4.webp": "5312a5566735b7c210e6a875af9b5ac849335fc634603e09b79f423fc010529e",
+    "art/parts-engine.webp": "748d9cface85746402ebb31f41cb808ff50c854ddf5a95ab8d867265f40201d8",
+    "art/parts-kids-a.webp": "21afefd4ed34b3d8f6c55f9b6bc3ebd4f05b616898a560df80fcbce87c537a5c",
+    "art/parts-kids-b.webp": "4e23167b13f1b5b866bda4ad4b74d28244929193c24cd5a9fa871325f22b4966",
+    "art/parts-kids-c.webp": "a121287b5b813d655bc00a47af0fbeb52e6ffc44e6d161aba53a2c346c862b8e",
+    "art/parts-kids-d.webp": "37a960dd5b528ce5fabfb05cc7b078fad808a53b3a387fd2c743a82af56b6e15",
+    "art/parts-rocket.webp": "9d3ed8ba7a8e1770541d40590898ff69b7ccaa1d45950c7870da55aa12a7547e",
+    "book-data.js": "ce6a5cf7a73f235f2c7f93a2aba1b3fd7025bb8723d9416a568aa7091eedd876"
+  },
+  "sourceBookDataSha256": "3fd92bb7d980d61129003a9053977c431c62c262781988fe311ce34ee78be369",
+  "sourceBookContentSha256": "4273e16765981b4e1285a70840584e60f04945867adf94c2e4be29eb8dbf9add",
+  "additionalEditableFields": [
+    "pages.1.conversationTitle",
+    "pages.2.conversationTitle"
+  ]
+}
