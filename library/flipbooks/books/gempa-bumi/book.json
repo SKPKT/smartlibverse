@@ -1,0 +1,300 @@
+{
+  "id": "gempa-bumi",
+  "title": "GEMPA BUMI",
+  "series": "Ensiklopedia Fenomena Alam",
+  "author": "Syahida",
+  "publisher": "PSS SKPK Taiping",
+  "category": "Ensiklopedia Fenomena Alam",
+  "pageCount": 6,
+  "status": "draft",
+  "reviewReason": "Visual halaman 1–2 memerlukan semakan pengguna: orang di jalan semasa gegaran. Rujuk laporan sumber.",
+  "instructions": "Lihat situasi dan pilih jawapan. Tiada markah; boleh cuba semula atau langkau.",
+  "pages": [
+    {
+      "number": 1,
+      "title": "Gempa Bumi",
+      "image": "assets/pages/halaman-01.webp",
+      "alt": "GEMPA BUMI — Gempa Bumi. Ilustrasi penuh dan panel buku.",
+      "text": {
+        "title": "Gempa Bumi",
+        "summary": "Kenali punca, kesan dan langkah keselamatan.",
+        "dialogues": [
+          [
+            "Amir",
+            "Wah, tanah sedang bergegar!"
+          ],
+          [
+            "Aina",
+            "Mari kita belajar tentang gempa bumi."
+          ]
+        ],
+        "facts": [
+          "Gempa bumi ialah kejadian gegaran tanah yang berpunca daripada pembebasan tenaga di dalam Bumi."
+        ],
+        "note": "Adegan runtuhan ialah gambaran kesan gempa. Ketika gegaran masih berlaku, jangan berlari keluar. Amalkan Tunduk, Lindung, Pegang."
+      }
+    },
+    {
+      "number": 2,
+      "title": "Apa Itu Gempa Bumi?",
+      "image": "assets/pages/halaman-02.webp",
+      "alt": "GEMPA BUMI — Apa Itu Gempa Bumi?. Ilustrasi penuh dan panel buku.",
+      "text": {
+        "title": "Apa Itu Gempa Bumi?",
+        "summary": "Pengenalan mudah",
+        "dialogues": [
+          [
+            "Amir",
+            "Apa itu gempa bumi?"
+          ],
+          [
+            "Aina",
+            "Gempa bumi ialah gegaran pada permukaan Bumi."
+          ],
+          [
+            "Amir",
+            "Gegaran berlaku apabila batuan di bawah tanah bergerak."
+          ],
+          [
+            "Aina",
+            "Ada gempa yang lemah dan ada yang sangat kuat."
+          ]
+        ],
+        "facts": [
+          "Gempa bumi boleh berlaku secara tiba-tiba.",
+          "Gegaran boleh berlangsung beberapa saat atau lebih lama.",
+          "Alat seismograf digunakan untuk merekod gegaran."
+        ]
+      }
+    },
+    {
+      "number": 3,
+      "title": "Bagaimana Gempa Bumi Berlaku?",
+      "image": "assets/pages/halaman-03.webp",
+      "alt": "GEMPA BUMI — Bagaimana Gempa Bumi Berlaku?. Ilustrasi penuh dan panel buku.",
+      "text": {
+        "title": "Bagaimana Gempa Bumi Berlaku?",
+        "summary": "Pergerakan plat dan sesar",
+        "dialogues": [
+          [
+            "Amir",
+            "Kerak Bumi terbahagi kepada beberapa plat."
+          ],
+          [
+            "Aina",
+            "Plat-plat ini bergerak dengan sangat perlahan."
+          ],
+          [
+            "Amir",
+            "Tekanan terkumpul pada batuan."
+          ],
+          [
+            "Aina",
+            "Apabila batuan berganjak secara tiba-tiba, gempa bumi berlaku."
+          ]
+        ],
+        "facts": [
+          "Plat Bumi sentiasa bergerak perlahan.",
+          "Tegasan boleh terkumpul di sepanjang sesar.",
+          "Pergerakan tiba-tiba pada sesar melepaskan tenaga sebagai gelombang seismik.",
+          "Titik mula gempa di dalam Bumi dikenali sebagai hiposentrum."
+        ],
+        "note": "Ilustrasi pertembungan plat ialah contoh. Gempa bumi juga boleh berlaku pada sesar dengan gerakan menggelongsor atau menjauh."
+      }
+    },
+    {
+      "number": 4,
+      "title": "Kesan Gempa Bumi",
+      "image": "assets/pages/halaman-04.webp",
+      "alt": "GEMPA BUMI — Kesan Gempa Bumi. Ilustrasi penuh dan panel buku.",
+      "text": {
+        "title": "Kesan Gempa Bumi",
+        "summary": "Apa yang boleh berlaku?",
+        "dialogues": [
+          [
+            "Amir",
+            "Jalan raya boleh retak."
+          ],
+          [
+            "Aina",
+            "Bangunan boleh rosak atau runtuh."
+          ],
+          [
+            "Amir",
+            "Bekalan elektrik dan air boleh terputus."
+          ],
+          [
+            "Aina",
+            "Tanah runtuh juga boleh berlaku di kawasan berbukit."
+          ]
+        ],
+        "facts": [
+          "Kerosakan bangunan dan jambatan.",
+          "Jalan dan tanah boleh retak.",
+          "Tanah runtuh di kawasan tertentu.",
+          "Kerosakan utiliti boleh menyebabkan kebakaran dan gangguan bekalan."
+        ],
+        "warning": "Jangan masuk ke bangunan rosak tanpa kebenaran pihak berkuasa."
+      }
+    },
+    {
+      "number": 5,
+      "title": "Langkah Keselamatan",
+      "image": "assets/pages/halaman-05.webp",
+      "alt": "GEMPA BUMI — Langkah Keselamatan. Ilustrasi penuh dan panel buku.",
+      "text": {
+        "title": "Langkah Keselamatan",
+        "summary": "Apa perlu kita buat?",
+        "dialogues": [
+          [
+            "Amir",
+            "Tunduk, lindungi kepala dan pegang kuat!"
+          ],
+          [
+            "Aina",
+            "Berlindung di bawah meja yang kukuh."
+          ],
+          [
+            "Amir",
+            "Jauhi tingkap dan almari tinggi."
+          ],
+          [
+            "Aina",
+            "Selepas gegaran berhenti, keluar dengan tenang."
+          ]
+        ],
+        "facts": [
+          "Tunduk, Lindung dan Pegang ketika gegaran.",
+          "Jauhi kaca dan objek yang boleh tumbang.",
+          "Jangan berlari keluar ketika gegaran sedang berlaku.",
+          "Selepas gegaran berhenti, ikut arahan dan bergerak ke kawasan selamat."
+        ],
+        "kit": [
+          "Air minum",
+          "Lampu suluh",
+          "Peti pertolongan cemas",
+          "Makanan tahan lama",
+          "Wisel",
+          "Telefon dan pengecas mudah alih"
+        ]
+      }
+    },
+    {
+      "number": 6,
+      "title": "Rumusan Gempa Bumi",
+      "image": "assets/pages/halaman-06.webp",
+      "alt": "GEMPA BUMI — Rumusan Gempa Bumi. Ilustrasi penuh dan panel buku.",
+      "text": {
+        "title": "Rumusan Gempa Bumi",
+        "summary": "Ingat dan fahami",
+        "dialogues": [
+          [
+            "Amir",
+            "Gempa bumi ialah gegaran pada permukaan Bumi."
+          ],
+          [
+            "Aina",
+            "Ia berlaku apabila batuan dan plat Bumi bergerak."
+          ],
+          [
+            "Amir dan Aina",
+            "Kita mesti tahu cara melindungi diri!"
+          ]
+        ],
+        "facts": [
+          "Gempa bumi berlaku apabila batuan pada sesar bergerak secara tiba-tiba.",
+          "Gempa bumi boleh merosakkan bangunan, jalan dan kemudahan awam.",
+          "Latihan keselamatan membantu kita bertindak dengan tenang dan selamat."
+        ],
+        "warning": "Jangan panik. Lindungi diri dan ikut arahan orang dewasa.",
+        "reflect": "Apakah dua langkah keselamatan yang kamu pelajari?"
+      }
+    }
+  ],
+  "activities": [
+    {
+      "id": "gempa-bumi-1",
+      "title": "Situasi 1",
+      "question": "Berlindung di bawah meja kukuh semasa gegaran.",
+      "image": "assets/cards/situasi-01.webp",
+      "icon": null,
+      "alt": "Berlindung di bawah meja kukuh semasa gegaran.",
+      "choices": [
+        "Selamat",
+        "Tidak selamat"
+      ],
+      "answer": 0,
+      "explanation": "Selamat. Tunduk, Lindung dan Pegang sehingga gegaran berhenti."
+    },
+    {
+      "id": "gempa-bumi-2",
+      "title": "Situasi 2",
+      "question": "Berlari keluar ketika bangunan sedang bergegar.",
+      "image": "assets/cards/situasi-02.webp",
+      "icon": null,
+      "alt": "Berlari keluar ketika bangunan sedang bergegar.",
+      "choices": [
+        "Selamat",
+        "Tidak selamat"
+      ],
+      "answer": 1,
+      "explanation": "Tidak selamat. Serpihan dan kaca boleh jatuh. Berlindung dahulu jika berada di dalam bangunan."
+    },
+    {
+      "id": "gempa-bumi-3",
+      "title": "Situasi 3",
+      "question": "Menjauhi tingkap kaca semasa gempa bumi.",
+      "image": "assets/cards/situasi-03.webp",
+      "icon": null,
+      "alt": "Menjauhi tingkap kaca semasa gempa bumi.",
+      "choices": [
+        "Selamat",
+        "Tidak selamat"
+      ],
+      "answer": 0,
+      "explanation": "Selamat. Jauhi kaca dan objek tinggi yang boleh tumbang."
+    },
+    {
+      "id": "gempa-bumi-4",
+      "title": "Situasi 4",
+      "question": "Menggunakan lif ketika gempa bumi berlaku.",
+      "image": "assets/cards/situasi-04.webp",
+      "icon": null,
+      "alt": "Menggunakan lif ketika gempa bumi berlaku.",
+      "choices": [
+        "Selamat",
+        "Tidak selamat"
+      ],
+      "answer": 1,
+      "explanation": "Tidak selamat. Elakkan lif semasa dan selepas gempa; ikut laluan keluar yang selamat apabila gegaran berhenti."
+    },
+    {
+      "id": "gempa-bumi-5",
+      "title": "Situasi 5",
+      "question": "Berkumpul di kawasan selamat selepas gegaran berhenti.",
+      "image": "assets/cards/situasi-05.webp",
+      "icon": null,
+      "alt": "Berkumpul di kawasan selamat selepas gegaran berhenti.",
+      "choices": [
+        "Selamat",
+        "Tidak selamat"
+      ],
+      "answer": 0,
+      "explanation": "Selamat. Ikut arahan guru dan pihak berkuasa untuk berkumpul di kawasan yang disahkan selamat."
+    },
+    {
+      "id": "gempa-bumi-6",
+      "title": "Situasi 6",
+      "question": "Masuk semula ke bangunan yang rosak tanpa kebenaran.",
+      "image": "assets/cards/situasi-06.webp",
+      "icon": null,
+      "alt": "Masuk semula ke bangunan yang rosak tanpa kebenaran.",
+      "choices": [
+        "Selamat",
+        "Tidak selamat"
+      ],
+      "answer": 1,
+      "explanation": "Tidak selamat. Bangunan rosak boleh runtuh. Tunggu pengesahan pihak berkuasa."
+    }
+  ]
+}

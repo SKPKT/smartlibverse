@@ -1,3 +1,7 @@
 # Keep editable Malay source bytes stable for cross-platform provenance checks.
 books/roket-keajaiban/book-data.js text eol=lf
 books/kompos/book-data.js text eol=lf
+library/** text=auto eol=lf
+library/**/*.webp binary
+library/**/*.svg -text
+docs/kompos-protected-baseline.json text eol=lf

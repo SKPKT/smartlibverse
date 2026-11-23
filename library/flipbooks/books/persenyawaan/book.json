@@ -1,0 +1,189 @@
+{
+  "id": "persenyawaan",
+  "title": "Bagaimana Persenyawaan Berlaku",
+  "series": "Buku Kecil Pendidikan Sains",
+  "author": "Syahida",
+  "publisher": null,
+  "category": "Sains",
+  "pageCount": 5,
+  "status": "published",
+  "reviewReason": null,
+  "instructions": "Lihat situasi dan pilih jawapan. Tiada markah; boleh cuba semula atau langkau.",
+  "pages": [
+    {
+      "number": 1,
+      "title": "Halaman 1 — Pengenalan",
+      "image": "assets/halaman-01.webp",
+      "alt": "Bagaimana Persenyawaan Berlaku — Halaman 1 — Pengenalan. Ilustrasi penuh dan panel buku.",
+      "text": {
+        "title": "Halaman 1 — Pengenalan",
+        "summary": "Kenali perjalanan sperma, pertemuan dengan ovum dan proses awal pembentukan zigot.",
+        "highlights": [
+          "Sperma bergerak mencari ovum.",
+          "Apabila sperma bertemu ovum, persenyawaan boleh berlaku."
+        ]
+      }
+    },
+    {
+      "number": 2,
+      "title": "Halaman 2 — Kenali Sperma dan Ovum",
+      "image": "assets/halaman-02.webp",
+      "alt": "Bagaimana Persenyawaan Berlaku — Halaman 2 — Kenali Sperma dan Ovum. Ilustrasi penuh dan panel buku.",
+      "text": {
+        "title": "Halaman 2 — Kenali Sperma dan Ovum",
+        "facts": [
+          "Sperma ialah sel pembiakan lelaki.",
+          "Ovum ialah sel pembiakan perempuan.",
+          "Sperma bersaiz sangat kecil dan boleh bergerak.",
+          "Ovum lebih besar dan menunggu di tiub fallopio."
+        ],
+        "quickFacts": [
+          "Sperma mempunyai kepala dan ekor.",
+          "Ovum ialah sel yang besar dan bulat.",
+          "Kedua-duanya diperlukan untuk persenyawaan."
+        ]
+      }
+    },
+    {
+      "number": 3,
+      "title": "Halaman 3 — Pergerakan Sperma",
+      "image": "assets/halaman-03.webp",
+      "alt": "Bagaimana Persenyawaan Berlaku — Halaman 3 — Pergerakan Sperma. Ilustrasi penuh dan panel buku.",
+      "text": {
+        "title": "Halaman 3 — Pergerakan Sperma",
+        "steps": [
+          "Sperma masuk ke dalam saluran pembiakan perempuan.",
+          "Sperma bergerak melalui serviks dan rahim.",
+          "Sperma berenang menuju tiub fallopio.",
+          "Hanya sedikit sperma berjaya menghampiri ovum."
+        ],
+        "note": "Pergerakan sperma dibantu oleh ekor yang menolak ke hadapan."
+      }
+    },
+    {
+      "number": 4,
+      "title": "Halaman 4 — Bagaimana Persenyawaan Berlaku?",
+      "image": "assets/halaman-04.webp",
+      "alt": "Bagaimana Persenyawaan Berlaku — Halaman 4 — Bagaimana Persenyawaan Berlaku?. Ilustrasi penuh dan panel buku.",
+      "text": {
+        "title": "Halaman 4 — Bagaimana Persenyawaan Berlaku?",
+        "sequence": [
+          "Sperma menghampiri ovum.",
+          "Satu sperma memasuki ovum.",
+          "Bahan genetik bergabung.",
+          "Zigot mula terbentuk."
+        ],
+        "key": "Selepas satu sperma masuk, ovum menghalang sperma lain daripada masuk."
+      }
+    },
+    {
+      "number": 5,
+      "title": "Halaman 5 — Selepas Persenyawaan",
+      "image": "assets/halaman-05.webp",
+      "alt": "Bagaimana Persenyawaan Berlaku — Halaman 5 — Selepas Persenyawaan. Ilustrasi penuh dan panel buku.",
+      "text": {
+        "title": "Halaman 5 — Selepas Persenyawaan",
+        "recap": [
+          "Zigot mula membahagi menjadi banyak sel.",
+          "Sel-sel awal bergerak ke arah rahim.",
+          "Embrio awal melekat pada dinding rahim.",
+          "Inilah permulaan perkembangan bayi."
+        ],
+        "summary": "Persenyawaan berlaku apabila sperma bertemu ovum dan bahan genetik kedua-duanya bergabung. Proses ini menghasilkan zigot. Zigot kemudian membahagi dan bergerak ke rahim untuk perkembangan awal.",
+        "remember": "Sperma bergerak mencari ovum. Ovum menunggu di tiub fallopio. Apabila kedua-duanya bersatu, kehidupan baharu bermula."
+      }
+    }
+  ],
+  "activities": [
+    {
+      "id": "persenyawaan-1",
+      "title": "Situasi 1",
+      "question": "Gambar ini menunjukkan sel pembiakan yang bergerak mencari ovum. Apakah namanya?",
+      "image": "assets/aktiviti/aktiviti-01.webp",
+      "icon": null,
+      "alt": "Gambar ini menunjukkan sel pembiakan yang bergerak mencari ovum. Apakah namanya?",
+      "choices": [
+        "Sperma",
+        "Ovum",
+        "Rahim"
+      ],
+      "answer": 0,
+      "explanation": "Betul. Sperma ialah sel pembiakan lelaki yang bergerak untuk mencari ovum."
+    },
+    {
+      "id": "persenyawaan-2",
+      "title": "Situasi 2",
+      "question": "Gambar ini menunjukkan sel pembiakan perempuan. Apakah namanya?",
+      "image": "assets/aktiviti/aktiviti-02.webp",
+      "icon": null,
+      "alt": "Gambar ini menunjukkan sel pembiakan perempuan. Apakah namanya?",
+      "choices": [
+        "Embrio",
+        "Ovum",
+        "Serviks"
+      ],
+      "answer": 1,
+      "explanation": "Betul. Ovum ialah sel pembiakan perempuan."
+    },
+    {
+      "id": "persenyawaan-3",
+      "title": "Situasi 3",
+      "question": "Dalam gambar ini, sperma bergerak melalui rahim menuju ke mana?",
+      "image": "assets/aktiviti/aktiviti-03.webp",
+      "icon": null,
+      "alt": "Dalam gambar ini, sperma bergerak melalui rahim menuju ke mana?",
+      "choices": [
+        "Tiub fallopio",
+        "Kulit",
+        "Paru-paru"
+      ],
+      "answer": 0,
+      "explanation": "Betul. Sperma bergerak melalui rahim dan menuju ke tiub fallopio untuk menghampiri ovum."
+    },
+    {
+      "id": "persenyawaan-4",
+      "title": "Situasi 4",
+      "question": "Apakah hasil apabila satu sperma berjaya memasuki ovum?",
+      "image": "assets/aktiviti/aktiviti-04.webp",
+      "icon": null,
+      "alt": "Apakah hasil apabila satu sperma berjaya memasuki ovum?",
+      "choices": [
+        "Zigot",
+        "Darah",
+        "Tulang"
+      ],
+      "answer": 0,
+      "explanation": "Betul. Persenyawaan menghasilkan zigot."
+    },
+    {
+      "id": "persenyawaan-5",
+      "title": "Situasi 5",
+      "question": "Selepas persenyawaan, apakah yang berlaku kepada zigot?",
+      "image": "assets/aktiviti/aktiviti-05.webp",
+      "icon": null,
+      "alt": "Selepas persenyawaan, apakah yang berlaku kepada zigot?",
+      "choices": [
+        "Zigot membahagi menjadi banyak sel",
+        "Zigot hilang serta-merta",
+        "Zigot berubah menjadi daun"
+      ],
+      "answer": 0,
+      "explanation": "Betul. Zigot mula membahagi menjadi banyak sel."
+    },
+    {
+      "id": "persenyawaan-6",
+      "title": "Situasi 6",
+      "question": "Di manakah blastokista melekat untuk memulakan implantasi?",
+      "image": "assets/aktiviti/aktiviti-06.webp",
+      "icon": null,
+      "alt": "Di manakah blastokista melekat untuk memulakan implantasi?",
+      "choices": [
+        "Pada dinding rahim",
+        "Pada tangan",
+        "Pada rambut"
+      ],
+      "answer": 0,
+      "explanation": "Betul. Blastokista, iaitu embrio peringkat awal, melekat pada lapisan dalam rahim."
+    }
+  ]
+}

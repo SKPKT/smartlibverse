@@ -1,0 +1,118 @@
+{
+  "baseline": "ce82cb755313568895b681e513f9af4b5fd898a7",
+  "tree": "1c38aa28ece13527ecb1e2dd0cb46250ec12ce3c",
+  "files": [
+    {
+      "path": "books/kompos/assets/illustrations/keratan-kompos.webp",
+      "sha256": "5e2083116caab9977b620eb854f40286a9fdcea769a31f9cd50001884d1b8b4e"
+    },
+    {
+      "path": "books/kompos/assets/illustrations/kulit-cerita.webp",
+      "sha256": "9fdfbfca5b2caedd465c9ed13c398e6ebcd31f02fee1296d3202403a9de3fca2"
+    },
+    {
+      "path": "books/kompos/assets/illustrations/mikroorganisma.webp",
+      "sha256": "cfa3540ff9e6b426c97f1a081ef00df0b54121688b348e410b183e6040a47dfa"
+    },
+    {
+      "path": "books/kompos/assets/illustrations/pengenalan-bekas.webp",
+      "sha256": "a3998919d5a776b95078f55533f927688dd10389088bcdfd9f01a36488918ab9"
+    },
+    {
+      "path": "books/kompos/assets/illustrations/penutup-watak.webp",
+      "sha256": "deb7eea4b13dae54bc14e44089b05dea14a6bbc9578962ac06a58d8e9a9c518a"
+    },
+    {
+      "path": "books/kompos/assets/illustrations/proses-1-bahan.webp",
+      "sha256": "afc22771234626413404ad583095832d2c8bda371591145754f24ff660b2d609"
+    },
+    {
+      "path": "books/kompos/assets/illustrations/proses-2-campur.webp",
+      "sha256": "522349caf8bee8c91db0cb93d8434a4010e81a8cf2d4b10052363800c9c022b0"
+    },
+    {
+      "path": "books/kompos/assets/illustrations/proses-3-udara.webp",
+      "sha256": "28d3bf72f516a096903a6b659473a2dab0ca0b19da7450cb511154381835c12a"
+    },
+    {
+      "path": "books/kompos/assets/illustrations/proses-4-siap.webp",
+      "sha256": "35f4625065b22e2b0e728f364eb8034b4f56954852fc974ac892054a2273b329"
+    },
+    {
+      "path": "books/kompos/assets/illustrations/rumusan-taman.webp",
+      "sha256": "cb45af17b105415af991323c9401ba4d8681a2850f33b27288b19cf292b3b088"
+    },
+    {
+      "path": "books/kompos/assets/illustrations/watak-aina.webp",
+      "sha256": "805aa262dd69768217647010086bbcf024b41345f7b0c85779cddaa68c25df20"
+    },
+    {
+      "path": "books/kompos/assets/illustrations/watak-amir.webp",
+      "sha256": "d70fca4ab34847016278c92c4214df51e3d6f07849e4d14e230e849b2cfa618c"
+    },
+    {
+      "path": "books/kompos/assets/illustrations/watak-halaman-3.webp",
+      "sha256": "60d03c65bbb42a3d6f4368a37983e46b4a3dba4e3c69dd1942cdb5244698920d"
+    },
+    {
+      "path": "books/kompos/assets/materials/botol-kaca.webp",
+      "sha256": "3e85586df8bd2c41d7d69458ebd183bd348a14dd08467549b861d797774a0531"
+    },
+    {
+      "path": "books/kompos/assets/materials/botol-plastik.webp",
+      "sha256": "77fa5c7883a3fa44b2d6846807444d4c329d1599343419b5caa28fb300eaefbb"
+    },
+    {
+      "path": "books/kompos/assets/materials/daun-kering.webp",
+      "sha256": "42660f9f4d4618c839edd2abb9ccdfd7ddf193d05e4a3cb7e5af12d9f211a662"
+    },
+    {
+      "path": "books/kompos/assets/materials/kulit-pisang.webp",
+      "sha256": "51d2e13dde8ad05f93ffda486cbf053c420c514aae50ad1fd72bb2067451ed5b"
+    },
+    {
+      "path": "books/kompos/assets/materials/pembungkus-plastik.webp",
+      "sha256": "2fe3e848533080e38403942312146648589ca8100e478296c3a9cd041aea6da6"
+    },
+    {
+      "path": "books/kompos/assets/materials/polistirena.webp",
+      "sha256": "951a4686185b6cbf4b34be0aa304723facdec7f5e5a3ce2195506400f60b7429"
+    },
+    {
+      "path": "books/kompos/assets/materials/ranting-kecil.webp",
+      "sha256": "d0fd0c56e7d4ed031348546289181ca323db00016c9c0cfb08b69eb57cfbbdf5"
+    },
+    {
+      "path": "books/kompos/assets/materials/rumput-segar.webp",
+      "sha256": "b1d3299af945aefc62ee4ad5bf4a88310f82174cf28764dc2acdb7f1b404b00b"
+    },
+    {
+      "path": "books/kompos/assets/materials/sisa-sayur.webp",
+      "sha256": "598ac16ea6f1e79722772214322fbd4796163d355318d48cc02d917d371c6945"
+    },
+    {
+      "path": "books/kompos/assets/materials/tin-minuman.webp",
+      "sha256": "7eedc5ca3ecbda60d41286599aa9b65d41b45bc5252e77a5fbb7e491d7d08358"
+    },
+    {
+      "path": "books/kompos/book-data.js",
+      "sha256": "e9a35fec387c986b6a9cee061962ce46f92e5ecc79783d0b95c106bf71e26348"
+    },
+    {
+      "path": "books/kompos/css/flipbook.css",
+      "sha256": "dcd8aca35949414e769757517dfac0b38157b2656b9d471374cf919a93a66da7"
+    },
+    {
+      "path": "books/kompos/index.html",
+      "sha256": "577b405787529fa35a68e2a39ebd90b38ee6de9ca9d8fbcf10e4bd61f63d2a2c"
+    },
+    {
+      "path": "books/kompos/js/flipbook.js",
+      "sha256": "5cde71e22d0efdc133be9b048ea2294b0ee0549080e72dab224b8f2eeefeb1d1"
+    },
+    {
+      "path": "books/kompos/manifest.json",
+      "sha256": "e3d7646b800d164e0bce1416cffb7bb93beabf59438df9561eeff34d06d18928"
+    }
+  ]
+}

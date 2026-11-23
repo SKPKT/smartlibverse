@@ -1,0 +1,194 @@
+{
+  "id": "ribut",
+  "title": "RIBUT",
+  "series": "Ensiklopedia Fenomena Alam",
+  "author": "Syahida Suffian",
+  "publisher": "Pusat Sumber SKPK Taiping",
+  "category": "Ensiklopedia Fenomena Alam",
+  "pageCount": 6,
+  "status": "published",
+  "reviewReason": null,
+  "instructions": "Lihat gambar dan pilih Selamat atau Tidak Selamat. Tiada markah.",
+  "pages": [
+    {
+      "number": 1,
+      "title": "Kulit Depan — RIBUT",
+      "image": "assets/pages/01-kulit-depan.webp",
+      "alt": "Kulit buku ensiklopedia fenomena alam mengenai ribut dengan suasana hujan lebat dan angin kuat di Malaysia.",
+      "text": {
+        "title": "Kulit Depan — RIBUT",
+        "description": "Kulit buku ensiklopedia fenomena alam mengenai ribut dengan suasana hujan lebat dan angin kuat di Malaysia.",
+        "summary": [
+          "Siri Ensiklopedia Fenomena Alam: RIBUT.",
+          "Kenali punca, kesan dan langkah keselamatan ketika ribut."
+        ]
+      }
+    },
+    {
+      "number": 2,
+      "title": "Apa Itu Ribut?",
+      "image": "assets/pages/02-apa-itu-ribut.webp",
+      "alt": "Pengenalan ribut, awan tebal, hujan lebat dan angin kencang, serta pemantauan cuaca menggunakan radar dan satelit.",
+      "text": {
+        "title": "Apa Itu Ribut?",
+        "description": "Pengenalan ribut, awan tebal, hujan lebat dan angin kencang, serta pemantauan cuaca menggunakan radar dan satelit.",
+        "summary": [
+          "Ribut ialah keadaan cuaca yang boleh melibatkan angin kencang dan hujan lebat.",
+          "Ribut petir mempunyai kilat dan guruh, serta mungkin disertai hujan lebat dan angin kencang.",
+          "Ahli meteorologi menggunakan alat seperti radar dan satelit untuk memantau cuaca."
+        ]
+      }
+    },
+    {
+      "number": 3,
+      "title": "Bagaimana Ribut Terbentuk?",
+      "image": "assets/pages/03-bagaimana-ribut-terbentuk.webp",
+      "alt": "Rajah mudah udara panas dan lembap naik, menyejuk, membentuk awan, awan berkembang dan hujan lebat berlaku.",
+      "text": {
+        "title": "Bagaimana Ribut Terbentuk?",
+        "description": "Rajah mudah udara panas dan lembap naik, menyejuk, membentuk awan, awan berkembang dan hujan lebat berlaku.",
+        "summary": [
+          "Udara panas dan lembap naik ke atmosfera.",
+          "Udara yang naik menyejuk; wap air terkondensasi menjadi titisan air dan membentuk awan.",
+          "Awan ribut yang besar dikenali sebagai awan kumulonimbus.",
+          "Hujan, kilat, guruh dan angin kencang boleh berlaku ketika ribut petir."
+        ]
+      }
+    },
+    {
+      "number": 4,
+      "title": "Kesan Ribut",
+      "image": "assets/pages/04-kesan-ribut.webp",
+      "alt": "Pemandangan kawasan yang terjejas dengan pokok tumbang, kerosakan bumbung, banjir dan gangguan elektrik.",
+      "text": {
+        "title": "Kesan Ribut",
+        "description": "Pemandangan kawasan yang terjejas dengan pokok tumbang, kerosakan bumbung, banjir dan gangguan elektrik.",
+        "summary": [
+          "Angin kencang boleh menyebabkan pokok dan dahan tumbang.",
+          "Hujan lebat boleh menyebabkan banjir kilat.",
+          "Bumbung dan bangunan boleh rosak.",
+          "Bekalan elektrik boleh terputus; jauhi wayar elektrik yang jatuh."
+        ]
+      }
+    },
+    {
+      "number": 5,
+      "title": "Langkah Keselamatan Semasa Ribut",
+      "image": "assets/pages/05-langkah-keselamatan.webp",
+      "alt": "Keluarga menyediakan kit kecemasan, berlindung di dalam bangunan kukuh, menjauhi tingkap dan mengikuti amaran cuaca.",
+      "text": {
+        "title": "Langkah Keselamatan Semasa Ribut",
+        "description": "Keluarga menyediakan kit kecemasan, berlindung di dalam bangunan kukuh, menjauhi tingkap dan mengikuti amaran cuaca.",
+        "summary": [
+          "Masuk ke dalam bangunan kukuh apabila ribut petir berlaku.",
+          "Jauhi tingkap dan pintu kaca.",
+          "Jangan sentuh peralatan elektrik berwayar dengan tangan basah.",
+          "Dengar amaran cuaca dan arahan pihak berkuasa.",
+          "Sediakan kit kecemasan: air minum, lampu suluh, peti pertolongan cemas, makanan tahan lama, telefon, pengecas dan radio mudah alih."
+        ]
+      }
+    },
+    {
+      "number": 6,
+      "title": "Rumusan Ribut",
+      "image": "assets/pages/06-rumusan-ribut.webp",
+      "alt": "Ringkasan bahaya ribut dan pesanan supaya berada di tempat selamat serta mematuhi amaran cuaca.",
+      "text": {
+        "title": "Rumusan Ribut",
+        "description": "Ringkasan bahaya ribut dan pesanan supaya berada di tempat selamat serta mematuhi amaran cuaca.",
+        "summary": [
+          "Ribut petir boleh membawa angin kuat, hujan lebat, kilat dan guruh.",
+          "Ribut boleh menyebabkan pokok tumbang, banjir dan kerosakan bangunan.",
+          "Kenali tanda bahaya dan patuhi amaran cuaca.",
+          "Utamakan keselamatan diri, keluarga dan orang sekeliling."
+        ]
+      }
+    }
+  ],
+  "activities": [
+    {
+      "id": "ribut-1",
+      "title": "Berlindung di dalam bangunan kukuh",
+      "question": "Murid berlindung di dalam bangunan kukuh ketika hujan dan kilat di luar.",
+      "image": "assets/quiz/01-bangunan.svg",
+      "icon": null,
+      "alt": "Murid berlindung di dalam bangunan kukuh ketika hujan dan kilat di luar.",
+      "choices": [
+        "Selamat",
+        "Tidak selamat"
+      ],
+      "answer": 0,
+      "explanation": "Bangunan kukuh ialah tempat perlindungan lebih selamat ketika ribut petir."
+    },
+    {
+      "id": "ribut-2",
+      "title": "Bermain di padang ketika ribut",
+      "question": "Seorang murid berada di padang terbuka ketika kilat kelihatan.",
+      "image": "assets/quiz/02-padang.svg",
+      "icon": null,
+      "alt": "Seorang murid berada di padang terbuka ketika kilat kelihatan.",
+      "choices": [
+        "Selamat",
+        "Tidak selamat"
+      ],
+      "answer": 1,
+      "explanation": "Jangan bermain di padang atau kawasan lapang ketika kilat dan guruh."
+    },
+    {
+      "id": "ribut-3",
+      "title": "Menutup tingkap sebelum ribut",
+      "question": "Murid menutup tingkap sebelum cuaca bertambah buruk.",
+      "image": "assets/quiz/03-tingkap.svg",
+      "icon": null,
+      "alt": "Murid menutup tingkap sebelum cuaca bertambah buruk.",
+      "choices": [
+        "Selamat",
+        "Tidak selamat"
+      ],
+      "answer": 0,
+      "explanation": "Menutup tingkap sebelum ribut membantu mengurangkan air hujan dan angin masuk. Ketika ribut berlangsung, jauhkan diri daripada tingkap."
+    },
+    {
+      "id": "ribut-4",
+      "title": "Berteduh di bawah pokok tinggi",
+      "question": "Murid berhampiran pokok tinggi sewaktu ribut petir.",
+      "image": "assets/quiz/04-pokok.svg",
+      "icon": null,
+      "alt": "Murid berhampiran pokok tinggi sewaktu ribut petir.",
+      "choices": [
+        "Selamat",
+        "Tidak selamat"
+      ],
+      "answer": 1,
+      "explanation": "Pokok boleh disambar kilat atau dahannya patah; cari bangunan kukuh, bukan berteduh di bawah pokok."
+    },
+    {
+      "id": "ribut-5",
+      "title": "Mendengar amaran cuaca dan arahan guru",
+      "question": "Murid dan guru melihat amaran cuaca rasmi pada telefon di dalam bangunan.",
+      "image": "assets/quiz/05-amaran.svg",
+      "icon": null,
+      "alt": "Murid dan guru melihat amaran cuaca rasmi pada telefon di dalam bangunan.",
+      "choices": [
+        "Selamat",
+        "Tidak selamat"
+      ],
+      "answer": 0,
+      "explanation": "Amaran cuaca rasmi dan arahan orang dewasa membantu kita membuat keputusan yang selamat."
+    },
+    {
+      "id": "ribut-6",
+      "title": "Menyentuh wayar elektrik yang jatuh",
+      "question": "Wayar elektrik jatuh di tepi jalan; murid melihat dari jauh, tidak menyentuhnya.",
+      "image": "assets/quiz/06-wayar.svg",
+      "icon": null,
+      "alt": "Wayar elektrik jatuh di tepi jalan; murid melihat dari jauh, tidak menyentuhnya.",
+      "choices": [
+        "Selamat",
+        "Tidak selamat"
+      ],
+      "answer": 1,
+      "explanation": "Jangan sentuh atau dekati wayar elektrik yang jatuh. Jauhkan diri dan maklumkan kepada orang dewasa atau pihak berkuasa."
+    }
+  ]
+}
