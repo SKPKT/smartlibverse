@@ -44,9 +44,9 @@ function interact(){if(panel.open)return;const t=nearest(s);if(!t||t.d>100){toas
    btn('Buka Flipbook',()=>{window.location.href=new URL('./books/roket-keajaiban/index.html',document.baseURI).href;},c);
    const kompos=card('KOMPOS: Misi Sisa Menjadi Baja','Komik Sains & Alam · 5 halaman · Aktiviti tanpa markah · Kemajuan disimpan pada pelayar sahaja.');
    btn('Buka Komik KOMPOS',()=>{window.location.href=new URL('./books/kompos/index.html',document.baseURI).href;},kompos);
+   const collection=card('Koleksi Komik Sains & Fenomena Alam','Baca halaman penuh, cuba aktiviti pilihan dan sambung bacaan mengikut buku.');
+   btn('Jelajah Koleksi Buku',()=>{window.location.href=new URL('./library/flipbooks/index.html',document.baseURI).href;},collection);
   }
-  const collection=card('Koleksi Komik Sains & Fenomena Alam','Baca halaman penuh, cuba aktiviti pilihan dan sambung bacaan mengikut buku.');
-  btn('Jelajah Koleksi Buku',()=>{window.location.href=new URL('./library/flipbooks/index.html',document.baseURI).href;},collection);
  }
  else if(z==='gallery')openBook(t.id);
  else if(z==='quiz')quizChoice();else if(z==='awards')menu('awards');
