@@ -27,7 +27,7 @@ Ekstrak dibuat di luar repo/penerbitan, menolak laluan mutlak, `..`, symlink, pe
 | TSUNAMI Kawasan Pantai Dikemaskini | 6 | 6 situasi | 6 WebP halaman | 1087×1536; label KAWASAN PANTAI diperiksa pada halaman 1–2 | Lulus quality gate |
 | GEMPA BUMI 6 Halaman V1 penuh | 6 | 6 kad | 6 halaman + 6 kad | Halaman 1600×2400; kad 960×600 | Draf: visual halaman 1–2 perlu semakan pengguna |
 | BANJIR 6 Halaman V1 | 6 | 6 kad | 6 halaman + 6 kad | Halaman 1024×1536; kad 960×600 | Lulus semakan visual/fakta dengan nota keselamatan sumber dipaparkan |
-| PERSENYAWAAN V3 | 5 | 6 kad | 5 halaman + 6 kad | Halaman 1087×1536; enam kad baharu 960×600 | Lulus; penerbit tidak dinyatakan dalam sumber |
+| PERSENYAWAAN V3 | 5 | 6 kad | 5 halaman + 6 kad | Halaman 1087×1536; enam kad baharu 960×600 | Lulus; penerbit disahkan pengguna pada 23 November 2026 |
 | Template enjin sahaja | — | — | Rujukan HTML/CSS/JS | Tiada data/aset KOMPOS | Bukan buku; katalog kosong tidak disalin |
 
 Jumlah input tepat **5 buku, 29 halaman cerita, 30 situasi aktiviti**. Build awam mengandungi **4 buku baharu, 23 halaman**; GEMPA BUMI 6 halaman dikekalkan untuk semakan setempat sahaja. Aktiviti bukan halaman tambahan. TSUNAMI membekalkan ikon, bukan kad bergambar; ikon asal dikekalkan, tidak menggantikan sebarang ilustrasi yang dibekalkan.
@@ -41,7 +41,7 @@ Jumlah input tepat **5 buku, 29 halaman cerita, 30 situasi aktiviti**. Build awa
 - Urbanist dimuat sekali bagi setiap halaman melalui Google Fonts, dengan fallback sistem. Fail font tidak diedarkan.
 - Semua imej `contain`, nisbah asal, ruang letterbox; tiada crop/resize aset. Zum menggunakan permukaan yang boleh ditatal, tidak memotong gambar secara kekal. Pertukaran halaman memulihkan Muat Penuh.
 - Teks terbenam dalam gambar kekal raster. Hanya teks HTML pendamping boleh disunting, dieksport/import JSON dan dipulihkan. Renderer menggunakan `textContent`, tidak memasukkan HTML daripada import.
-- Penulis/penerbit diambil daripada sumber. PERSENYAWAAN memaparkan “Belum dinyatakan dalam sumber” untuk penerbit; tiada metadata rekaan.
+- Penulis/penerbit diambil daripada sumber atau pengesahan pengguna. Penerbit PERSENYAWAAN disahkan pengguna pada 23 November 2026 sebagai **Pusat Sumber SKPK Taiping**. Manifest merekod pengesahan ini sebagai editorial override; checksum arkib dan data sumber asal kekal.
 - Kemajuan baharu: `smartlibverse_book_<id>_visited_v1`. Suntingan: `smartlibverse_book_<id>_text_v1`. Aktiviti tidak menambah halaman atau mengubah progress. Tiada markah/pemasa/penalti/had percubaan, API sekolah, data murid atau rekod NILAM.
 - Enam situasi per buku menyokong cuba semula, lihat jawapan, seterusnya, ulang semua, langkau/tutup, Escape, fokus semula, dan keyboard. Tiada aktiviti menjadi syarat tamat.
 

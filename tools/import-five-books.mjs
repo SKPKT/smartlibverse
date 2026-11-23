@@ -11,6 +11,8 @@ const verified=JSON.parse(await fs.readFile(path.join(source,'verified-inputs.js
 const dimensions=JSON.parse(await fs.readFile(path.join(source,'image-dimensions.json'),'utf8'));
 const digest=b=>createHash('sha256').update(b).digest('hex');
 const ids=['ribut','tsunami','gempa-bumi','banjir','persenyawaan'];
+// Publisher confirmed directly by the user on 23 November 2026.
+const publisherOverrides={persenyawaan:{value:'Pusat Sumber SKPK Taiping',source:'Pengesahan pengguna',confirmedOn:'2026-11-23'}};
 const catalog=[];
 for(const id of ids){
  const archive=verified.find(x=>x.id===id);
@@ -52,7 +54,7 @@ for(const id of ids){
    choices:hasChoices?a.choices:['Selamat','Tidak selamat'],answer:hasChoices?a.answer:(a.safe??a.correct)?0:1,
    explanation:a.explanation||a.explain});
  }
- const book={id,title:raw.title,series:raw.subtitle||'Ensiklopedia Fenomena Alam',author:raw.author,publisher:raw.publisher||null,
+ const book={id,title:raw.title,series:raw.subtitle||'Ensiklopedia Fenomena Alam',author:raw.author,publisher:publisherOverrides[id]?.value||raw.publisher||null,
   category:id==='persenyawaan'?'Sains':'Ensiklopedia Fenomena Alam',pageCount:pages.length,
   status:id==='gempa-bumi'?'draft':'published',reviewReason:id==='gempa-bumi'?'Visual halaman 1–2 memerlukan semakan pengguna: orang di jalan semasa gegaran. Rujuk laporan sumber.':null,
   instructions:raw.quiz?.instructions||raw.activity?.instructions||'Lihat situasi dan pilih jawapan. Tiada markah; boleh cuba semula atau langkau.',pages,activities};
@@ -60,7 +62,7 @@ for(const id of ids){
  const bookBytes=await fs.readFile(path.join(dir,'book.json'));
  const manifest={schema:1,bookId:id,sourceArchive:archive.filename,archiveSha256:archive.sha256,sourceDataSha256:digest(bytes),
   bookDataSha256:digest(bookBytes),sourcePageCount:raw.pages.length,activityCount:activities.length,status:book.status,
-  files:[...assets.values()],excluded:'Source engines, backups, old TSUNAMI -asal images, original/reference art and optional covers are not published.'};
+  files:[...assets.values()],excluded:'Source engines, backups, old TSUNAMI -asal images, original/reference art and optional covers are not published.',...(publisherOverrides[id]?{editorialOverrides:{publisher:publisherOverrides[id]}}:{})};
  await fs.writeFile(path.join(dir,'manifest.json'),JSON.stringify(manifest,null,2)+'\n');
  catalog.push({id,title:book.title,series:book.series,author:book.author,publisher:book.publisher,category:book.category,pages:pages.length,
   cover:pages[0].image,data:`books/${id}/book.json`,status:book.status,reviewReason:book.reviewReason});
