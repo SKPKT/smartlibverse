@@ -1,4 +1,4 @@
-import {mkdir,cp,readFile,readdir} from 'node:fs/promises';
+import {mkdir,cp,readFile,readdir,rm} from 'node:fs/promises';
 import path from 'node:path';
 import {execFileSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
@@ -6,6 +6,14 @@ const root=path.resolve(import.meta.dirname,'..');
 const files=['index.html','world','css','js','data','assets','books','libra-robot.webp','icon-192.png'];
 await mkdir(path.join(root,'dist'),{recursive:true});
 for(const file of files)await cp(path.join(root,file),path.join(root,'dist',file),{recursive:true});
+// The reviewed book is available only in source/loopback QA, never in Pages output.
+// Clear only this generated subtree, with a resolved workspace boundary check.
+const libraryOutput=path.resolve(root,'dist/library');
+if(libraryOutput!==path.join(root,'dist','library'))throw Error('Unsafe output path');
+await rm(libraryOutput,{recursive:true,force:true});
+await cp(path.join(root,'library'),libraryOutput,{recursive:true,filter:src=>!src.split(path.sep).includes('gempa-bumi')});
+const {verifyLibrary}=await import('./verify-library.mjs');
+await verifyLibrary(root);
 async function scan(dir){for(const e of await readdir(dir,{withFileTypes:true})){const p=path.join(dir,e.name);if(e.isDirectory())await scan(p);else if(/\.(html|m?js|css)$/.test(e.name)){const text=await readFile(p,'utf8');if(/\.m?js$/.test(e.name))execFileSync(process.execPath,['--check',p]);if(/AIza[\w-]{25,}|gh[pousr]_[\w]{20,}|-----BEGIN.*PRIVATE KEY/.test(text))throw Error('Potential secret in public build');if(/script\.google\.com|signin-with-chatgpt/.test(text))throw Error('Unexpected backend dependency');}}}
 await scan(path.join(root,'dist'));console.log('Static production build and public secret scan passed. No server runtime required.');
 const manifest=JSON.parse(await readFile(path.join(root,'dist/assets/hd2d/manifest.json'),'utf8'));

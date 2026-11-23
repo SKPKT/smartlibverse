@@ -1,0 +1,110 @@
+{
+  "verifiedBeforeExtraction": true,
+  "wrapperSha256": "959fb00c6614da72a73ab6bfd60a2550fc1f1da7fdea72b9e08e4acb8096395d",
+  "archives": [
+    {
+      "id": "engine",
+      "filename": "SMARTLIBverse_Template_Induk_Enjin_Sahaja_Tanpa_KOMPOS.zip",
+      "sha256": "781368a788d12cfc050a9744684cb21f08b29218381b9425989d72d678530949",
+      "bytes": 14028,
+      "sourceRoot": "SMARTLIBverse_Universal_Flipbook_Engine_Only"
+    },
+    {
+      "id": "ribut",
+      "filename": "SMARTLIBverse_RIBUT_Enam_Halaman_Hybrid_Interaktif.zip",
+      "sha256": "ea61b4f6deab38bbdd37468478244abfe85ed0d99e3b8b9d86ca5b6a92af7592",
+      "bytes": 5828785,
+      "sourceRoot": "SMARTLIBverse_RIBUT_6_Halaman_Hybrid"
+    },
+    {
+      "id": "tsunami",
+      "filename": "SMARTLIBverse_TSUNAMI_Kawasan_Pantai_Dikemaskini.zip",
+      "sha256": "62e61a951dcfd730976c2d3e989185a13af2570b58561e8f0ef0f611a1324d05",
+      "bytes": 12119572,
+      "sourceRoot": "SMARTLIBverse_TSUNAMI_6_Halaman_Kawasan_Pantai_v2"
+    },
+    {
+      "id": "gempa-bumi",
+      "filename": "SMARTLIBverse_Gempa_Bumi_6_Halaman_Interaktif_v1.zip",
+      "sha256": "e0c4a3eb208dba3d83c6393ba95516b71a8c24bcaa4440f71a44d546820a9f92",
+      "bytes": 42012001,
+      "sourceRoot": "SMARTLIBverse_Gempa_Bumi_6_Halaman_Interaktif_v1"
+    },
+    {
+      "id": "banjir",
+      "filename": "SMARTLIBverse_BANJIR_6_Halaman_Interaktif_v1.zip",
+      "sha256": "ca67f264b840d6ffdef4c6eb7c68ae871b38ce5572e3ce4528ffb8e780798512",
+      "bytes": 33515569,
+      "sourceRoot": "SMARTLIBverse_BANJIR_6_Halaman_Interaktif_v1"
+    },
+    {
+      "id": "persenyawaan",
+      "filename": "SMARTLIBverse_Persenyawaan_Aktiviti_Bergambar_Kad_Baharu_v3.zip",
+      "sha256": "104f4eee5df80ebefc023bc48e7d2c4df965e38be031ff045fef8011fac1709f",
+      "bytes": 9018986,
+      "sourceRoot": "SMARTLIBverse_Bagaimana_Persenyawaan_Berlaku_Aktiviti_Bergambar_v3"
+    }
+  ],
+  "ributLosslessConversion": [
+    {
+      "source": "01-kulit-depan.png",
+      "target": "01-kulit-depan.webp",
+      "dimensions": [
+        1087,
+        1536
+      ],
+      "decodedPixelsIdentical": true,
+      "sha256": "cc82cb57bf8170c00380a7740554e58df07de44f404a19535bc6d03f6f56575f"
+    },
+    {
+      "source": "02-apa-itu-ribut.png",
+      "target": "02-apa-itu-ribut.webp",
+      "dimensions": [
+        1087,
+        1536
+      ],
+      "decodedPixelsIdentical": true,
+      "sha256": "0eaab87c412fc28c299ff44a53ec1fcb02d39d97382f6b28e0edaf204cf4a61c"
+    },
+    {
+      "source": "03-bagaimana-ribut-terbentuk.png",
+      "target": "03-bagaimana-ribut-terbentuk.webp",
+      "dimensions": [
+        1087,
+        1536
+      ],
+      "decodedPixelsIdentical": true,
+      "sha256": "da6f186797eb9829b4ec23ba71ee4f88fadd1b64f1802457db05f838a9fccc20"
+    },
+    {
+      "source": "04-kesan-ribut.png",
+      "target": "04-kesan-ribut.webp",
+      "dimensions": [
+        1087,
+        1536
+      ],
+      "decodedPixelsIdentical": true,
+      "sha256": "8af0b477120f2f7c6c93f6e0b8fa3e3e0c071ddefb8d75a83c1c00e6a95c96f3"
+    },
+    {
+      "source": "05-langkah-keselamatan.png",
+      "target": "05-langkah-keselamatan.webp",
+      "dimensions": [
+        1087,
+        1536
+      ],
+      "decodedPixelsIdentical": true,
+      "sha256": "2ce89f42bee81b7d201c14d76a7f191584339bc569783fd3289dddc34069823c"
+    },
+    {
+      "source": "06-rumusan-ribut.png",
+      "target": "06-rumusan-ribut.webp",
+      "dimensions": [
+        1087,
+        1536
+      ],
+      "decodedPixelsIdentical": true,
+      "sha256": "d68d87cb4711b6973a63da32ab73fdc850306d6f5e65a3f53435b286d1e26551"
+    }
+  ]
+}

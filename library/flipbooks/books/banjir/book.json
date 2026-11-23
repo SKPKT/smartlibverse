@@ -1,0 +1,262 @@
+{
+  "id": "banjir",
+  "title": "BANJIR",
+  "series": "Ensiklopedia Fenomena Alam",
+  "author": "Syahida",
+  "publisher": "PSS SKPK Taiping",
+  "category": "Ensiklopedia Fenomena Alam",
+  "pageCount": 6,
+  "status": "published",
+  "reviewReason": null,
+  "instructions": "Lihat gambar. Pilih sama ada tindakan itu selamat atau tidak selamat.",
+  "pages": [
+    {
+      "number": 1,
+      "title": "BANJIR — Kulit Depan",
+      "image": "assets/pages/webp/halaman-01.webp",
+      "alt": "Kulit depan BANJIR dengan Kak Maya dan Encik Hafiz di kawasan kampung dinaiki air, petugas menyelamat dan dua panel dialog.",
+      "text": {
+        "title": "BANJIR — Kulit Depan",
+        "summary": "Kenali punca, kesan dan langkah keselamatan menghadapi banjir.",
+        "dialogues": [
+          {
+            "speaker": "Kak Maya",
+            "text": "Mari kita kenali tentang banjir."
+          },
+          {
+            "speaker": "Encik Hafiz",
+            "text": "Banjir boleh berlaku apabila air melimpah."
+          }
+        ],
+        "facts": []
+      }
+    },
+    {
+      "number": 2,
+      "title": "Apa Itu Banjir?",
+      "image": "assets/pages/webp/halaman-02.webp",
+      "alt": "Kawasan kampung dan sungai dilanda banjir; empat panel panduan memperkenalkan maksud banjir dan kotak fakta.",
+      "text": {
+        "title": "Apa Itu Banjir?",
+        "dialogues": [
+          {
+            "speaker": "Encik Hafiz",
+            "text": "Apa itu banjir?"
+          },
+          {
+            "speaker": "Kak Maya",
+            "text": "Banjir ialah air yang melimpah ke daratan."
+          },
+          {
+            "speaker": "Encik Hafiz",
+            "text": "Hujan lebat boleh menyebabkannya."
+          },
+          {
+            "speaker": "Kak Maya",
+            "text": "Sungai dan longkang juga boleh melimpah."
+          }
+        ],
+        "facts": [
+          "Banjir boleh berlaku secara tiba-tiba.",
+          "Air boleh naik di kawasan rendah.",
+          "Banjir boleh berlaku di bandar dan kampung."
+        ],
+        "notes": [
+          "Ramalan cuaca dan amaran banjir membantu orang ramai bersedia lebih awal."
+        ]
+      }
+    },
+    {
+      "number": 3,
+      "title": "Bagaimana Banjir Berlaku?",
+      "image": "assets/pages/webp/halaman-03.webp",
+      "alt": "Rajah empat langkah: hujan lebat, air mengalir, sungai atau longkang penuh, air melimpah ke kawasan rendah.",
+      "text": {
+        "title": "Bagaimana Banjir Berlaku?",
+        "steps": [
+          "Hujan lebat turun lama.",
+          "Air mengalir ke sungai dan longkang.",
+          "Sungai atau longkang tidak dapat menampung air.",
+          "Air melimpah ke kawasan rendah."
+        ],
+        "notes": [
+          "Saliran tersumbat dan penebangan pokok boleh memburukkan banjir."
+        ]
+      }
+    },
+    {
+      "number": 4,
+      "title": "Kesan Banjir",
+      "image": "assets/pages/webp/halaman-04.webp",
+      "alt": "Jalan banjir, rumah rosak, penduduk berpindah dan petugas menyelamat; kotak AWAS mengingatkan bahaya air banjir dan wayar elektrik.",
+      "text": {
+        "title": "Kesan Banjir",
+        "dialogues": [
+          {
+            "speaker": "Encik Hafiz",
+            "text": "Jalan boleh tenggelam dan rosak."
+          },
+          {
+            "speaker": "Kak Maya",
+            "text": "Rumah dan harta benda boleh rosak."
+          },
+          {
+            "speaker": "Encik Hafiz",
+            "text": "Bekalan elektrik boleh terputus."
+          },
+          {
+            "speaker": "Kak Maya",
+            "text": "Penduduk mungkin perlu berpindah."
+          }
+        ],
+        "facts": [
+          "Rumah rosak.",
+          "Jalan terputus.",
+          "Air banjir mungkin tercemar.",
+          "Bekalan elektrik terganggu.",
+          "Penduduk terpaksa berpindah."
+        ],
+        "warning": "Jangan bermain dalam air banjir dan jauhi wayar elektrik."
+      }
+    },
+    {
+      "number": 5,
+      "title": "Langkah Keselamatan",
+      "image": "assets/pages/webp/halaman-05.webp",
+      "alt": "Kak Maya dan Encik Hafiz membimbing pemindahan ke pusat selamat, empat panel tindakan dan senarai kit kecemasan.",
+      "text": {
+        "title": "Langkah Keselamatan",
+        "steps": [
+          "Pindah ke tempat selamat apabila diarahkan.",
+          "Matikan bekalan elektrik hanya sebelum air naik dan jika keadaan benar-benar selamat.",
+          "Bawa kit kecemasan dan dokumen penting.",
+          "Dengar arahan pihak berkuasa."
+        ],
+        "facts": [
+          "Air minum",
+          "Lampu suluh",
+          "Peti pertolongan cemas",
+          "Makanan tahan lama",
+          "Radio atau wisel",
+          "Telefon dan pengecas"
+        ],
+        "warning": "Jangan redah arus air. Cari tempat tinggi dan selamat.",
+        "notes": [
+          "Peringatan tambahan: Jika tangan atau lantai basah, jangan sentuh suis, palam atau peralatan elektrik."
+        ]
+      }
+    },
+    {
+      "number": 6,
+      "title": "Rumusan Banjir",
+      "image": "assets/pages/webp/halaman-06.webp",
+      "alt": "Kampung dibersihkan selepas banjir; Kak Maya dan Encik Hafiz merumuskan punca serta langkah keselamatan.",
+      "text": {
+        "title": "Rumusan Banjir",
+        "dialogues": [
+          {
+            "speaker": "Kak Maya",
+            "text": "Banjir berlaku apabila air melimpah."
+          },
+          {
+            "speaker": "Encik Hafiz",
+            "text": "Puncanya hujan lebat dan saliran tersumbat."
+          },
+          {
+            "speaker": "Kedua-duanya",
+            "text": "Utamakan keselamatan sentiasa!"
+          }
+        ],
+        "summary": "Banjir ialah fenomena alam apabila air melimpah ke daratan. Banjir boleh berlaku akibat hujan lebat, sungai melimpah dan saliran tersumbat. Pengetahuan tentang punca, kesan dan langkah keselamatan membantu kita bertindak dengan lebih tenang dan selamat.",
+        "warning": "Jangan panik. Pindah ke tempat selamat dan patuhi arahan pihak berkuasa.",
+        "reflection": "Apakah tindakan paling selamat apabila kawasan rumah dinaiki air?"
+      }
+    }
+  ],
+  "activities": [
+    {
+      "id": "banjir-1",
+      "title": "Situasi 1",
+      "question": "Berpindah ke pusat pemindahan apabila diarahkan.",
+      "image": "assets/cards/kad-01.webp",
+      "icon": null,
+      "alt": "Keluarga berjalan ke tempat pemindahan di laluan tinggi dengan bantuan petugas penyelamat.",
+      "choices": [
+        "Selamat",
+        "Tidak selamat"
+      ],
+      "answer": 0,
+      "explanation": "Betul. Patuhi arahan pemindahan dan ikut laluan yang selamat."
+    },
+    {
+      "id": "banjir-2",
+      "title": "Situasi 2",
+      "question": "Cuba bermain di dalam air banjir.",
+      "image": "assets/cards/kad-02.webp",
+      "icon": null,
+      "alt": "Seorang ayah menghentikan anak yang mahu bermain berhampiran aliran air banjir yang deras.",
+      "choices": [
+        "Selamat",
+        "Tidak selamat"
+      ],
+      "answer": 1,
+      "explanation": "Tidak selamat. Air banjir boleh mengalir deras, tercemar dan menyembunyikan bahaya."
+    },
+    {
+      "id": "banjir-3",
+      "title": "Situasi 3",
+      "question": "Menyediakan beg kecemasan sebelum banjir.",
+      "image": "assets/cards/kad-03.webp",
+      "icon": null,
+      "alt": "Ibu dan anak menyusun air minum, lampu suluh, radio, makanan dan peti pertolongan cemas ke dalam beg.",
+      "choices": [
+        "Selamat",
+        "Tidak selamat"
+      ],
+      "answer": 0,
+      "explanation": "Betul. Sediakan air minum, lampu suluh, makanan dan keperluan penting lebih awal."
+    },
+    {
+      "id": "banjir-4",
+      "title": "Situasi 4",
+      "question": "Menyentuh suis elektrik dengan tangan basah.",
+      "image": "assets/cards/kad-04.webp",
+      "icon": null,
+      "alt": "Tangan basah hampir menyentuh suis elektrik yang basah, disertai simbol bahaya kilat.",
+      "choices": [
+        "Selamat",
+        "Tidak selamat"
+      ],
+      "answer": 1,
+      "explanation": "Tidak selamat. Jangan sentuh suis atau peralatan elektrik apabila basah atau kawasan ditenggelami air."
+    },
+    {
+      "id": "banjir-5",
+      "title": "Situasi 5",
+      "question": "Mendengar amaran cuaca dan arahan pihak berkuasa.",
+      "image": "assets/cards/kad-05.webp",
+      "icon": null,
+      "alt": "Keluarga mendengar pengumuman banjir melalui radio dan memeriksa telefon di tempat terlindung.",
+      "choices": [
+        "Selamat",
+        "Tidak selamat"
+      ],
+      "answer": 0,
+      "explanation": "Betul. Amaran rasmi membantu kita bersedia dan bertindak dengan selamat."
+    },
+    {
+      "id": "banjir-6",
+      "title": "Situasi 6",
+      "question": "Berhenti dan tidak memandu meredah jalan banjir.",
+      "image": "assets/cards/kad-06.webp",
+      "icon": null,
+      "alt": "Sebuah kereta berhenti di hadapan jalan yang dinaiki air banjir deras.",
+      "choices": [
+        "Selamat",
+        "Tidak selamat"
+      ],
+      "answer": 0,
+      "explanation": "Betul. Jangan memandu meredah air banjir walaupun jalan itu kelihatan boleh dilalui."
+    }
+  ]
+}

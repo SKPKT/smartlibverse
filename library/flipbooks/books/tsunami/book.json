@@ -1,0 +1,254 @@
+{
+  "id": "tsunami",
+  "title": "TSUNAMI: Ensiklopedia Fenomena Alam",
+  "series": "Ensiklopedia Fenomena Alam",
+  "author": "Syahida",
+  "publisher": "PSS SKPK Taiping",
+  "category": "Ensiklopedia Fenomena Alam",
+  "pageCount": 6,
+  "status": "published",
+  "reviewReason": null,
+  "instructions": "Lihat situasi dan pilih jawapan. Tiada markah; boleh cuba semula atau langkau.",
+  "pages": [
+    {
+      "number": 1,
+      "title": "Kulit Depan",
+      "image": "assets/halaman-01.webp",
+      "alt": "TSUNAMI: Ensiklopedia Fenomena Alam — Kulit Depan. Ilustrasi penuh dan panel buku.",
+      "text": {
+        "title": "Kulit Depan",
+        "summary": "Kenali punca, kesan dan langkah keselamatan tsunami."
+      }
+    },
+    {
+      "number": 2,
+      "title": "Apa Itu Tsunami?",
+      "image": "assets/halaman-02.webp",
+      "alt": "TSUNAMI: Ensiklopedia Fenomena Alam — Apa Itu Tsunami?. Ilustrasi penuh dan panel buku.",
+      "text": {
+        "title": "Apa Itu Tsunami?",
+        "dialogues": [
+          [
+            "Amir",
+            "Apa itu tsunami?"
+          ],
+          [
+            "Aina",
+            "Tsunami ialah siri ombak laut yang sangat besar."
+          ],
+          [
+            "Amir",
+            "Ia boleh bergerak sangat laju ke arah pantai."
+          ],
+          [
+            "Aina",
+            "Tsunami sering berlaku selepas gempa bumi di dasar laut."
+          ]
+        ],
+        "facts": [
+          "Tsunami bukan hanya satu ombak.",
+          "Ombak tsunami boleh sampai ke pantai dengan sangat kuat.",
+          "Air laut kadang-kadang surut secara luar biasa sebelum tsunami tiba."
+        ],
+        "interesting": "Perkataan tsunami berasal daripada bahasa Jepun."
+      }
+    },
+    {
+      "number": 3,
+      "title": "Bagaimana Tsunami Berlaku?",
+      "image": "assets/halaman-03.webp",
+      "alt": "TSUNAMI: Ensiklopedia Fenomena Alam — Bagaimana Tsunami Berlaku?. Ilustrasi penuh dan panel buku.",
+      "text": {
+        "title": "Bagaimana Tsunami Berlaku?",
+        "steps": [
+          "Gempa bumi berlaku di dasar laut.",
+          "Dasar laut bergerak secara tiba-tiba.",
+          "Air laut ditolak dan teralih.",
+          "Ombak tsunami bergerak ke pantai."
+        ],
+        "dialogues": [
+          [
+            "Amir",
+            "Gempa bumi boleh berlaku di dasar laut."
+          ],
+          [
+            "Aina",
+            "Pergerakan dasar laut menolak air ke atas."
+          ],
+          [
+            "Amir",
+            "Air laut yang teralih membentuk ombak besar."
+          ],
+          [
+            "Aina",
+            "Ombak itu bergerak jauh sebagai tsunami!"
+          ]
+        ],
+        "fact": "Tsunami juga boleh berpunca daripada letusan gunung berapi bawah laut atau tanah runtuh di laut."
+      }
+    },
+    {
+      "number": 4,
+      "title": "Kesan Tsunami",
+      "image": "assets/halaman-04.webp",
+      "alt": "TSUNAMI: Ensiklopedia Fenomena Alam — Kesan Tsunami. Ilustrasi penuh dan panel buku.",
+      "text": {
+        "title": "Kesan Tsunami",
+        "effects": [
+          "Banjir besar di kawasan pantai.",
+          "Kerosakan rumah dan bangunan.",
+          "Jalan dan kenderaan rosak.",
+          "Bot dan peralatan nelayan terjejas.",
+          "Gangguan kepada kehidupan penduduk."
+        ],
+        "warning": "Jangan kembali ke pantai terlalu awal kerana ombak susulan boleh berlaku."
+      }
+    },
+    {
+      "number": 5,
+      "title": "Langkah Keselamatan Semasa Tsunami",
+      "image": "assets/halaman-05.webp",
+      "alt": "TSUNAMI: Ensiklopedia Fenomena Alam — Langkah Keselamatan Semasa Tsunami. Ilustrasi penuh dan panel buku.",
+      "text": {
+        "title": "Langkah Keselamatan Semasa Tsunami",
+        "tips": [
+          "Segera lari ke kawasan tinggi.",
+          "Jauhi pantai, muara sungai dan kawasan rendah.",
+          "Dengar amaran daripada pihak berkuasa.",
+          "Bawa kit kecemasan jika sempat."
+        ],
+        "kit": [
+          "Air minum",
+          "Makanan tahan lama",
+          "Lampu suluh",
+          "Peti pertolongan cemas",
+          "Telefon dan pengecas mudah alih",
+          "Dokumen penting",
+          "Radio mudah alih"
+        ],
+        "important": "Jika terasa gempa bumi kuat di kawasan pantai, segera bergerak ke tempat tinggi walaupun belum menerima amaran rasmi.",
+        "activity_intro": [
+          [
+            "Amir",
+            "Jom uji tindakan selamat!"
+          ],
+          [
+            "Aina",
+            "Pilih jawapan yang betul."
+          ]
+        ]
+      }
+    },
+    {
+      "number": 6,
+      "title": "Rumusan Tsunami",
+      "image": "assets/halaman-06.webp",
+      "alt": "TSUNAMI: Ensiklopedia Fenomena Alam — Rumusan Tsunami. Ilustrasi penuh dan panel buku.",
+      "text": {
+        "title": "Rumusan Tsunami",
+        "summary": "Tsunami ialah fenomena alam yang menghasilkan siri ombak laut besar dan kuat. Tsunami sering berlaku selepas gempa bumi di dasar laut dan boleh menyebabkan banjir besar serta kerosakan di kawasan pantai. Pengetahuan tentang tanda amaran dan langkah keselamatan membantu kita bertindak dengan cepat dan selamat.",
+        "message": "Jangan panik. Bergerak ke kawasan tinggi dan ikut arahan pihak berkuasa.",
+        "dialogues": [
+          [
+            "Amir",
+            "Tsunami ialah siri ombak laut yang sangat besar."
+          ],
+          [
+            "Aina",
+            "Tsunami boleh berlaku akibat gangguan di dasar laut."
+          ],
+          [
+            "Amir dan Aina",
+            "Kita mesti sentiasa peka dan mengutamakan keselamatan!"
+          ]
+        ]
+      }
+    }
+  ],
+  "activities": [
+    {
+      "id": "tsunami-1",
+      "title": "Situasi 1",
+      "question": "Segera lari ke kawasan tinggi",
+      "image": null,
+      "icon": "⛰️",
+      "alt": "Segera lari ke kawasan tinggi",
+      "choices": [
+        "Selamat",
+        "Tidak selamat"
+      ],
+      "answer": 0,
+      "explanation": "Bergerak ke kawasan tinggi ialah tindakan paling penting apabila ada ancaman tsunami."
+    },
+    {
+      "id": "tsunami-2",
+      "title": "Situasi 2",
+      "question": "Kembali ke pantai untuk melihat ombak",
+      "image": null,
+      "icon": "🏖️",
+      "alt": "Kembali ke pantai untuk melihat ombak",
+      "choices": [
+        "Selamat",
+        "Tidak selamat"
+      ],
+      "answer": 1,
+      "explanation": "Jangan kembali ke pantai kerana ombak susulan boleh berlaku."
+    },
+    {
+      "id": "tsunami-3",
+      "title": "Situasi 3",
+      "question": "Jauhi pantai, muara sungai dan kawasan rendah",
+      "image": null,
+      "icon": "🌊",
+      "alt": "Jauhi pantai, muara sungai dan kawasan rendah",
+      "choices": [
+        "Selamat",
+        "Tidak selamat"
+      ],
+      "answer": 0,
+      "explanation": "Kawasan ini lebih berisiko ditenggelami air tsunami."
+    },
+    {
+      "id": "tsunami-4",
+      "title": "Situasi 4",
+      "question": "Dengar amaran dan arahan pihak berkuasa",
+      "image": null,
+      "icon": "📢",
+      "alt": "Dengar amaran dan arahan pihak berkuasa",
+      "choices": [
+        "Selamat",
+        "Tidak selamat"
+      ],
+      "answer": 0,
+      "explanation": "Ikut arahan rasmi untuk pemindahan dan keselamatan."
+    },
+    {
+      "id": "tsunami-5",
+      "title": "Situasi 5",
+      "question": "Bawa kit kecemasan jika sempat",
+      "image": null,
+      "icon": "🎒",
+      "alt": "Bawa kit kecemasan jika sempat",
+      "choices": [
+        "Selamat",
+        "Tidak selamat"
+      ],
+      "answer": 0,
+      "explanation": "Kit kecemasan membantu semasa berpindah ke tempat selamat."
+    },
+    {
+      "id": "tsunami-6",
+      "title": "Situasi 6",
+      "question": "Kembali awal ke kawasan pantai selepas ombak pertama",
+      "image": null,
+      "icon": "↩️",
+      "alt": "Kembali awal ke kawasan pantai selepas ombak pertama",
+      "choices": [
+        "Selamat",
+        "Tidak selamat"
+      ],
+      "answer": 1,
+      "explanation": "Ombak susulan boleh berlaku dan masih berbahaya."
+    }
+  ]
+}

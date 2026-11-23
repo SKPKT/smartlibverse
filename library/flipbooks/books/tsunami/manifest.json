@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "bookId": "tsunami",
+  "sourceArchive": "SMARTLIBverse_TSUNAMI_Kawasan_Pantai_Dikemaskini.zip",
+  "archiveSha256": "62e61a951dcfd730976c2d3e989185a13af2570b58561e8f0ef0f611a1324d05",
+  "sourceDataSha256": "32f3c80028b2362306b6d1f5ab1243c332dacf8ed58a9f8efb1eced3659534d9",
+  "bookDataSha256": "23f74a391a8ed25374f45d6509ba9d8780bd4ccb0a4783a097e536f3942fa34b",
+  "sourcePageCount": 6,
+  "activityCount": 6,
+  "status": "published",
+  "files": [
+    {
+      "path": "assets/halaman-01.webp",
+      "bytes": 474028,
+      "sha256": "24c17be2a98d906fc90b49b45f9a1aceef026b1203433860a72b0fd2ae21993a",
+      "sourcePath": "assets/halaman-01.webp",
+      "sourceSha256": "24c17be2a98d906fc90b49b45f9a1aceef026b1203433860a72b0fd2ae21993a",
+      "width": 1087,
+      "height": 1536
+    },
+    {
+      "path": "assets/halaman-02.webp",
+      "bytes": 483270,
+      "sha256": "f265b4f712de6f25905d7cc3d3dd718e8ba78329036f224405acb6fb35d40da9",
+      "sourcePath": "assets/halaman-02.webp",
+      "sourceSha256": "f265b4f712de6f25905d7cc3d3dd718e8ba78329036f224405acb6fb35d40da9",
+      "width": 1087,
+      "height": 1536
+    },
+    {
+      "path": "assets/halaman-03.webp",
+      "bytes": 408664,
+      "sha256": "247bf97854a36c7d71019c7fd88bec53ece8c2526de8e0afb8f1d47b03518827",
+      "sourcePath": "assets/halaman-03.webp",
+      "sourceSha256": "247bf97854a36c7d71019c7fd88bec53ece8c2526de8e0afb8f1d47b03518827",
+      "width": 1087,
+      "height": 1536
+    },
+    {
+      "path": "assets/halaman-04.webp",
+      "bytes": 495412,
+      "sha256": "9e15dc37a57c9dc349cc06ba3c3aac9e11fecced31ab3fdc4bf6528e9d5c6d3f",
+      "sourcePath": "assets/halaman-04.webp",
+      "sourceSha256": "9e15dc37a57c9dc349cc06ba3c3aac9e11fecced31ab3fdc4bf6528e9d5c6d3f",
+      "width": 1087,
+      "height": 1536
+    },
+    {
+      "path": "assets/halaman-05.webp",
+      "bytes": 471678,
+      "sha256": "d25887819b040d617502326180e7697460ab1dba29a66e45187e60166a7f5343",
+      "sourcePath": "assets/halaman-05.webp",
+      "sourceSha256": "d25887819b040d617502326180e7697460ab1dba29a66e45187e60166a7f5343",
+      "width": 1087,
+      "height": 1536
+    },
+    {
+      "path": "assets/halaman-06.webp",
+      "bytes": 452262,
+      "sha256": "0dc4937febe7c06ebfa97753ee4fe8ac78ea513c9d65af7db4e63b3f705da165",
+      "sourcePath": "assets/halaman-06.webp",
+      "sourceSha256": "0dc4937febe7c06ebfa97753ee4fe8ac78ea513c9d65af7db4e63b3f705da165",
+      "width": 1087,
+      "height": 1536
+    }
+  ],
+  "excluded": "Source engines, backups, old TSUNAMI -asal images, original/reference art and optional covers are not published."
+}

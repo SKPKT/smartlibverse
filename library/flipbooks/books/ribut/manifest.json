@@ -1,0 +1,110 @@
+{
+  "schema": 1,
+  "bookId": "ribut",
+  "sourceArchive": "SMARTLIBverse_RIBUT_Enam_Halaman_Hybrid_Interaktif.zip",
+  "archiveSha256": "ea61b4f6deab38bbdd37468478244abfe85ed0d99e3b8b9d86ca5b6a92af7592",
+  "sourceDataSha256": "e85b1e28bdad1c93474a0abd28c74a4cb79bc1e1167f1ea9daad595c83dfa3c5",
+  "bookDataSha256": "b4fff911949bfb5f01574b43112a000acf9eb4a00cc1f24bd89475c6c0a2120d",
+  "sourcePageCount": 6,
+  "activityCount": 6,
+  "status": "published",
+  "files": [
+    {
+      "path": "assets/pages/01-kulit-depan.webp",
+      "bytes": 1691262,
+      "sha256": "cc82cb57bf8170c00380a7740554e58df07de44f404a19535bc6d03f6f56575f",
+      "sourcePath": "assets/pages/01-kulit-depan.png",
+      "sourceSha256": "1ae6d6183287b2f1e951c7c9bdc7119cba9ba8e8918d861e4cc9609055340e3a",
+      "width": 1087,
+      "height": 1536
+    },
+    {
+      "path": "assets/pages/02-apa-itu-ribut.webp",
+      "bytes": 1628162,
+      "sha256": "0eaab87c412fc28c299ff44a53ec1fcb02d39d97382f6b28e0edaf204cf4a61c",
+      "sourcePath": "assets/pages/02-apa-itu-ribut.png",
+      "sourceSha256": "65e3dad05f892d7ca50d473d9c17bea7004aad70bbc510d7cca8811a0688bec5",
+      "width": 1087,
+      "height": 1536
+    },
+    {
+      "path": "assets/pages/03-bagaimana-ribut-terbentuk.webp",
+      "bytes": 1658046,
+      "sha256": "da6f186797eb9829b4ec23ba71ee4f88fadd1b64f1802457db05f838a9fccc20",
+      "sourcePath": "assets/pages/03-bagaimana-ribut-terbentuk.png",
+      "sourceSha256": "8e8161debc5133a83e17fbde1b90222c446932503eca4dabbe3a541d9db11d80",
+      "width": 1087,
+      "height": 1536
+    },
+    {
+      "path": "assets/pages/04-kesan-ribut.webp",
+      "bytes": 1748122,
+      "sha256": "8af0b477120f2f7c6c93f6e0b8fa3e3e0c071ddefb8d75a83c1c00e6a95c96f3",
+      "sourcePath": "assets/pages/04-kesan-ribut.png",
+      "sourceSha256": "76494a6ee46869d272cf9e3daa02b07742a1ae991469c070a15892d7c1205b68",
+      "width": 1087,
+      "height": 1536
+    },
+    {
+      "path": "assets/pages/05-langkah-keselamatan.webp",
+      "bytes": 1638238,
+      "sha256": "2ce89f42bee81b7d201c14d76a7f191584339bc569783fd3289dddc34069823c",
+      "sourcePath": "assets/pages/05-langkah-keselamatan.png",
+      "sourceSha256": "ce2242bbc8ab8e1e89f112437cf2547cf629fcbd0c632a49c1d6c3ef55b00be3",
+      "width": 1087,
+      "height": 1536
+    },
+    {
+      "path": "assets/pages/06-rumusan-ribut.webp",
+      "bytes": 1867206,
+      "sha256": "d68d87cb4711b6973a63da32ab73fdc850306d6f5e65a3f53435b286d1e26551",
+      "sourcePath": "assets/pages/06-rumusan-ribut.png",
+      "sourceSha256": "25dc349338db28651b9c7886579effb4f38effbd63239761a6dd1247e7a36be2",
+      "width": 1087,
+      "height": 1536
+    },
+    {
+      "path": "assets/quiz/01-bangunan.svg",
+      "bytes": 1895,
+      "sha256": "dc863545b9c6387961291539efe693dcb615b81791144672b357eddc0ad116dc",
+      "sourcePath": "assets/quiz/01-bangunan.svg",
+      "sourceSha256": "dc863545b9c6387961291539efe693dcb615b81791144672b357eddc0ad116dc"
+    },
+    {
+      "path": "assets/quiz/02-padang.svg",
+      "bytes": 1820,
+      "sha256": "98c3572001750e57b56d63d9c8587d81d2f9d93a58c7ab6cb51a397f6db1992a",
+      "sourcePath": "assets/quiz/02-padang.svg",
+      "sourceSha256": "98c3572001750e57b56d63d9c8587d81d2f9d93a58c7ab6cb51a397f6db1992a"
+    },
+    {
+      "path": "assets/quiz/03-tingkap.svg",
+      "bytes": 1731,
+      "sha256": "fe3794cf4f5a24ea030d7df79f6647185a972461a257bab74e7cb540b3c6a74f",
+      "sourcePath": "assets/quiz/03-tingkap.svg",
+      "sourceSha256": "fe3794cf4f5a24ea030d7df79f6647185a972461a257bab74e7cb540b3c6a74f"
+    },
+    {
+      "path": "assets/quiz/04-pokok.svg",
+      "bytes": 1846,
+      "sha256": "1fa82254afaeb1e2f105b3c207d7316f8bfec041d53d31170b663b3843f212f9",
+      "sourcePath": "assets/quiz/04-pokok.svg",
+      "sourceSha256": "1fa82254afaeb1e2f105b3c207d7316f8bfec041d53d31170b663b3843f212f9"
+    },
+    {
+      "path": "assets/quiz/05-amaran.svg",
+      "bytes": 2209,
+      "sha256": "d5d28734a0e258d602b7120edeeadb42225d17c3a669e855e87a8d429db3034c",
+      "sourcePath": "assets/quiz/05-amaran.svg",
+      "sourceSha256": "d5d28734a0e258d602b7120edeeadb42225d17c3a669e855e87a8d429db3034c"
+    },
+    {
+      "path": "assets/quiz/06-wayar.svg",
+      "bytes": 1952,
+      "sha256": "97e364b91b59a93c922982609f3fbf2a2fac9560233b8fec8317d450eef10697",
+      "sourcePath": "assets/quiz/06-wayar.svg",
+      "sourceSha256": "97e364b91b59a93c922982609f3fbf2a2fac9560233b8fec8317d450eef10697"
+    }
+  ],
+  "excluded": "Source engines, backups, old TSUNAMI -asal images, original/reference art and optional covers are not published."
+}

@@ -1,0 +1,284 @@
+{
+  "collection": {
+    "mode": "built-local-plus-loopback-draft-review",
+    "base": "http://127.0.0.1:4193/smartlibverse/",
+    "pagesChecked": 145,
+    "activitiesChecked": 150,
+    "viewports": 5,
+    "results": [
+      {
+        "id": "ribut",
+        "width": 360,
+        "pages": 6,
+        "activities": 6,
+        "status": "PASS"
+      },
+      {
+        "id": "tsunami",
+        "width": 360,
+        "pages": 6,
+        "activities": 6,
+        "status": "PASS"
+      },
+      {
+        "id": "gempa-bumi",
+        "width": 360,
+        "pages": 6,
+        "activities": 6,
+        "status": "LOCAL REVIEW ONLY"
+      },
+      {
+        "id": "banjir",
+        "width": 360,
+        "pages": 6,
+        "activities": 6,
+        "status": "PASS"
+      },
+      {
+        "id": "persenyawaan",
+        "width": 360,
+        "pages": 5,
+        "activities": 6,
+        "status": "PASS"
+      },
+      {
+        "id": "ribut",
+        "width": 390,
+        "pages": 6,
+        "activities": 6,
+        "status": "PASS"
+      },
+      {
+        "id": "tsunami",
+        "width": 390,
+        "pages": 6,
+        "activities": 6,
+        "status": "PASS"
+      },
+      {
+        "id": "gempa-bumi",
+        "width": 390,
+        "pages": 6,
+        "activities": 6,
+        "status": "LOCAL REVIEW ONLY"
+      },
+      {
+        "id": "banjir",
+        "width": 390,
+        "pages": 6,
+        "activities": 6,
+        "status": "PASS"
+      },
+      {
+        "id": "persenyawaan",
+        "width": 390,
+        "pages": 5,
+        "activities": 6,
+        "status": "PASS"
+      },
+      {
+        "id": "ribut",
+        "width": 430,
+        "pages": 6,
+        "activities": 6,
+        "status": "PASS"
+      },
+      {
+        "id": "tsunami",
+        "width": 430,
+        "pages": 6,
+        "activities": 6,
+        "status": "PASS"
+      },
+      {
+        "id": "gempa-bumi",
+        "width": 430,
+        "pages": 6,
+        "activities": 6,
+        "status": "LOCAL REVIEW ONLY"
+      },
+      {
+        "id": "banjir",
+        "width": 430,
+        "pages": 6,
+        "activities": 6,
+        "status": "PASS"
+      },
+      {
+        "id": "persenyawaan",
+        "width": 430,
+        "pages": 5,
+        "activities": 6,
+        "status": "PASS"
+      },
+      {
+        "id": "ribut",
+        "width": 768,
+        "pages": 6,
+        "activities": 6,
+        "status": "PASS"
+      },
+      {
+        "id": "tsunami",
+        "width": 768,
+        "pages": 6,
+        "activities": 6,
+        "status": "PASS"
+      },
+      {
+        "id": "gempa-bumi",
+        "width": 768,
+        "pages": 6,
+        "activities": 6,
+        "status": "LOCAL REVIEW ONLY"
+      },
+      {
+        "id": "banjir",
+        "width": 768,
+        "pages": 6,
+        "activities": 6,
+        "status": "PASS"
+      },
+      {
+        "id": "persenyawaan",
+        "width": 768,
+        "pages": 5,
+        "activities": 6,
+        "status": "PASS"
+      },
+      {
+        "id": "ribut",
+        "width": 1280,
+        "pages": 6,
+        "activities": 6,
+        "status": "PASS"
+      },
+      {
+        "id": "tsunami",
+        "width": 1280,
+        "pages": 6,
+        "activities": 6,
+        "status": "PASS"
+      },
+      {
+        "id": "gempa-bumi",
+        "width": 1280,
+        "pages": 6,
+        "activities": 6,
+        "status": "LOCAL REVIEW ONLY"
+      },
+      {
+        "id": "banjir",
+        "width": 1280,
+        "pages": 6,
+        "activities": 6,
+        "status": "PASS"
+      },
+      {
+        "id": "persenyawaan",
+        "width": 1280,
+        "pages": 5,
+        "activities": 6,
+        "status": "PASS"
+      }
+    ],
+    "fontChecks": [
+      {
+        "width": 360,
+        "urbanistLoaded": true
+      },
+      {
+        "width": 390,
+        "urbanistLoaded": true
+      },
+      {
+        "width": 430,
+        "urbanistLoaded": true
+      },
+      {
+        "width": 768,
+        "urbanistLoaded": true
+      },
+      {
+        "width": 1280,
+        "urbanistLoaded": true
+      }
+    ],
+    "errors": [],
+    "badAssets": [],
+    "physicalDevicesTested": false
+  },
+  "catalogFinal": [
+    {
+      "width": 360,
+      "pass": true
+    },
+    {
+      "width": 390,
+      "pass": true
+    },
+    {
+      "width": 430,
+      "pass": true
+    },
+    {
+      "width": 768,
+      "pass": true
+    },
+    {
+      "width": 1280,
+      "pass": true
+    }
+  ],
+  "game": {
+    "base": "http://127.0.0.1:4192/smartlibverse/",
+    "results": [
+      {
+        "width": 1366,
+        "height": 768,
+        "passed": true,
+        "errors": 0
+      },
+      {
+        "width": 820,
+        "height": 980,
+        "passed": true,
+        "errors": 0
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "passed": true,
+        "errors": 0
+      }
+    ],
+    "komposNarrowPhone": true
+  },
+  "kompos360": {
+    "width": 360,
+    "pages": 5,
+    "materials": 10,
+    "bothCategories": true,
+    "retriesWithoutLimit": true,
+    "showAnswers": true,
+    "resetPreservesReading": true,
+    "skipBeforeAnswers": true,
+    "finishWithoutActivity": true,
+    "sessionOnlyReflection": true,
+    "urbanistLoaded": true,
+    "arrows": true,
+    "swipe": "CDP touch input",
+    "storageIsolation": true,
+    "fullscreen": "covered at desktop",
+    "overflow": false
+  },
+  "smartlibLoginBaseline": {
+    "url": "https://skpkt.github.io/smartlib/",
+    "http": 200,
+    "sha256": "00eb951a0e719e052f51eb374e19335a14d1dff949b97acc38b27987bec5f2a0",
+    "title": "SMARTLIB — Sekolah Kebangsaan Pendidikan Khas Taiping",
+    "passwordInputs": 2,
+    "errors": [],
+    "authenticatedLoginTested": false
+  }
+}

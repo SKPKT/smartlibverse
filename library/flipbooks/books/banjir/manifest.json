@@ -1,0 +1,122 @@
+{
+  "schema": 1,
+  "bookId": "banjir",
+  "sourceArchive": "SMARTLIBverse_BANJIR_6_Halaman_Interaktif_v1.zip",
+  "archiveSha256": "ca67f264b840d6ffdef4c6eb7c68ae871b38ce5572e3ce4528ffb8e780798512",
+  "sourceDataSha256": "99505635148b22f158c79b2269f569db77421d133cb158f32d1cc0620eb6fde3",
+  "bookDataSha256": "5e05e8d9eeac981c9933b5c48da04be1ff8507c45a0e68ca2cd9ab7add29a93d",
+  "sourcePageCount": 6,
+  "activityCount": 6,
+  "status": "published",
+  "files": [
+    {
+      "path": "assets/pages/webp/halaman-01.webp",
+      "bytes": 729842,
+      "sha256": "c426aef6a0c9e075a9fc1ecb55c927a6e1a0fd19611d8b5e19cb708a442f3ff0",
+      "sourcePath": "assets/pages/webp/halaman-01.webp",
+      "sourceSha256": "c426aef6a0c9e075a9fc1ecb55c927a6e1a0fd19611d8b5e19cb708a442f3ff0",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "path": "assets/pages/webp/halaman-02.webp",
+      "bytes": 753826,
+      "sha256": "ac404a6c269c269653f28e908833ce54e47e8d0603d5cd02eff4556e383a6d7f",
+      "sourcePath": "assets/pages/webp/halaman-02.webp",
+      "sourceSha256": "ac404a6c269c269653f28e908833ce54e47e8d0603d5cd02eff4556e383a6d7f",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "path": "assets/pages/webp/halaman-03.webp",
+      "bytes": 808076,
+      "sha256": "e086f071675d8faa2ad20b6d85e72b1d51bc8580080c163d7e773f25b23c38b0",
+      "sourcePath": "assets/pages/webp/halaman-03.webp",
+      "sourceSha256": "e086f071675d8faa2ad20b6d85e72b1d51bc8580080c163d7e773f25b23c38b0",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "path": "assets/pages/webp/halaman-04.webp",
+      "bytes": 776262,
+      "sha256": "b96fceeaf1e0dd917e1ff80bebb67d930161bb5ad172bdb7d521e26600dcbf98",
+      "sourcePath": "assets/pages/webp/halaman-04.webp",
+      "sourceSha256": "b96fceeaf1e0dd917e1ff80bebb67d930161bb5ad172bdb7d521e26600dcbf98",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "path": "assets/pages/webp/halaman-05.webp",
+      "bytes": 740160,
+      "sha256": "505dcf3e879147d09ed670a091f28c70c9c65e0870e35a4f3f0213e1206ab76d",
+      "sourcePath": "assets/pages/webp/halaman-05.webp",
+      "sourceSha256": "505dcf3e879147d09ed670a091f28c70c9c65e0870e35a4f3f0213e1206ab76d",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "path": "assets/pages/webp/halaman-06.webp",
+      "bytes": 722742,
+      "sha256": "837707e75d60dc7e9c66ed3da4d10048d01405ac04192369fafe61eac59fe520",
+      "sourcePath": "assets/pages/webp/halaman-06.webp",
+      "sourceSha256": "837707e75d60dc7e9c66ed3da4d10048d01405ac04192369fafe61eac59fe520",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "path": "assets/cards/kad-01.webp",
+      "bytes": 185228,
+      "sha256": "0335e3bb6fb6bcb7addb432c6d3eeb4cb170d40b33a4f4f6de54b42a50fd5b78",
+      "sourcePath": "assets/cards/kad-01.webp",
+      "sourceSha256": "0335e3bb6fb6bcb7addb432c6d3eeb4cb170d40b33a4f4f6de54b42a50fd5b78",
+      "width": 960,
+      "height": 600
+    },
+    {
+      "path": "assets/cards/kad-02.webp",
+      "bytes": 174838,
+      "sha256": "d9bd1191cfad6811e1118ae7901a292f74bf66f4fadb9c62be4230bed4ca1ff6",
+      "sourcePath": "assets/cards/kad-02.webp",
+      "sourceSha256": "d9bd1191cfad6811e1118ae7901a292f74bf66f4fadb9c62be4230bed4ca1ff6",
+      "width": 960,
+      "height": 600
+    },
+    {
+      "path": "assets/cards/kad-03.webp",
+      "bytes": 124536,
+      "sha256": "396538a5180353c67954219508782cb7c69aab3dd9c6a8ce0ab76bc6e2134651",
+      "sourcePath": "assets/cards/kad-03.webp",
+      "sourceSha256": "396538a5180353c67954219508782cb7c69aab3dd9c6a8ce0ab76bc6e2134651",
+      "width": 960,
+      "height": 600
+    },
+    {
+      "path": "assets/cards/kad-04.webp",
+      "bytes": 99436,
+      "sha256": "effaf3ec813632b4ce8aef76dfe0c5844906a66a9f3e8aef9c323e8ed03d6b47",
+      "sourcePath": "assets/cards/kad-04.webp",
+      "sourceSha256": "effaf3ec813632b4ce8aef76dfe0c5844906a66a9f3e8aef9c323e8ed03d6b47",
+      "width": 960,
+      "height": 600
+    },
+    {
+      "path": "assets/cards/kad-05.webp",
+      "bytes": 128444,
+      "sha256": "6145a1eca25bd5b2d01eb94a11c5d727e613c18352636efaee167303f7eabc6d",
+      "sourcePath": "assets/cards/kad-05.webp",
+      "sourceSha256": "6145a1eca25bd5b2d01eb94a11c5d727e613c18352636efaee167303f7eabc6d",
+      "width": 960,
+      "height": 600
+    },
+    {
+      "path": "assets/cards/kad-06.webp",
+      "bytes": 185366,
+      "sha256": "4b2b0f706518a0f65577eaba4cef605aedf208451739b2a027782d359433e46f",
+      "sourcePath": "assets/cards/kad-06.webp",
+      "sourceSha256": "4b2b0f706518a0f65577eaba4cef605aedf208451739b2a027782d359433e46f",
+      "width": 960,
+      "height": 600
+    }
+  ],
+  "excluded": "Source engines, backups, old TSUNAMI -asal images, original/reference art and optional covers are not published."
+}

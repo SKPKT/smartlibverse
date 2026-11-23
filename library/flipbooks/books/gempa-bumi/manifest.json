@@ -1,0 +1,122 @@
+{
+  "schema": 1,
+  "bookId": "gempa-bumi",
+  "sourceArchive": "SMARTLIBverse_Gempa_Bumi_6_Halaman_Interaktif_v1.zip",
+  "archiveSha256": "e0c4a3eb208dba3d83c6393ba95516b71a8c24bcaa4440f71a44d546820a9f92",
+  "sourceDataSha256": "dfbcb6cf83c949ae4d4403e6b55f4cc048d549165ef5a05a69b6b5e713215140",
+  "bookDataSha256": "90946399e0805ea9c984478e867731196e45e2c0cc929f955a2bfa5c424f0710",
+  "sourcePageCount": 6,
+  "activityCount": 6,
+  "status": "draft",
+  "files": [
+    {
+      "path": "assets/pages/halaman-01.webp",
+      "bytes": 764162,
+      "sha256": "480e8dd4fe63d677ac4773237418f5d06d2dc7d10f39937d9a26793edfeb8454",
+      "sourcePath": "assets/pages/halaman-01.webp",
+      "sourceSha256": "480e8dd4fe63d677ac4773237418f5d06d2dc7d10f39937d9a26793edfeb8454",
+      "width": 1600,
+      "height": 2400
+    },
+    {
+      "path": "assets/pages/halaman-02.webp",
+      "bytes": 748256,
+      "sha256": "2e0253d1952c2971eaa1ce82823d52b66bb53bf73e124b87a441cdf7d07987a6",
+      "sourcePath": "assets/pages/halaman-02.webp",
+      "sourceSha256": "2e0253d1952c2971eaa1ce82823d52b66bb53bf73e124b87a441cdf7d07987a6",
+      "width": 1600,
+      "height": 2400
+    },
+    {
+      "path": "assets/pages/halaman-03.webp",
+      "bytes": 780896,
+      "sha256": "93e969c0c2900885abb4c9ce22826ea1a030e563c5e052f823889cc50b1569cf",
+      "sourcePath": "assets/pages/halaman-03.webp",
+      "sourceSha256": "93e969c0c2900885abb4c9ce22826ea1a030e563c5e052f823889cc50b1569cf",
+      "width": 1600,
+      "height": 2400
+    },
+    {
+      "path": "assets/pages/halaman-04.webp",
+      "bytes": 779942,
+      "sha256": "c557e098d41146cf5e0a7cb19652769fb56d099aea29555a2b9900f62522dc32",
+      "sourcePath": "assets/pages/halaman-04.webp",
+      "sourceSha256": "c557e098d41146cf5e0a7cb19652769fb56d099aea29555a2b9900f62522dc32",
+      "width": 1600,
+      "height": 2400
+    },
+    {
+      "path": "assets/pages/halaman-05.webp",
+      "bytes": 671146,
+      "sha256": "10c61884b2060185683eaad90bfc776891605c67643e7f03ae892ca607111e38",
+      "sourcePath": "assets/pages/halaman-05.webp",
+      "sourceSha256": "10c61884b2060185683eaad90bfc776891605c67643e7f03ae892ca607111e38",
+      "width": 1600,
+      "height": 2400
+    },
+    {
+      "path": "assets/pages/halaman-06.webp",
+      "bytes": 751246,
+      "sha256": "6c9782debdfa43ca92f3cdd4d5f6f9c267f554f114fd9bb1480a3c67648d8eea",
+      "sourcePath": "assets/pages/halaman-06.webp",
+      "sourceSha256": "6c9782debdfa43ca92f3cdd4d5f6f9c267f554f114fd9bb1480a3c67648d8eea",
+      "width": 1600,
+      "height": 2400
+    },
+    {
+      "path": "assets/cards/situasi-01.webp",
+      "bytes": 15808,
+      "sha256": "1bc2507c9c344e78164d0f25659a44173ff6d6b93fe775ca6fe95442d02a1e5d",
+      "sourcePath": "assets/cards/situasi-01.webp",
+      "sourceSha256": "1bc2507c9c344e78164d0f25659a44173ff6d6b93fe775ca6fe95442d02a1e5d",
+      "width": 960,
+      "height": 600
+    },
+    {
+      "path": "assets/cards/situasi-02.webp",
+      "bytes": 22722,
+      "sha256": "a6c911f27aa168d90f0734e5a80959c61b307797aeb1d7a863cf1ef2b70e8531",
+      "sourcePath": "assets/cards/situasi-02.webp",
+      "sourceSha256": "a6c911f27aa168d90f0734e5a80959c61b307797aeb1d7a863cf1ef2b70e8531",
+      "width": 960,
+      "height": 600
+    },
+    {
+      "path": "assets/cards/situasi-03.webp",
+      "bytes": 18844,
+      "sha256": "a58f08dde2fc192602f862fd3a430dd7fb8413d21e636ee58b8dc2b09ecc2c81",
+      "sourcePath": "assets/cards/situasi-03.webp",
+      "sourceSha256": "a58f08dde2fc192602f862fd3a430dd7fb8413d21e636ee58b8dc2b09ecc2c81",
+      "width": 960,
+      "height": 600
+    },
+    {
+      "path": "assets/cards/situasi-04.webp",
+      "bytes": 18616,
+      "sha256": "246edc21e6aa5f9322ef46d381cc9c86f6b222952feffedaf9f14b161e90e1dc",
+      "sourcePath": "assets/cards/situasi-04.webp",
+      "sourceSha256": "246edc21e6aa5f9322ef46d381cc9c86f6b222952feffedaf9f14b161e90e1dc",
+      "width": 960,
+      "height": 600
+    },
+    {
+      "path": "assets/cards/situasi-05.webp",
+      "bytes": 17464,
+      "sha256": "05eb4ec9fc9c243417f7389428870acc240f5168a003e500858054900d9c6d55",
+      "sourcePath": "assets/cards/situasi-05.webp",
+      "sourceSha256": "05eb4ec9fc9c243417f7389428870acc240f5168a003e500858054900d9c6d55",
+      "width": 960,
+      "height": 600
+    },
+    {
+      "path": "assets/cards/situasi-06.webp",
+      "bytes": 20708,
+      "sha256": "b651ecae7c9c384602f889d92101e17928499a1ac5e46c7146fc783dcc764a1d",
+      "sourcePath": "assets/cards/situasi-06.webp",
+      "sourceSha256": "b651ecae7c9c384602f889d92101e17928499a1ac5e46c7146fc783dcc764a1d",
+      "width": 960,
+      "height": 600
+    }
+  ],
+  "excluded": "Source engines, backups, old TSUNAMI -asal images, original/reference art and optional covers are not published."
+}

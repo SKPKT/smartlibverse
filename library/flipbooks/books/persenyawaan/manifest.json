@@ -1,0 +1,113 @@
+{
+  "schema": 1,
+  "bookId": "persenyawaan",
+  "sourceArchive": "SMARTLIBverse_Persenyawaan_Aktiviti_Bergambar_Kad_Baharu_v3.zip",
+  "archiveSha256": "104f4eee5df80ebefc023bc48e7d2c4df965e38be031ff045fef8011fac1709f",
+  "sourceDataSha256": "f377d7b605e8a47ff19556c0affb3275ca7c9b18288b22dbb5ccdc3e970a173e",
+  "bookDataSha256": "fbcddbddfce777e5ee76ee1fea235d87ec416412cdbc321a76cb88dbd14ce150",
+  "sourcePageCount": 5,
+  "activityCount": 6,
+  "status": "published",
+  "files": [
+    {
+      "path": "assets/halaman-01.webp",
+      "bytes": 316224,
+      "sha256": "225e5aeb3ab81f3f9456f179ca25ef1d4fc7780b75695a726ca1f409b64cacfd",
+      "sourcePath": "assets/halaman-01.webp",
+      "sourceSha256": "225e5aeb3ab81f3f9456f179ca25ef1d4fc7780b75695a726ca1f409b64cacfd",
+      "width": 1087,
+      "height": 1536
+    },
+    {
+      "path": "assets/halaman-02.webp",
+      "bytes": 293764,
+      "sha256": "c9ac828858d33df2a87810442280206824a892f8500ec647054265f56064bb78",
+      "sourcePath": "assets/halaman-02.webp",
+      "sourceSha256": "c9ac828858d33df2a87810442280206824a892f8500ec647054265f56064bb78",
+      "width": 1087,
+      "height": 1536
+    },
+    {
+      "path": "assets/halaman-03.webp",
+      "bytes": 283316,
+      "sha256": "157dcb67272ca6f279c43b3fda90c2df2cfa95717acb30e5e58692cc92f90c01",
+      "sourcePath": "assets/halaman-03.webp",
+      "sourceSha256": "157dcb67272ca6f279c43b3fda90c2df2cfa95717acb30e5e58692cc92f90c01",
+      "width": 1087,
+      "height": 1536
+    },
+    {
+      "path": "assets/halaman-04.webp",
+      "bytes": 326916,
+      "sha256": "93701e4a88147d97b8915275ab36dfc653c5bee65640e4428ef0ac48f3373bbe",
+      "sourcePath": "assets/halaman-04.webp",
+      "sourceSha256": "93701e4a88147d97b8915275ab36dfc653c5bee65640e4428ef0ac48f3373bbe",
+      "width": 1087,
+      "height": 1536
+    },
+    {
+      "path": "assets/halaman-05.webp",
+      "bytes": 326472,
+      "sha256": "d46b3d414eaf9ba56c0669734f889e310e904cb9e7cc5ac24942b3d636b916f8",
+      "sourcePath": "assets/halaman-05.webp",
+      "sourceSha256": "d46b3d414eaf9ba56c0669734f889e310e904cb9e7cc5ac24942b3d636b916f8",
+      "width": 1087,
+      "height": 1536
+    },
+    {
+      "path": "assets/aktiviti/aktiviti-01.webp",
+      "bytes": 69630,
+      "sha256": "2df5a491e594c0989db00043ae27571867c7df38d71e7920ac8d133d55bf8333",
+      "sourcePath": "assets/aktiviti/aktiviti-01.webp",
+      "sourceSha256": "2df5a491e594c0989db00043ae27571867c7df38d71e7920ac8d133d55bf8333",
+      "width": 960,
+      "height": 600
+    },
+    {
+      "path": "assets/aktiviti/aktiviti-02.webp",
+      "bytes": 116586,
+      "sha256": "b852b97b67ba1e506f908de3eb040819fa583c8dff0b9542ef5a395e7c4a9978",
+      "sourcePath": "assets/aktiviti/aktiviti-02.webp",
+      "sourceSha256": "b852b97b67ba1e506f908de3eb040819fa583c8dff0b9542ef5a395e7c4a9978",
+      "width": 960,
+      "height": 600
+    },
+    {
+      "path": "assets/aktiviti/aktiviti-03.webp",
+      "bytes": 101608,
+      "sha256": "086888f0f44d7c4a20c6ff79df701b94f3211ad5cc783964b5ca1f6139303f92",
+      "sourcePath": "assets/aktiviti/aktiviti-03.webp",
+      "sourceSha256": "086888f0f44d7c4a20c6ff79df701b94f3211ad5cc783964b5ca1f6139303f92",
+      "width": 960,
+      "height": 600
+    },
+    {
+      "path": "assets/aktiviti/aktiviti-04.webp",
+      "bytes": 102852,
+      "sha256": "973759551eca12d245da1d6020e077ed70446802be42b0ec64715bba586311be",
+      "sourcePath": "assets/aktiviti/aktiviti-04.webp",
+      "sourceSha256": "973759551eca12d245da1d6020e077ed70446802be42b0ec64715bba586311be",
+      "width": 960,
+      "height": 600
+    },
+    {
+      "path": "assets/aktiviti/aktiviti-05.webp",
+      "bytes": 103802,
+      "sha256": "4ecf06655303d2871cb6116a794e411f30dcff8147249cd566a627910ba6b414",
+      "sourcePath": "assets/aktiviti/aktiviti-05.webp",
+      "sourceSha256": "4ecf06655303d2871cb6116a794e411f30dcff8147249cd566a627910ba6b414",
+      "width": 960,
+      "height": 600
+    },
+    {
+      "path": "assets/aktiviti/aktiviti-06.webp",
+      "bytes": 97564,
+      "sha256": "4f0b3b330fe68589676a866b6865d36b132cae3b0c9ec2ec27afe13f79936293",
+      "sourcePath": "assets/aktiviti/aktiviti-06.webp",
+      "sourceSha256": "4f0b3b330fe68589676a866b6865d36b132cae3b0c9ec2ec27afe13f79936293",
+      "width": 960,
+      "height": 600
+    }
+  ],
+  "excluded": "Source engines, backups, old TSUNAMI -asal images, original/reference art and optional covers are not published."
+}
