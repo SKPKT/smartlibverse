@@ -42,6 +42,8 @@ function interact(){if(panel.open)return;const t=nearest(s);if(!t||t.d>100){toas
   if(t.id==='alam'){
    const c=card('ROKET: Keajaiban Ciptaan Allah di Angkasa','Flipbook Sains & Alam · 5 halaman · Bacaan tambahan tanpa XP atau rekod NILAM rasmi.');
    btn('Buka Flipbook',()=>{window.location.href=new URL('./books/roket-keajaiban/index.html',document.baseURI).href;},c);
+   const kompos=card('KOMPOS: Misi Sisa Menjadi Baja','Komik Sains & Alam · 5 halaman · Aktiviti tanpa markah · Kemajuan disimpan pada pelayar sahaja.');
+   btn('Buka Komik KOMPOS',()=>{window.location.href=new URL('./books/kompos/index.html',document.baseURI).href;},kompos);
   }
  }
  else if(z==='gallery')openBook(t.id);

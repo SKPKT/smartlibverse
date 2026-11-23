@@ -25,3 +25,16 @@ for(const [file,expected]of Object.entries(bookManifest.sha256)){
 }
 if((await readdir(path.join(root,'dist'))).includes('REFERENCE_ARTWORK'))throw Error('Reference artwork must not be published');
 console.log('Verified editable five-page ROKET reader, original text, 21 source illustrations and 8 restored character scenes.');
+
+// KOMPOS is an isolated static book. Never publish its flattened reference pages.
+const komposRoot=path.join(root,'dist/books/kompos');
+for(const file of ['index.html','book-data.js','js/flipbook.js','css/flipbook.css'])await readFile(path.join(komposRoot,file));
+const komposManifest=JSON.parse(await readFile(path.join(komposRoot,'manifest.json'),'utf8'));
+for(const asset of komposManifest.files){
+ if(!/^assets\/(illustrations|materials)\/[a-z0-9-]+\.webp$/.test(asset.path))throw Error('Invalid KOMPOS asset path');
+ const bytes=await readFile(path.join(komposRoot,asset.path));
+ if(bytes.length!==asset.bytes||createHash('sha256').update(bytes).digest('hex')!==asset.sha256)throw Error('KOMPOS asset mismatch: '+asset.path);
+}
+if(createHash('sha256').update(await readFile(path.join(komposRoot,'book-data.js'))).digest('hex')!==komposManifest.bookDataSha256)throw Error('KOMPOS book data mismatch');
+if((await readdir(path.join(komposRoot,'assets'))).some(name=>!['illustrations','materials'].includes(name)))throw Error('KOMPOS reference assets must not be published');
+console.log('Verified five-page KOMPOS reader and 23 supplied WebP assets; references stay outside the public build.');
