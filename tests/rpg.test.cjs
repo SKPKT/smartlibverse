@@ -21,3 +21,36 @@ test('Start Plaza v4 is linked to existing learning worlds',()=>{
  assert.match(html,/smartlibverse_demo_v1/);
  assert.match(html,/avatar_perempuan_production_walk4/);
 });
+
+
+test('Science comic collection is exclusive to the Sains & Alam interaction',()=>{
+ const main=fs.readFileSync(path.join(root,'js/main.mjs'),'utf8');
+ const start=main.indexOf("else if(z==='library'){");
+ const end=main.indexOf("else if(z==='gallery')",start);
+ assert(start>=0&&end>start,'Library interaction branch must exist');
+ const source=main.slice(start,end).trim().replace(/^else\s+if/,'if');
+ // Execute only the library interaction branch using controlled test stubs.
+ const handle=new Function('z','t','books','show','btn','card','openBook','window','document',source);
+ const run=shelf=>{
+  const buttons=[],cards=[];
+  const sampleBooks=[
+   {id:'taman',title:'Sahabat di Taman',shelf:'cerita'},
+   {id:'kancil',title:'Pengembaraan Si Kancil',shelf:'alam'},
+   {id:'misteri',title:'Misteri Buku Bercahaya',shelf:'umum'}
+  ];
+  handle('library',{id:shelf,name:shelf},sampleBooks,()=>{},
+   label=>buttons.push(label),(title)=>{cards.push(title);return {};},
+   ()=>{}, {location:{}},{baseURI:'https://skpkt.github.io/smartlibverse/'});
+  return {buttons,cards};
+ };
+ for(const shelf of ['cerita','umum']){
+  const {buttons,cards}=run(shelf);
+  assert.equal(buttons.includes('Jelajah Koleksi Buku'),false);
+  assert.equal(cards.some(title=>title.includes('Koleksi Komik Sains')),false);
+ }
+ const science=run('alam');
+ assert.equal(science.buttons.includes('Jelajah Koleksi Buku'),true);
+ assert.equal(science.cards.filter(title=>title==='Koleksi Komik Sains & Fenomena Alam').length,1);
+ assert.equal(science.cards.some(title=>title.startsWith('ROKET:')),true);
+ assert.equal(science.cards.some(title=>title.startsWith('KOMPOS:')),true);
+});
