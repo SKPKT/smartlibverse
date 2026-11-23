@@ -6,6 +6,7 @@ import {mkdir,writeFile} from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import {receptionParts} from '../js/plaza-layers.mjs';
 import {inspectRoket} from './roket-browser-acceptance.mjs';
+import {inspectKompos} from './kompos-browser-acceptance.mjs';
 const base=process.env.BASE_URL||'http://127.0.0.1:4192/smartlibverse/';
 let server;if(!process.env.BASE_URL){server=spawn(process.execPath,['tools/serve-test.mjs'],{stdio:['ignore','pipe','inherit']});await once(server.stdout,'data');}
 await mkdir('test-results',{recursive:true});
@@ -42,6 +43,12 @@ async function inspectWorld(page,zone,width){
   await page.getByRole('heading',{name:'ROKET: Keajaiban Ciptaan Allah di Angkasa',exact:true}).waitFor();
   await page.getByRole('button',{name:'Buka Flipbook',exact:true}).click();
   await inspectRoket(page,base,width);
+  await page.getByText('Navigasi bantuan · Mod Mudah',{exact:true}).click();
+  await page.locator('#destinations').getByRole('button',{name:'Sains & Alam',exact:true}).click();
+  await page.waitForFunction(()=>window.SMARTLIBverseWorldQA.inspect().active==='alam');await page.locator('#interact').click();
+  await page.getByRole('heading',{name:'KOMPOS: Misi Sisa Menjadi Baja',exact:true}).waitFor();
+  await page.getByRole('button',{name:'Buka Komik KOMPOS',exact:true}).click();
+  await inspectKompos(page,base,width);
   await page.emulateMedia({reducedMotion:'reduce'});await frame(page);
   const frozen=await page.evaluate(()=>window.SMARTLIBverseWorldQA.inspect());assert.equal(frozen.particles,0);assert(frozen.stations.every(s=>s.bob===0));
   await page.emulateMedia({reducedMotion:'no-preference'});
@@ -53,7 +60,9 @@ async function inspectWorld(page,zone,width){
 try{
  for(const [width,height]of [[1366,768],[820,980],[390,844]]){
   const context=await browser.newContext({viewport:{width,height},hasTouch:width===390});
-  await context.addInitScript(state=>{if(!sessionStorage.getItem('v4-ci-seeded')){localStorage.setItem('smartlibverse_demo_v1',JSON.stringify(state));localStorage.removeItem('smartlibverse_foyer_playable_demo_v1');sessionStorage.setItem('v4-ci-seeded','1');}},fresh);
+  // New tabs have fresh sessionStorage but share this context's localStorage.
+  // Seed once per isolated context so a reflection test cannot reset RPG progress.
+  await context.addInitScript(state=>{if(!sessionStorage.getItem('v4-ci-seeded')){if(!localStorage.getItem('smartlibverse_demo_v1')){localStorage.setItem('smartlibverse_demo_v1',JSON.stringify(state));localStorage.removeItem('smartlibverse_foyer_playable_demo_v1');}sessionStorage.setItem('v4-ci-seeded','1');}},fresh);
   const page=await context.newPage(),errors=[],bad=[];page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.url().startsWith(base)&&r.status()>=400)bad.push(r.url());});
   await page.goto(base);await page.waitForFunction(()=>!!window.SMARTLIBverseQA);await frame(page);
   await checkReceptionAssets(page);
@@ -96,5 +105,11 @@ try{
   const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('smartlibverse_demo_v1')));assert.equal(saved.customPreserved,'keep');assert.equal(saved.profile.avatar,'perempuan');assert.equal(saved.read.length,3);assert.equal(saved.quizzes.length,1);
   await page.screenshot({path:`test-results/foyer-${width}.png`,fullPage:true});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);assert.deepEqual(errors,[]);assert.deepEqual(bad,[]);results.push({width,height,passed:true,errors:0});await context.close();
  }
- console.log(JSON.stringify({base,results},null,2));await writeFile('test-results/acceptance.json',JSON.stringify({base,results},null,2));
+ // The additional narrow-phone case exercises the isolated book without repeating the entire RPG.
+ const narrow=await browser.newContext({viewport:{width:360,height:800},hasTouch:true});
+ try{await narrow.addInitScript(state=>{if(!sessionStorage.getItem('kompos-ci-seeded')){if(!localStorage.getItem('smartlibverse_demo_v1'))localStorage.setItem('smartlibverse_demo_v1',JSON.stringify(state));sessionStorage.setItem('kompos-ci-seeded','1');}},fresh);
+  const page=await narrow.newPage(),errors=[],bad=[];page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.url().startsWith(base)&&r.status()>=400)bad.push(r.url());});
+  await page.goto(new URL('books/kompos/index.html',base).href);await inspectKompos(page,base,360);assert.deepEqual(errors,[]);assert.deepEqual(bad,[]);
+ }finally{await narrow.close();}
+ console.log(JSON.stringify({base,results,komposNarrowPhone:true},null,2));await writeFile('test-results/acceptance.json',JSON.stringify({base,results,komposNarrowPhone:true},null,2));
 }finally{await browser.close();server?.kill();}

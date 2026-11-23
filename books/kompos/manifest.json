@@ -1,0 +1,173 @@
+{
+  "sourceZipSha256": "38f009855ff3f75b9b20486859843cadba2c15b4be0d6b284dbb58db27e70b7b",
+  "pages": 5,
+  "ungraded": true,
+  "sourceBookDataSha256": "812b9fc56fbbe6983d3b1f3ab66666cac7bf9aede1cf082dee67f40d2fd2b2af",
+  "files": [
+    {
+      "path": "assets/illustrations/keratan-kompos.webp",
+      "bytes": 67934,
+      "width": 488,
+      "height": 377,
+      "sha256": "5e2083116caab9977b620eb854f40286a9fdcea769a31f9cd50001884d1b8b4e"
+    },
+    {
+      "path": "assets/illustrations/kulit-cerita.webp",
+      "bytes": 190650,
+      "width": 955,
+      "height": 692,
+      "sha256": "9fdfbfca5b2caedd465c9ed13c398e6ebcd31f02fee1296d3202403a9de3fca2"
+    },
+    {
+      "path": "assets/illustrations/mikroorganisma.webp",
+      "bytes": 49204,
+      "width": 365,
+      "height": 320,
+      "sha256": "cfa3540ff9e6b426c97f1a081ef00df0b54121688b348e410b183e6040a47dfa"
+    },
+    {
+      "path": "assets/illustrations/pengenalan-bekas.webp",
+      "bytes": 63774,
+      "width": 440,
+      "height": 371,
+      "sha256": "a3998919d5a776b95078f55533f927688dd10389088bcdfd9f01a36488918ab9"
+    },
+    {
+      "path": "assets/illustrations/penutup-watak.webp",
+      "bytes": 82612,
+      "width": 973,
+      "height": 301,
+      "sha256": "deb7eea4b13dae54bc14e44089b05dea14a6bbc9578962ac06a58d8e9a9c518a"
+    },
+    {
+      "path": "assets/illustrations/proses-1-bahan.webp",
+      "bytes": 95614,
+      "width": 481,
+      "height": 454,
+      "sha256": "afc22771234626413404ad583095832d2c8bda371591145754f24ff660b2d609"
+    },
+    {
+      "path": "assets/illustrations/proses-2-campur.webp",
+      "bytes": 76942,
+      "width": 474,
+      "height": 453,
+      "sha256": "522349caf8bee8c91db0cb93d8434a4010e81a8cf2d4b10052363800c9c022b0"
+    },
+    {
+      "path": "assets/illustrations/proses-3-udara.webp",
+      "bytes": 66132,
+      "width": 481,
+      "height": 380,
+      "sha256": "28d3bf72f516a096903a6b659473a2dab0ca0b19da7450cb511154381835c12a"
+    },
+    {
+      "path": "assets/illustrations/proses-4-siap.webp",
+      "bytes": 71602,
+      "width": 481,
+      "height": 380,
+      "sha256": "35f4625065b22e2b0e728f364eb8034b4f56954852fc974ac892054a2273b329"
+    },
+    {
+      "path": "assets/illustrations/rumusan-taman.webp",
+      "bytes": 175800,
+      "width": 975,
+      "height": 501,
+      "sha256": "cb45af17b105415af991323c9401ba4d8681a2850f33b27288b19cf292b3b088"
+    },
+    {
+      "path": "assets/illustrations/watak-aina.webp",
+      "bytes": 28964,
+      "width": 206,
+      "height": 313,
+      "sha256": "805aa262dd69768217647010086bbcf024b41345f7b0c85779cddaa68c25df20"
+    },
+    {
+      "path": "assets/illustrations/watak-amir.webp",
+      "bytes": 26314,
+      "width": 205,
+      "height": 309,
+      "sha256": "d70fca4ab34847016278c92c4214df51e3d6f07849e4d14e230e849b2cfa618c"
+    },
+    {
+      "path": "assets/illustrations/watak-halaman-3.webp",
+      "bytes": 93876,
+      "width": 973,
+      "height": 281,
+      "sha256": "60d03c65bbb42a3d6f4368a37983e46b4a3dba4e3c69dd1942cdb5244698920d"
+    },
+    {
+      "path": "assets/materials/botol-kaca.webp",
+      "bytes": 6410,
+      "width": 320,
+      "height": 230,
+      "sha256": "3e85586df8bd2c41d7d69458ebd183bd348a14dd08467549b861d797774a0531"
+    },
+    {
+      "path": "assets/materials/botol-plastik.webp",
+      "bytes": 8040,
+      "width": 320,
+      "height": 230,
+      "sha256": "77fa5c7883a3fa44b2d6846807444d4c329d1599343419b5caa28fb300eaefbb"
+    },
+    {
+      "path": "assets/materials/daun-kering.webp",
+      "bytes": 12864,
+      "width": 320,
+      "height": 230,
+      "sha256": "42660f9f4d4618c839edd2abb9ccdfd7ddf193d05e4a3cb7e5af12d9f211a662"
+    },
+    {
+      "path": "assets/materials/kulit-pisang.webp",
+      "bytes": 11184,
+      "width": 320,
+      "height": 230,
+      "sha256": "51d2e13dde8ad05f93ffda486cbf053c420c514aae50ad1fd72bb2067451ed5b"
+    },
+    {
+      "path": "assets/materials/pembungkus-plastik.webp",
+      "bytes": 12404,
+      "width": 320,
+      "height": 230,
+      "sha256": "2fe3e848533080e38403942312146648589ca8100e478296c3a9cd041aea6da6"
+    },
+    {
+      "path": "assets/materials/polistirena.webp",
+      "bytes": 5928,
+      "width": 320,
+      "height": 230,
+      "sha256": "951a4686185b6cbf4b34be0aa304723facdec7f5e5a3ce2195506400f60b7429"
+    },
+    {
+      "path": "assets/materials/ranting-kecil.webp",
+      "bytes": 13802,
+      "width": 320,
+      "height": 230,
+      "sha256": "d0fd0c56e7d4ed031348546289181ca323db00016c9c0cfb08b69eb57cfbbdf5"
+    },
+    {
+      "path": "assets/materials/rumput-segar.webp",
+      "bytes": 15924,
+      "width": 320,
+      "height": 230,
+      "sha256": "b1d3299af945aefc62ee4ad5bf4a88310f82174cf28764dc2acdb7f1b404b00b"
+    },
+    {
+      "path": "assets/materials/sisa-sayur.webp",
+      "bytes": 13718,
+      "width": 320,
+      "height": 230,
+      "sha256": "598ac16ea6f1e79722772214322fbd4796163d355318d48cc02d917d371c6945"
+    },
+    {
+      "path": "assets/materials/tin-minuman.webp",
+      "bytes": 6484,
+      "width": 320,
+      "height": 230,
+      "sha256": "7eedc5ca3ecbda60d41286599aa9b65d41b45bc5252e77a5fbb7e491d7d08358"
+    }
+  ],
+  "referenceAssetsPublished": false,
+  "sourceContentSha256": "c868cb80b7204a9eca4fd3d8868c171b7cacb275b4b71c6a0fba1a1ae711d4b9",
+  "bookDataSha256": "e9a35fec387c986b6a9cee061962ce46f92e5ecc79783d0b95c106bf71e26348",
+  "integrationRevision": "20261122-kompos"
+}

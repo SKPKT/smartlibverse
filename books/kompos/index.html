@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ms">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#103761">
+  <meta name="description" content="KOMPOS: Misi Sisa Menjadi Baja — lima halaman komik pendidikan SMARTLIBverse dengan latihan pengelasan bahan tanpa markah.">
+  <title>SMARTLIBverse | KOMPOS: Misi Sisa Menjadi Baja</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/flipbook.css?v=20261122-kompos">
+</head>
+<body>
+  <div class="app-shell" id="reader">
+    <header class="app-header">
+      <div class="brand"><span class="brand-symbol" aria-hidden="true">📖</span><div><strong data-ui="brand"></strong><small data-ui="library"></small></div></div>
+      <div class="header-actions">
+        <button id="fullscreen-btn" type="button" class="utility" data-ui-aria="enterFullscreen" data-ui-title="fullscreen" aria-pressed="false">⛶ <span class="desktop-only" data-ui="fullscreen"></span></button>
+        <button id="reset-reading" type="button" class="utility" data-ui-title="resetReadingTitle" data-ui-aria="resetReading">↺ <span class="desktop-only" data-ui="resetReading"></span></button>
+      </div>
+    </header>
+    <a class="back-link" href="../../world/index.html?zone=library"><span aria-hidden="true">← </span><span data-ui="back"></span></a>
+    <div class="progress-header" data-ui-aria="progress"><span id="page-counter"></span><span id="read-count"></span></div>
+    <div class="progress-track" role="progressbar" data-ui-aria="progressLabel" aria-valuemin="0" aria-valuemax="5" aria-valuenow="1" id="reading-progress"><div id="progress-fill"></div></div>
+    <p id="reader-status" class="reader-status" role="status" aria-live="polite"></p>
+    <main class="stage" id="stage">
+      <article id="page-sheet" class="page-sheet" tabindex="-1"></article>
+    </main>
+    <nav class="book-nav" data-ui-aria="navigation">
+      <button id="prev" class="nav-button prev" type="button" data-ui-aria="previousPage">← <span data-ui="previous"></span></button>
+      <span class="page-position" id="nav-position" aria-live="polite">1 / 5</span>
+      <button id="next" class="nav-button next" type="button" data-ui-aria="nextPage"><span data-ui="next"></span> →</button>
+    </nav>
+    <footer class="app-footer"><span id="author-credit"></span><span id="publisher-credit"></span></footer>
+  </div>
+  <noscript>Aktifkan JavaScript untuk membaca komik interaktif ini. Tiada akaun diperlukan.</noscript>
+  <script src="book-data.js?v=20261122-kompos"></script>
+  <script src="js/flipbook.js?v=20261122-kompos"></script>
+</body>
+</html>
