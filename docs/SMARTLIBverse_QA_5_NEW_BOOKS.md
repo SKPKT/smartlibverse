@@ -8,11 +8,11 @@ Tarikh ujian tempatan: 23 November 2026, Asia/Kuala_Lumpur. Data ujian ialah dat
 |---|---:|---:|---|---|
 | RIBUT | 6 | 6 SVG asal | LULUS | Sedia diterbitkan |
 | TSUNAMI dikemas kini | 6 | 6 ikon sumber | LULUS; papan tanda KAWASAN PANTAI pada halaman 1–2 | Sedia diterbitkan |
-| GEMPA BUMI V1 penuh | 6 | 6 kad 960×600 | MENUNGGU SEMAKAN PENGGUNA: visual orang di jalan ketika gegaran, halaman 1–2 | Draf, dikecualikan daripada Pages |
+| GEMPA BUMI V1 penuh | 6 | 6 kad 960×600 | LULUS: ilustrasi asal diluluskan pengguna; nota keselamatan jelas pada halaman 1–2 | Sedia diterbitkan |
 | BANJIR V1 | 6 | 6 kad 960×600 | LULUS; nota elektrik basah sumber kelihatan pada halaman 5 | Sedia diterbitkan |
 | PERSENYAWAAN V3 | 5 | 6 kad baharu 960×600 | LULUS; kad 6 blastokista; penerbit disahkan pengguna | Sedia diterbitkan |
 
-**Tepat 5 sumber / 29 halaman / 30 situasi. Build awam: 4 buku baharu / 23 halaman.** Tiada aktiviti dikira sebagai halaman cerita. Tiada ilustrasi diganti, dipotong atau dijana semula. Rujukan fakta, hash dan penjelasan gate tersedia dalam `SMARTLIBverse_IMPORT_5_BOOKS_AUDIT.md`.
+**Tepat 5 sumber / 29 halaman / 30 situasi. Build awam: 5 buku baharu / 29 halaman.** Tiada aktiviti dikira sebagai halaman cerita. Tiada ilustrasi diganti, dipotong atau dijana semula. Rujukan fakta, hash dan penjelasan gate tersedia dalam `SMARTLIBverse_IMPORT_5_BOOKS_AUDIT.md`.
 
 ## Ujian automatik yang boleh diulang
 
@@ -26,11 +26,11 @@ npm run test:browser
 
 Node 24 digunakan; minimum repo Node 22. Repo tidak mempunyai TypeScript atau perintah lint berasingan; build memeriksa sintaks JavaScript dan mengimbas rahsia/backend yang tidak sepatutnya. Workflow PR dan Pages sedia ada tidak diganti.
 
-- **37/37 unit tests LULUS**: termasuk 32 ujian asal, kontrak lima buku, jumlah halaman/aktiviti, hash aset, gate draf, URL selamat, pengasingan kemajuan, import teks plain, dan semua 28 fail KOMPOS baseline.
-- **Production build LULUS**: hash buku/aset disahkan, empat buku sahaja disalin, GEMPA BUMI tidak terdapat dalam `dist`. 20 aset HD-2D lama, ROKET dan KOMPOS turut diverifikasi oleh build asal.
+- **38/38 unit tests LULUS**: termasuk 32 ujian asal, kontrak lima buku, jumlah halaman/aktiviti, hash aset, gate draf, URL selamat, pengasingan kemajuan, import teks plain, dan semua 28 fail KOMPOS baseline.
+- **Production build LULUS**: hash buku/aset disahkan, lima buku yang diluluskan disalin, termasuk 12 aset GEMPA BUMI asal. Gate buku tidak diluluskan terus diuji. 20 aset HD-2D lama, ROKET dan KOMPOS turut diverifikasi oleh build asal.
 - **Regresi game LULUS** pada 1366×768, 820×980, 390×844: foyer, dua avatar, semua zon, tiga cerita asal, kuiz, reward idempotency, kunci Secret, navigasi, collision, kawalan dan kemajuan.
 - **Regresi KOMPOS LULUS** pada tiga saiz tersebut serta 360×800: lima halaman, sepuluh bahan, kedua-dua kategori, cuba semula tanpa had, lihat jawapan, ulang tanpa reset bacaan, langkau sebelum jawapan, tamat tanpa aktiviti, refleksi sesi, swipe CDP, keyboard, fullscreen dan pengasingan storage. Urbanist dimuat. Fail/kunci/soalan/aktiviti KOMPOS tidak diubah.
-- **Koleksi baharu**: suite `tools/library-acceptance.mjs` melawat 29 halaman sumber × 5 viewport = **145 paparan halaman**; 30 situasi × 5 = **150 paparan aktiviti**. GEMPA BUMI diuji hanya pada loopback dengan label DRAF; tidak dibuka di produksi.
+- **Koleksi baharu**: suite `tools/library-acceptance.mjs` melawat 29 halaman sumber × 5 viewport = **145 paparan halaman**; 30 situasi × 5 = **150 paparan aktiviti**. GEMPA BUMI dibuka melalui route awam tanpa review=1; nota asal halaman 1–2 mesti kelihatan dan label DRAF mesti tersembunyi.
 
 Viewport koleksi: **360×800, 390×844, 430×900, 768×1024, 1280×900**. Setiap halaman diperiksa nisbah asal, `contain`, keempat-empat tepi berada dalam viewport imej dan tiada horizontal overflow. Setiap situasi dibuka, jawapan salah dicuba, cuba semula, lihat jawapan dan jawapan betul diuji. Setiap keadaan mempunyai screenshot dalam artifact `test-results/library/`.
 
@@ -54,7 +54,7 @@ Laman <https://skpkt.github.io/smartlib/> diperiksa melalui konteks browser koso
 
 ## CI, deployment dan bukti pasca-release
 
-PR menjalankan unit, build dan suite browser penuh. Merge hanya selepas semakan hijau. [Workflow Pages sedia ada](https://github.com/SKPKT/smartlibverse/actions/workflows/pages.yml) membina dan menerbitkan ke Pages, kemudian menjalankan suite game serta koleksi pada URL live. Run live menguji empat buku diterbitkan (23×5 = 115 paparan halaman; 24×5 = 120 situasi), pautan KOMPOS asal dan penolakan GEMPA BUMI.
+PR menjalankan unit, build dan suite browser penuh. Merge hanya selepas semakan hijau. [Workflow Pages sedia ada](https://github.com/SKPKT/smartlibverse/actions/workflows/pages.yml) membina dan menerbitkan ke Pages, kemudian menjalankan suite game serta koleksi pada URL live. Run live menguji kelima-lima buku diterbitkan (29×5 = 145 paparan halaman; 30×5 = 150 situasi), pautan KOMPOS asal dan penolakan ID buku tidak berdaftar.
 
 Keputusan CI/Pages sebenar, commit dan pautan run dilaporkan pada PR serta laporan release selepas ia selesai. Dokumen ini tidak menganggap HTTP 200 sahaja sebagai bukti deployment; HTML, data, aset dan interaksi perlu disahkan.
 
@@ -64,7 +64,12 @@ Pada 23 November 2026, pengguna mengesahkan penerbit PERSENYAWAAN ialah **Pusat 
 
 Semakan metadata pada 390px dan 1280px mengesahkan penerbit yang sama pada kad katalog serta kredit pembaca, tanpa ralat JavaScript atau perubahan pada kemajuan KOMPOS. Semua 37 unit tests dan production build lulus.
 
+## Kelulusan GEMPA BUMI
+
+Pengguna meluluskan ilustrasi sedia ada pada 23 November 2026 dan meminta penerbitan diteruskan. Status menunggu semakan ditutup melalui kelulusan ini. Enam halaman, enam kad aktiviti dan semua 12 aset asal dikekalkan; tiada lukisan semula atau crop. Nota keselamatan asal dipaparkan terus pada halaman 1–2. Build menggunakan status penerbitan setiap buku, dengan ujian yang memastikan folder buku belum diluluskan tidak disalin.
+
+Screenshot berlabel draf dalam bukti import awal ialah rekod sejarah sebelum kelulusan ini. Bukti selepas kelulusan berada dalam Actions artifacts bagi release GEMPA BUMI.
+
 ## Isu terbuka
 
-1. **GEMPA BUMI**: pengguna perlu menyemak visual halaman 1–2 atau membekalkan pembetulan rasmi. Buku kekal draf; tidak dimasukkan secara senyap untuk mencapai angka lima buku live.
-2. Peranti fizikal, pembaca skrin manusia dan autentikasi akaun SMARTLIB sebenar belum diuji. Semakan accessibility automatik dan keyboard tidak menggantikan penilaian pengguna MBPK.
+1. Peranti fizikal, pembaca skrin manusia dan autentikasi akaun SMARTLIB sebenar belum diuji. Semakan accessibility automatik dan keyboard tidak menggantikan penilaian pengguna MBPK.

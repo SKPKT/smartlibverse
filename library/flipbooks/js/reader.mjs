@@ -36,7 +36,8 @@ async function start(){
  function renderText(){const target=$('page-text');target.replaceChildren();for(const text of edits.pages[page]){const p=document.createElement('p');p.className='text-line';p.textContent=text;p.contentEditable=String(editing);if(editing){p.setAttribute('role','textbox');p.setAttribute('aria-label','Teks pendamping boleh disunting');}p.addEventListener('blur',saveEdits);p.addEventListener('paste',e=>{if(!editing)return;e.preventDefault();const text=e.clipboardData.getData('text/plain');const s=getSelection();if(s?.rangeCount){const r=s.getRangeAt(0);r.deleteContents();r.insertNode(document.createTextNode(text));}});target.append(p);}}
  async function go(n){
   if(n<0||n>=book.pages.length)return;if(editing)saveEdits();const current=++token;page=n;zoom=1;
-  const p=book.pages[n];$('safety-note').hidden=!(id==='banjir'&&n===4);$('safety-note').textContent=id==='banjir'&&n===4?textLines(p.text.notes).join(' '):'';document.body.dataset.page=String(n+1);$('page-title').textContent=p.title;img.alt=p.alt;window.scrollTo({top:0,behavior:'instant'});
+  const p=book.pages[n],safety=id==='banjir'&&n===4?textLines(p.text.notes).join(' '):id==='gempa-bumi'&&n<2?textLines(book.pages[0].text.note).join(' '):'';
+  $('safety-note').hidden=!safety;$('safety-note').textContent=safety;document.body.dataset.page=String(n+1);$('page-title').textContent=p.title;img.alt=p.alt;window.scrollTo({top:0,behavior:'instant'});
   img.src=assetUrl(id,p.image,base);await img.decode();if(current!==token)return;
   fit();renderText();visited=[...new Set([...visited,...visitPage(storage,id,book.pages.length,n+1)])].sort((a,b)=>a-b);
   $('current-count').textContent=`Halaman ${n+1}`;$('read-count').textContent=`${visited.length}/${book.pages.length} halaman telah dibuka`;

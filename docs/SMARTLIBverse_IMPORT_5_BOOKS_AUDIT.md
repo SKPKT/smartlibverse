@@ -25,12 +25,12 @@ Ekstrak dibuat di luar repo/penerbitan, menolak laluan mutlak, `..`, symlink, pe
 |---|---:|---:|---:|---|---|
 | RIBUT Enam Halaman Hybrid | 6 | 6 situasi | 6 halaman + 6 SVG asal | 1087×1536; PNG → WebP lossless tanpa resize/crop, decoded RGBA sama | Lulus quality gate |
 | TSUNAMI Kawasan Pantai Dikemaskini | 6 | 6 situasi | 6 WebP halaman | 1087×1536; label KAWASAN PANTAI diperiksa pada halaman 1–2 | Lulus quality gate |
-| GEMPA BUMI 6 Halaman V1 penuh | 6 | 6 kad | 6 halaman + 6 kad | Halaman 1600×2400; kad 960×600 | Draf: visual halaman 1–2 perlu semakan pengguna |
+| GEMPA BUMI 6 Halaman V1 penuh | 6 | 6 kad | 6 halaman + 6 kad | Halaman 1600×2400; kad 960×600 | Diluluskan pengguna pada 23 November 2026; ilustrasi asal dikekalkan |
 | BANJIR 6 Halaman V1 | 6 | 6 kad | 6 halaman + 6 kad | Halaman 1024×1536; kad 960×600 | Lulus semakan visual/fakta dengan nota keselamatan sumber dipaparkan |
 | PERSENYAWAAN V3 | 5 | 6 kad | 5 halaman + 6 kad | Halaman 1087×1536; enam kad baharu 960×600 | Lulus; penerbit disahkan pengguna pada 23 November 2026 |
 | Template enjin sahaja | — | — | Rujukan HTML/CSS/JS | Tiada data/aset KOMPOS | Bukan buku; katalog kosong tidak disalin |
 
-Jumlah input tepat **5 buku, 29 halaman cerita, 30 situasi aktiviti**. Build awam mengandungi **4 buku baharu, 23 halaman**; GEMPA BUMI 6 halaman dikekalkan untuk semakan setempat sahaja. Aktiviti bukan halaman tambahan. TSUNAMI membekalkan ikon, bukan kad bergambar; ikon asal dikekalkan, tidak menggantikan sebarang ilustrasi yang dibekalkan.
+Jumlah input tepat **5 buku, 29 halaman cerita, 30 situasi aktiviti**. Build awam mengandungi **5 buku baharu, 29 halaman** selepas pengguna meluluskan ilustrasi GEMPA BUMI sedia ada pada 23 November 2026. Aktiviti bukan halaman tambahan. TSUNAMI membekalkan ikon, bukan kad bergambar; ikon asal dikekalkan, tidak menggantikan sebarang ilustrasi yang dibekalkan.
 
 ## Enjin, adapter dan metadata
 
@@ -49,13 +49,13 @@ Jumlah input tepat **5 buku, 29 halaman cerita, 30 situasi aktiviti**. Build awa
 
 - RIBUT: bangunan kukuh, jauhi kawasan terbuka/pokok tinggi/wayar jatuh dan patuhi amaran sepadan dengan panduan [METMalaysia](https://www.met.gov.my/pendidikan/fenomena-cuaca/). Semua enam halaman dan SVG asal digunakan.
 - TSUNAMI: siri ombak, perpindahan ke kawasan tinggi dan ombak susulan disemak dengan [METMalaysia](https://www.met.gov.my/pendidikan/tsunami/). Halaman lama `-asal.jpg` tidak digunakan atau diterbitkan.
-- GEMPA BUMI: teks dan enam jawapan menyokong Tunduk, Lindung, Pegang. Namun halaman 1–2 menunjukkan orang bergerak di jalan dalam suasana runtuhan/gegaran. Laporan asal sendiri memerlukan semakan pengguna sebelum penerbitan. Ini boleh mengelirukan berbanding [USGS](https://www.usgs.gov/faqs/what-should-i-do-during-earthquake), yang menasihatkan orang di dalam supaya berlindung dan tidak berlari keluar ketika gegaran. Ilustrasi tidak disunting diam-diam. Buku draf tidak disalin ke `dist`; pembaca awam menolaknya walaupun `review=1`. Pratonton hanya dibenarkan pada loopback dan server QA, bukan GitHub Pages.
+- GEMPA BUMI: semakan awal menahan penerbitan kerana visual halaman 1–2 boleh ditafsirkan sebagai berlari ketika gegaran. Pada 23 November 2026, pengguna meluluskan ilustrasi sedia ada dan meminta penerbitan diteruskan. Dua belas aset halaman/kad kekal sama dengan checksum sumber. Nota asal yang menerangkan konteks adegan dan Tunduk, Lindung, Pegang dipaparkan terus pada halaman 1–2. Panduan [NADMA](https://www.nadma.gov.my/bm/media-2/infografik-dan-poster/6876-langkah-keselamatan-ketika-gempa-bumi) disemak semula; jawapan aktiviti berlari keluar ketika gegaran kekal Tidak selamat. Manifest merekod kelulusan pengguna; status buku dan katalog ialah published.
 - BANJIR: enam kad melarang bermain/meredah air dan sentuhan elektrik basah; kad 6 menunjukkan kereta **berhenti** sebelum jalan banjir. Pada halaman 5, nota asal “Jika tangan atau lantai basah…” ditampilkan di luar panel teks pendamping supaya tidak tersembunyi. Ini selaras dengan [panduan Suruhanjaya Tenaga](https://st.gov.my/sites/default/files/2026-02/garis-panduan-kaedah-kaedah-keselamatan-pengguna-elektrik-di-musim-banjir.pdf). Gambar asal tidak diubah.
 - PERSENYAWAAN: lima halaman, V3 enam kad tersendiri. Sperma/ovum, persenyawaan, pembahagian zigot dan implantasi blastokista diperiksa terhadap [MedlinePlus/NLM](https://medlineplus.gov/ency/article/002398.htm). Diagram ialah model pendidikan, bukan skala mikroskop sebenar. Kad 6 menggambarkan blastokista, bukan janin besar.
 
 ## Build, rollback dan menambah buku
 
-Workflow Pages sedia ada dikekalkan. `npm test`, `npm run build`, `npm run test:browser` menjalankan semakan game lama dan koleksi baharu. Build memeriksa manifest dan menolak kebocoran draf. Server QA bind ke `127.0.0.1`; fallback aset draf hanya hidup apabila `LIBRARY_REVIEW=1`, tidak termasuk build laman.
+Workflow Pages sedia ada dikekalkan. `npm test`, `npm run build`, `npm run test:browser` menjalankan semakan game lama dan koleksi baharu. Build memeriksa manifest dan menolak kebocoran draf. Penyertaan folder buku kini ditentukan oleh status penerbitan dalam katalog, dengan semakan keserasian status katalog/data/manifest. Buku yang tidak diluluskan kekal di luar `dist`. Server QA bind ke `127.0.0.1` dan hanya menyajikan build; fallback sumber draf telah dibuang.
 
 Rollback: revert commit merge integrasi ini melalui Git, tanpa force-push. Ia membuang pautan/modul baharu sahaja; fail KOMPOS baseline serta semua kunci simpanan sedia ada tidak perlu dipulihkan atau dimigrasi. Suntingan/progress buku baharu boleh dibiarkan pada pelayar dan tidak menyentuh data lama.
 

@@ -9,17 +9,25 @@ test('Five new adapters preserve 29 pages, 30 optional activities and authoritat
   for(const a of m.files)assert.equal(hash(fs.readFileSync(path.join(dir,'books',r.id,a.path))),a.sha256);
   assert(m.sourceArchive.includes(r.id==='persenyawaan'?'v3':r.id==='ribut'?'Enam_Halaman':r.id==='tsunami'?'Kawasan_Pantai':'6_Halaman'));
  }
- assert.equal(records.filter(r=>r.status==='published').reduce((n,b)=>n+b.pages,0),23);
- assert(records.find(r=>r.id==='gempa-bumi').reviewReason.includes('1–2'));
+ assert.equal(records.filter(r=>r.status==='published').reduce((n,b)=>n+b.pages,0),29);
+ assert.equal(records.find(r=>r.id==='gempa-bumi').reviewReason,null);
+ const gempa=JSON.parse(fs.readFileSync(path.join(dir,'books/gempa-bumi/book.json'))),manifest=JSON.parse(fs.readFileSync(path.join(dir,'books/gempa-bumi/manifest.json')));
+ assert.equal(manifest.publicationApproval.approvedOn,'2026-11-23');assert.equal(manifest.files.length,12);assert(manifest.files.every(f=>f.sha256===f.sourceSha256),'All original page/card bytes remain unchanged');
+ assert(gempa.pages[0].text.note.includes('jangan berlari keluar'));assert.equal(gempa.activities[1].choices[gempa.activities[1].answer],'Tidak selamat');
  assert.equal(records.find(r=>r.id==='persenyawaan').publisher,'Pusat Sumber SKPK Taiping');
  assert.equal(JSON.parse(fs.readFileSync(path.join(dir,'books/persenyawaan/book.json'))).publisher,'Pusat Sumber SKPK Taiping');
 });
 test('Draft release gate rejects public preview bypasses and unsafe asset URLs',async()=>{
- const {canRead,assetUrl}=await import('../library/flipbooks/js/model.mjs'),draft=records.find(r=>r.id==='gempa-bumi');
+ const {canRead,assetUrl}=await import('../library/flipbooks/js/model.mjs'),draft={...records.find(r=>r.id==='gempa-bumi'),status:'draft'};
  assert.equal(canRead(draft,new URL('https://skpkt.github.io/smartlibverse/library/flipbooks/reader.html?review=1')),false);
  assert.equal(canRead(draft,new URL('http://127.0.0.1:4193/smartlibverse/library/flipbooks/reader.html?review=1')),true);
  for(const file of ['../secret','assets/../../secret.webp','https://bad.test/x.webp','assets/x.svg?x=1'])assert.throws(()=>assetUrl('ribut',file,'https://skpkt.github.io/smartlibverse/library/flipbooks/'));
  assert.equal(assetUrl('ribut','assets/pages/01-kulit-depan.webp','https://skpkt.github.io/smartlibverse/library/flipbooks/'),'https://skpkt.github.io/smartlibverse/library/flipbooks/books/ribut/assets/pages/01-kulit-depan.webp');
+});
+test('Production copying follows release metadata and keeps unapproved book folders out',async()=>{
+ const {isReleasedLibraryPath}=await import('../tools/verify-library.mjs'),booksRoot=path.join(dir,'books'),approved=new Set(records.filter(r=>r.status==='published').map(r=>r.id));
+ const art=path.join(booksRoot,'gempa-bumi/assets/pages/halaman-01.webp');assert.equal(isReleasedLibraryPath(art,booksRoot,approved),true);
+ const held=new Set([...approved].filter(id=>id!=='gempa-bumi'));assert.equal(isReleasedLibraryPath(art,booksRoot,held),false);assert.equal(isReleasedLibraryPath(path.join(booksRoot,'not-approved/book.json'),booksRoot,approved),false);assert.equal(isReleasedLibraryPath(path.join(dir,'reader.html'),booksRoot,approved),true);
 });
 test('Reading progress is isolated and corruption-safe; legacy KOMPOS is read-only',async()=>{
  const {visitPage,visitedPages,progressKey,legacyKomposProgress}=await import('../library/flipbooks/js/progress.mjs'),map=new Map([['smartlibverse_kompos_read_v1','[1,2,4]']]),s={getItem:k=>map.get(k),setItem:(k,v)=>map.set(k,v)};
