@@ -8,7 +8,7 @@ import vm from 'node:vm';
 import {fresh} from '../js/state.mjs';
 const local=!process.env.BASE_URL,base=process.env.BASE_URL||'http://127.0.0.1:4193/smartlibverse/';
 const root=new URL('library/flipbooks/',base).href,output='test-results/library';
-let server;if(local){server=spawn(process.execPath,['tools/serve-test.mjs'],{env:{...process.env,PORT:'4193',LIBRARY_REVIEW:'1'},stdio:['ignore','pipe','inherit']});await once(server.stdout,'data');}
+let server;if(local){server=spawn(process.execPath,['tools/serve-test.mjs'],{env:{...process.env,PORT:'4193'},stdio:['ignore','pipe','inherit']});await once(server.stdout,'data');}
 await mkdir(output,{recursive:true});const sandbox={window:{}};vm.runInNewContext(await readFile('library/flipbooks/catalog.js','utf8'),sandbox);const records=JSON.parse(JSON.stringify(sandbox.window.SMARTLIB_CATALOG));
 const browser=await chromium.launch({headless:true}),results=[],errors=[],badAssets=[];
 let pagesChecked=0,activitiesChecked=0;const fontChecks=[];
@@ -25,18 +25,19 @@ try{
   await context.addInitScript(()=>{if(!localStorage.getItem('smartlibverse_demo_v1'))localStorage.setItem('smartlibverse_demo_v1',JSON.stringify({version:1,regressionSentinel:'preserved'}));if(!localStorage.getItem('smartlibverse_kompos_read_v1'))localStorage.setItem('smartlibverse_kompos_read_v1','[1,3]');});
   const page=await context.newPage();page.on('pageerror',e=>errors.push({width,message:e.message}));page.on('response',r=>{if(r.url().startsWith(root)&&r.status()>=400)badAssets.push({url:r.url(),status:r.status()});});
   await page.goto(root,{waitUntil:'networkidle'});await page.locator('.book-card').first().waitFor();
-  assert.equal(await page.locator('.book-card').count(),5);assert.equal(await page.locator('#legacy-kompos').count(),1);assert((await page.locator('#legacy-kompos').getAttribute('href')).includes('../../books/kompos/index.html'));assert((await page.locator('#kompos-progress').innerText()).startsWith('2/5'));
+  assert.equal(await page.locator('.book-card').count(),5);assert.equal(await page.locator('.read-link').count(),records.filter(r=>r.status==='published').length);assert.equal(await page.locator('#legacy-kompos').count(),1);assert((await page.locator('#legacy-kompos').getAttribute('href')).includes('../../books/kompos/index.html'));assert((await page.locator('#kompos-progress').innerText()).startsWith('2/5'));
   await page.locator('#search').fill('RIBUT');assert.equal(await page.locator('.book-card').count(),1);await page.locator('#search').fill('KOMPOS');await page.locator('#legacy-kompos').waitFor();assert.equal(await page.locator('.legacy-card:visible').count(),1);await page.locator('#search').fill('tiada-buku-ini');await page.locator('.empty-state').waitFor();await page.locator('#search').fill('');await page.locator('#category').selectOption('Sains');assert.equal(await page.locator('.book-card').count(),1);await page.locator('#category').selectOption('');
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
   await page.screenshot({path:`${output}/catalog-${width}.jpg`,fullPage:true,quality:80});
   for(const r of records){
-   if(r.status!=='published'&&!local)continue;
+   if(r.status!=='published')continue;
    const book=JSON.parse(await readFile(`library/flipbooks/books/${r.id}/book.json`,'utf8'));
-   await page.goto(`${root}reader.html?book=${r.id}${r.status==='draft'?'&review=1':''}`);await ready(page);
+   await page.goto(`${root}reader.html?book=${r.id}`);await ready(page);
    if(r.id==='ribut')fontChecks.push({width,urbanistLoaded:await page.evaluate(async()=>{try{return (await document.fonts.load('500 16px Urbanist')).length>0;}catch{return false;}})});
    for(let n=1;n<=r.pages;n++){
     if(n>1){await page.locator('#next-page').click();await ready(page,n);}
     await fitCheck(page);assert((await page.locator('#page-text').textContent()).trim().length>20,'Nonempty companion data');
+    if(r.id==='gempa-bumi'){assert.equal(await page.locator('#review-warning').isVisible(),false);if(n<=2){assert.equal(await page.locator('#safety-note').isVisible(),true);assert.equal(await page.locator('#safety-note').innerText(),book.pages[0].text.note);}}
     await page.screenshot({path:`${output}/${r.id}-p${n}-${width}.jpg`,quality:80,fullPage:true});pagesChecked++;
    }
    assert((await page.locator('#completion').innerText()).includes('Semua halaman'));
@@ -66,13 +67,13 @@ try{
     await page.locator('#restore-text').click();assert.equal(await first.innerText(),original);await page.locator('#import-file').setInputFiles({name:'test.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(json))});await page.getByText('Teks JSON berjaya diimport.',{exact:true}).waitFor();assert((await first.innerText()).includes('Teks ujian'));
     await page.locator('#import-file').setInputFiles({name:'wrong.json',mimeType:'application/json',buffer:Buffer.from('{"bookId":"other"}')});assert((await page.locator('#edit-status').innerText()).includes('tidak sah'));await page.locator('#restore-text').click();
    }
-   results.push({id:r.id,width,pages:r.pages,activities:6,status:r.status==='draft'?'LOCAL REVIEW ONLY':'PASS'});
+   results.push({id:r.id,width,pages:r.pages,activities:6,status:'PASS'});
   }
   await context.close();console.log(`Library viewport ${width}: pages, activities, fit and preservation passed.`);
  }
- // Draft is inaccessible through the ordinary reader even on the local review server.
- const context=await browser.newContext(),page=await context.newPage();await page.goto(root+'reader.html?book=gempa-bumi');await page.getByRole('heading',{name:'Buku belum dapat dibuka.'}).waitFor();
- if(!local){const draft=await page.request.get(root+'books/gempa-bumi/book.json');assert.equal(draft.status(),404);}
+ // Unregistered books remain inaccessible; approval does not disable the release gate.
+ const context=await browser.newContext(),page=await context.newPage();await page.goto(root+'reader.html?book=not-approved&review=1');await page.getByRole('heading',{name:'Buku belum dapat dibuka.'}).waitFor();
+ assert.equal((await page.request.get(root+'books/not-approved/book.json')).status(),404);
  await page.goto(root+'reader.html?book=kompos');await page.waitForURL('**/books/kompos/index.html');
  // Follow the new real game shelf action; preserve original books and rewards.
  await page.evaluate(s=>localStorage.setItem('smartlibverse_demo_v1',JSON.stringify(s)),{...fresh(),customPreserved:'five-book-test'});
@@ -83,7 +84,7 @@ try{
  const blocked=await browser.newContext();await blocked.addInitScript(()=>Object.defineProperty(window,'localStorage',{get(){throw new DOMException('Blocked','SecurityError');}}));const bp=await blocked.newPage();await bp.goto(root+'reader.html?book=ribut');await ready(bp);for(let n=2;n<=6;n++){await bp.locator('#next-page').click();await ready(bp,n);}assert((await bp.locator('#completion').innerText()).includes('Semua halaman'),'Reading can finish even when persistence is blocked');await blocked.close();
  assert.deepEqual(errors,[],'No uncaught JavaScript errors');assert.deepEqual(badAssets,[],'No required reader asset errors');
  await rm(`${output}/failure.json`,{force:true});
- await writeFile(`${output}/results.json`,JSON.stringify({mode:local?'built-local-plus-loopback-draft-review':'live',base,pagesChecked,activitiesChecked,viewports:5,results,fontChecks,errors,badAssets,physicalDevicesTested:false},null,2));
+ await writeFile(`${output}/results.json`,JSON.stringify({mode:local?'built-local':'live',base,pagesChecked,activitiesChecked,viewports:5,results,fontChecks,errors,badAssets,physicalDevicesTested:false},null,2));
  console.log(`Library acceptance passed: ${pagesChecked} page views, ${activitiesChecked} activity situations, five widths; no runtime or required asset errors.`);
 }catch(e){await writeFile(`${output}/failure.json`,JSON.stringify({message:e.message,stack:e.stack,results,errors,badAssets},null,2));throw e;}
 finally{await browser.close();if(server){server.kill();await once(server,'exit').catch(()=>{});}}

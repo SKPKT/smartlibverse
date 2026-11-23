@@ -36,8 +36,8 @@ window.SMARTLIB_CATALOG = [
     "pages": 6,
     "cover": "assets/pages/halaman-01.webp",
     "data": "books/gempa-bumi/book.json",
-    "status": "draft",
-    "reviewReason": "Visual halaman 1–2 memerlukan semakan pengguna: orang di jalan semasa gegaran. Rujuk laporan sumber."
+    "status": "published",
+    "reviewReason": null
   },
   {
     "id": "banjir",

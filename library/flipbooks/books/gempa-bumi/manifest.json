@@ -4,10 +4,10 @@
   "sourceArchive": "SMARTLIBverse_Gempa_Bumi_6_Halaman_Interaktif_v1.zip",
   "archiveSha256": "e0c4a3eb208dba3d83c6393ba95516b71a8c24bcaa4440f71a44d546820a9f92",
   "sourceDataSha256": "dfbcb6cf83c949ae4d4403e6b55f4cc048d549165ef5a05a69b6b5e713215140",
-  "bookDataSha256": "90946399e0805ea9c984478e867731196e45e2c0cc929f955a2bfa5c424f0710",
+  "bookDataSha256": "cd80accd2fa0147c9620738bf96aba51ca2f9d71d2df17e6a0ea2066441819e8",
   "sourcePageCount": 6,
   "activityCount": 6,
-  "status": "draft",
+  "status": "published",
   "files": [
     {
       "path": "assets/pages/halaman-01.webp",
@@ -118,5 +118,10 @@
       "height": 600
     }
   ],
-  "excluded": "Source engines, backups, old TSUNAMI -asal images, original/reference art and optional covers are not published."
+  "excluded": "Source engines, backups, old TSUNAMI -asal images, original/reference art and optional covers are not published.",
+  "publicationApproval": {
+    "source": "Kelulusan pengguna untuk ilustrasi sedia ada dan penerbitan buku",
+    "approvedOn": "2026-11-23",
+    "scope": "Ilustrasi halaman 1–2 dikekalkan; nota keselamatan asal kekal."
+  }
 }
