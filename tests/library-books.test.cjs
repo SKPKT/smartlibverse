@@ -11,7 +11,8 @@ test('Five new adapters preserve 29 pages, 30 optional activities and authoritat
  }
  assert.equal(records.filter(r=>r.status==='published').reduce((n,b)=>n+b.pages,0),23);
  assert(records.find(r=>r.id==='gempa-bumi').reviewReason.includes('1–2'));
- assert.equal(records.find(r=>r.id==='persenyawaan').publisher,null);
+ assert.equal(records.find(r=>r.id==='persenyawaan').publisher,'Pusat Sumber SKPK Taiping');
+ assert.equal(JSON.parse(fs.readFileSync(path.join(dir,'books/persenyawaan/book.json'))).publisher,'Pusat Sumber SKPK Taiping');
 });
 test('Draft release gate rejects public preview bypasses and unsafe asset URLs',async()=>{
  const {canRead,assetUrl}=await import('../library/flipbooks/js/model.mjs'),draft=records.find(r=>r.id==='gempa-bumi');

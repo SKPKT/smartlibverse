@@ -4,7 +4,7 @@
   "sourceArchive": "SMARTLIBverse_Persenyawaan_Aktiviti_Bergambar_Kad_Baharu_v3.zip",
   "archiveSha256": "104f4eee5df80ebefc023bc48e7d2c4df965e38be031ff045fef8011fac1709f",
   "sourceDataSha256": "f377d7b605e8a47ff19556c0affb3275ca7c9b18288b22dbb5ccdc3e970a173e",
-  "bookDataSha256": "fbcddbddfce777e5ee76ee1fea235d87ec416412cdbc321a76cb88dbd14ce150",
+  "bookDataSha256": "3346fb1975b9a85e29dbd0be02fe58b79df2e79d36d3e1cf00d50a63fe5a36f0",
   "sourcePageCount": 5,
   "activityCount": 6,
   "status": "published",
@@ -109,5 +109,12 @@
       "height": 600
     }
   ],
-  "excluded": "Source engines, backups, old TSUNAMI -asal images, original/reference art and optional covers are not published."
+  "excluded": "Source engines, backups, old TSUNAMI -asal images, original/reference art and optional covers are not published.",
+  "editorialOverrides": {
+    "publisher": {
+      "value": "Pusat Sumber SKPK Taiping",
+      "source": "Pengesahan pengguna",
+      "confirmedOn": "2026-11-23"
+    }
+  }
 }

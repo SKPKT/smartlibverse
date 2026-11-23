@@ -57,7 +57,7 @@ window.SMARTLIB_CATALOG = [
     "title": "Bagaimana Persenyawaan Berlaku",
     "series": "Buku Kecil Pendidikan Sains",
     "author": "Syahida",
-    "publisher": null,
+    "publisher": "Pusat Sumber SKPK Taiping",
     "category": "Sains",
     "pages": 5,
     "cover": "assets/halaman-01.webp",

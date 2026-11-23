@@ -10,7 +10,7 @@ Tarikh ujian tempatan: 23 November 2026, Asia/Kuala_Lumpur. Data ujian ialah dat
 | TSUNAMI dikemas kini | 6 | 6 ikon sumber | LULUS; papan tanda KAWASAN PANTAI pada halaman 1–2 | Sedia diterbitkan |
 | GEMPA BUMI V1 penuh | 6 | 6 kad 960×600 | MENUNGGU SEMAKAN PENGGUNA: visual orang di jalan ketika gegaran, halaman 1–2 | Draf, dikecualikan daripada Pages |
 | BANJIR V1 | 6 | 6 kad 960×600 | LULUS; nota elektrik basah sumber kelihatan pada halaman 5 | Sedia diterbitkan |
-| PERSENYAWAAN V3 | 5 | 6 kad baharu 960×600 | LULUS; kad 6 blastokista; penerbit belum dinyatakan | Sedia diterbitkan |
+| PERSENYAWAAN V3 | 5 | 6 kad baharu 960×600 | LULUS; kad 6 blastokista; penerbit disahkan pengguna | Sedia diterbitkan |
 
 **Tepat 5 sumber / 29 halaman / 30 situasi. Build awam: 4 buku baharu / 23 halaman.** Tiada aktiviti dikira sebagai halaman cerita. Tiada ilustrasi diganti, dipotong atau dijana semula. Rujukan fakta, hash dan penjelasan gate tersedia dalam `SMARTLIBverse_IMPORT_5_BOOKS_AUDIT.md`.
 
@@ -58,8 +58,13 @@ PR menjalankan unit, build dan suite browser penuh. Merge hanya selepas semakan 
 
 Keputusan CI/Pages sebenar, commit dan pautan run dilaporkan pada PR serta laporan release selepas ia selesai. Dokumen ini tidak menganggap HTTP 200 sahaja sebagai bukti deployment; HTML, data, aset dan interaksi perlu disahkan.
 
+## Pembetulan metadata disahkan
+
+Pada 23 November 2026, pengguna mengesahkan penerbit PERSENYAWAAN ialah **Pusat Sumber SKPK Taiping**. Katalog, kredit pembaca, manifest dan adapter import dikemas kini secara serasi. Teks cerita, lima halaman, enam aktiviti dan semua aset V3 kekal.
+
+Semakan metadata pada 390px dan 1280px mengesahkan penerbit yang sama pada kad katalog serta kredit pembaca, tanpa ralat JavaScript atau perubahan pada kemajuan KOMPOS. Semua 37 unit tests dan production build lulus.
+
 ## Isu terbuka
 
 1. **GEMPA BUMI**: pengguna perlu menyemak visual halaman 1–2 atau membekalkan pembetulan rasmi. Buku kekal draf; tidak dimasukkan secara senyap untuk mencapai angka lima buku live.
-2. **PERSENYAWAAN**: penerbit tidak dinyatakan dalam sumber. Paparan menyatakan keadaan sebenar; tiada identiti penerbit direka.
-3. Peranti fizikal, pembaca skrin manusia dan autentikasi akaun SMARTLIB sebenar belum diuji. Semakan accessibility automatik dan keyboard tidak menggantikan penilaian pengguna MBPK.
+2. Peranti fizikal, pembaca skrin manusia dan autentikasi akaun SMARTLIB sebenar belum diuji. Semakan accessibility automatik dan keyboard tidak menggantikan penilaian pengguna MBPK.
